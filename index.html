@@ -1,40 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DrumDash - Unity WebGL Game</title>
+    <meta name="description" content="DrumDash - Learn Drums with the ultimate customizable drumming game. Import any song, play with AI-generated difficulties, and jam like a pro. Perfect for drummers of all levels.">
+    <meta name="keywords" content="drum game, drumming game, learn drums, music game, rhythm game, drum simulator, MIDI, drum practice">
+    <meta name="author" content="Northshore Press LLC">
+    <meta name="theme-color" content="#340D82">
+    <meta property="og:title" content="DrumDash - Learn Drums Online">
+    <meta property="og:description" content="Take your drumming to the next level with DrumDash. Import songs, play with AI-generated charts, and master every beat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drumdash.northshorepress.co">
+    <meta property="og:image" content="https://drumdash.northshorepress.co/TemplateData/favicon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DrumDash - Learn Drums Online">
+    <meta name="twitter:description" content="The ultimate customizable drumming game. Import any song and jam like a pro!">
+    <title>DrumDash - Play Drums Your Way | Learn & Master Rhythm</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
     <style>
+        :root {
+            /* unity container dimensions */
+            --unity-width: 1100px;
+            --unity-min-height: 600px;
+            --unity-mobile-height: 550px;
+            
+            /* ad dimensions */
+            --ad-vertical-width: 250px;
+            --ad-vertical-height: 600px;
+            --ad-horizontal-height: 90px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #340D82 0%, #667eea 100%);
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            margin: 0;
         }
 
         header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.8rem 1rem;
             text-align: center;
-            padding: 2rem 1rem;
-            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 1.8rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 0.85rem;
             opacity: 0.9;
+            margin-top: 0.1rem;
+        }
+
+        .header-links {
+            margin-top: 0.6rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .header-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
 
         main {
@@ -42,103 +102,609 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            width: 100%;
         }
 
-        .game-container {
-            background: rgba(255, 255, 255, 0.1);
+        .game-area {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem 4rem 1rem;
+        }
+
+        .info-area {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5rem 1rem 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1700px;
+            margin: 0 auto;
+        }
+
+        .ad-space {
+            display: none;
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .ad-vertical {
+            width: var(--ad-vertical-width);
+            height: var(--ad-vertical-height);
+            min-width: var(--ad-vertical-width);
+        }
+
+        .ad-horizontal {
+            width: 100%;
+            max-width: var(--unity-width);
+            height: var(--ad-horizontal-height);
+            margin: 1rem 0;
+        }
+
+        #unity-container {
+            position: relative;
+            width: 100%;
+            max-width: var(--unity-width);
+            aspect-ratio: 16 / 9;
+            min-height: var(--unity-min-height);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+        }
+
+        #unity-canvas {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        @media (max-width: 1599px) {
+            /* On boards narrower than 1600px, we go to vertical layout for ads to avoid crowding the game */
+            .game-wrapper {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            #adTop, #adBottom {
+                display: flex !important;
+            }
+
+            #adLeft, #adRight {
+                display: none !important;
+            }
+
+            #unity-container {
+                max-width: var(--unity-width);
+                width: 95vw;
+                height: var(--unity-mobile-height) !important;
+                min-height: 0 !important;
+                aspect-ratio: auto !important;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            /* Only show side-rail ads if we have enough room (300+960+300 + gaps) */
+            .game-wrapper {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            #adLeft, #adRight {
+                display: flex !important;
+            }
+
+            #adTop, #adBottom {
+                display: none !important;
+            }
+        }
+
+        #unity-footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        #unity-build-title {
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        footer {
+            width: 100%;
+            padding: 4rem 1rem 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #b0b0ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            opacity: 0.8;
+            font-size: 0.8rem;
+        }
+
+        #firefox-warning {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            margin: 0;
+            display: none;
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 2px solid #667eea;
+            padding: 1.5rem;
+            max-width: 400px;
+            border-radius: 10px 10px 0 0;
+            margin: 1rem;
+            box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            display: none;
+            animation: slideUp 0.3s ease;
+        }
+
+        .cookie-consent.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cookie-text p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .cookie-text p:first-child {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .cookie-btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .cookie-btn-primary:hover {
+            background-color: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .cookie-btn-link {
+            background: transparent;
+            color: #667eea;
+            border: 1px solid #667eea;
+            font-size: 0.85rem;
+        }
+
+        .cookie-btn-link:hover {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .about-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 2rem;
             max-width: 960px;
             width: 100%;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
         }
 
-        .game-placeholder {
-            aspect-ratio: 16 / 9;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .about-section h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #b0b0ff;
+        }
+
+        .about-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section li {
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .about-section p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Theater Mode (Custom Fullscreen) */
+        body.theater-mode {
+            overflow: hidden;
+        }
+
+        body.theater-mode header,
+        body.theater-mode .info-area,
+        body.theater-mode #adTop,
+        body.theater-mode #adBottom {
+            display: none !important;
+        }
+
+        body.theater-mode main {
+            height: 100vh;
+            padding: 0;
+        }
+
+        body.theater-mode .game-area {
+            padding: 0;
+            height: 100%;
             justify-content: center;
-            flex-direction: column;
-            gap: 1rem;
-            min-height: 400px;
         }
 
-        .game-placeholder p {
-            font-size: 1.2rem;
-            text-align: center;
-            max-width: 600px;
-            line-height: 1.6;
+        body.theater-mode .game-wrapper {
+            max-width: none;
+            width: 100%;
+            height: 100%;
+            gap: 0;
+            flex-direction: row !important; /* Always show side ads in theater mode */
         }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.3);
-            font-size: 0.9rem;
+        body.theater-mode #adLeft, 
+        body.theater-mode #adRight {
+            display: flex !important;
+            width: var(--ad-vertical-width);
+            height: 100vh;
+            border-radius: 0;
+            border: none;
+            background: rgba(0, 0, 0, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .loading-icon {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top-color: #ffffff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        body.theater-mode #unity-container {
+            flex: 1;
+            height: 100vh;
+            max-width: none;
+            border-radius: 0;
+            border: none;
+            aspect-ratio: auto !important;
+            background: black;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .loading-icon {
-                animation: none;
-                border-top-color: rgba(255, 255, 255, 0.3);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .game-placeholder p {
-                font-size: 1rem;
-            }
+        body.theater-mode #unity-canvas {
+            height: 100% !important;
+            width: 100% !important;
         }
     </style>
 </head>
 <body>
+    <div id="firefox-warning">
+        ⚠️ MIDI is not supported in Firefox. For the best experience, please use Chrome, Edge, or Safari.
+    </div>
+
     <header>
         <h1>🥁 DrumDash</h1>
-        <p class="subtitle">Unity WebGL Game</p>
+        <p class="subtitle">Play Drums Your Way | Learn & Master Rhythm</p>
+        <div class="header-links">
+            <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" class="header-btn">📱 Android App</a>
+        </div>
     </header>
 
     <main>
-        <div class="game-container">
-            <div class="game-placeholder">
-                <div class="loading-icon" role="img" aria-label="Game placeholder"></div>
-                <p>
-                    Welcome to DrumDash! The Unity WebGL game will be loaded here once the game build files are uploaded to the repository.
-                </p>
-                <p style="font-size: 0.9rem; opacity: 0.8;">
-                    Please add your Unity WebGL build files (Build/ folder and TemplateData/ folder) to this repository to enable the game.
-                </p>
+        <div class="game-area">
+            <div id="adTop" class="ad-space ad-horizontal">
+                <span>Advertisement Space</span>
             </div>
+
+            <div class="game-wrapper">
+                <div id="adLeft" class="ad-space ad-vertical">
+                    <span>Advertisement Space</span>
+                </div>
+
+                <div id="unity-container" class="unity-desktop">
+                    <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+                    <div id="unity-loading-bar">
+                        <div id="unity-logo"></div>
+                        <div id="unity-progress-bar-empty">
+                            <div id="unity-progress-bar-full"></div>
+                        </div>
+                    </div>
+                    <div id="unity-warning"></div>
+                    <div id="unity-footer">
+                        <div id="unity-logo-title-footer"></div>
+                        <div id="unity-fullscreen-button"></div>
+                        <div id="unity-build-title">DrumDash v0.923</div>
+                    </div>
+                </div>
+
+                <div id="adRight" class="ad-space ad-vertical">
+                    <span>Advertisement Space</span>
+                </div>
+            </div>
+
+            <div id="adBottom" class="ad-space ad-horizontal">
+                <span>Advertisement Space</span>
+            </div>
+        </div>
+
+        <div class="info-area">
+            <div class="about-section">
+                <h2>🥁 DrumDash - Learn Drums</h2>
+                <p><strong>Take Your Drumming to the Next Level with DrumDash – Play Your Way!</strong></p>
+                
+                <p>Unleash your inner drummer with DrumDash, the ultimate customizable drumming game that lets you import any song and jam like a pro. Whether you have a drum kit, electronic kit, or just sticks on a table, DrumDash adapts to your setup and skill level! Play along with drumless tracks, full audio, or AI-generated beats, and experience a drumming adventure that's fun, challenging, and addictive.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Import Your Own Songs</strong> – Bring in MIDI, paradiddle patterns, or audio files and start jamming instantly.</li>
+                    <li><strong>AI-Generated Difficulties</strong> – From Easy to Expert, AI creates charts that match your skill perfectly.</li>
+                    <li><strong>Drumless or Full Playback</strong> – Play along with full tracks or mute the drums for solo practice.</li>
+                    <li><strong>Precision Rhythm Gameplay</strong> – Tap, hit, and hold notes to master every beat.</li>
+                    <li><strong>Customizable Drum Kits & Real Drums</strong> – Use on-screen kits, electronic pads, or your real drum kit with adjustable layouts.</li>
+                </ul>
+
+                <p>Whether you're a beginner learning beats or a pro looking for the ultimate challenge, DrumDash makes every song playable and every session unforgettable.</p>
+
+                <h3>How to Play</h3>
+                <ul>
+                    <li>Import your song (MIDI, paradiddle, or audio).</li>
+                    <li>Let AI generate multiple difficulty levels automatically.</li>
+                    <li>Hit the notes in time with the music.</li>
+                    <li>Switch between drumless or full audio to practice or jam.</li>
+                    <li>Bring any track to life – play like a rockstar or create viral drum covers!</li>
+                </ul>
+
+                <h3>📱 Available on Mobile</h3>
+                <p>DrumDash is also available on Android! Download the mobile version from Google Play and take your drumming anywhere.</p>
+                <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4CAF50; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; transition: background 0.3s; font-weight: 500;">
+                        🎮 Get on Google Play
+                    </a>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-links">
+                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="cookie-policy.html">Cookie Policy</a>
+                            <a href="privacy-settings.html">Privacy Settings</a>
+                            <a href="contact.html">Contact</a>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 Northshore Press LLC. All rights reserved. | DrumDash</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 DrumDash. All rights reserved.</p>
-    </footer>
-</body>
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>🍪 Cookie Policy</strong></p>
+                <p>We use cookies to enhance your experience. By continuing to browse, you accept our use of cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="cookieAccept" class="cookie-btn cookie-btn-primary">Accept</button>
+                <a href="cookie-policy.html" class="cookie-btn cookie-btn-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // GDPR Cookie Consent
+        function initCookieConsent() {
+            const cookieConsent = localStorage.getItem('drumdash_cookie_consent');
+            const cookieElement = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('cookieAccept');
+
+            // Show banner only on first visit
+            if (!cookieConsent) {
+                cookieElement.classList.add('show');
+            }
+
+            // Handle accept button
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('drumdash_cookie_consent', 'accepted');
+                cookieElement.classList.remove('show');
+            });
+        }
+
+        // Initialize cookie consent when DOM is ready
+        document.addEventListener('DOMContentLoaded', initCookieConsent);
+    </script>
+
+    <script>
+        var canvas = document.querySelector("#unity-canvas");
+
+        function unityShowBanner(msg, type) {
+            var warningBanner = document.querySelector("#unity-warning");
+            function updateBannerVisibility() {
+                warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+            }
+            var div = document.createElement('div');
+            div.innerHTML = msg;
+            warningBanner.appendChild(div);
+            if (type == 'error') div.style = 'background: red; padding: 10px;';
+            else {
+                if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+                setTimeout(function() {
+                    warningBanner.removeChild(div);
+                    updateBannerVisibility();
+                }, 5000);
+            }
+            updateBannerVisibility();
+        }
+
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/DrumDashWeb.loader.js";
+        var config = {
+            arguments: [],
+            dataUrl: buildUrl + "/DrumDashWeb.data.unityweb",
+            frameworkUrl: buildUrl + "/DrumDashWeb.framework.js.unityweb",
+            codeUrl: buildUrl + "/DrumDashWeb.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "Northshore Press",
+            productName: "DrumDash",
+            productVersion: "0.923",
+            showBanner: unityShowBanner,
+        };
+
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+            }).catch((message) => {
+                alert(message);
+            });
+        };
+        document.body.appendChild(script);
+
+        // Custom Theater Mode / Fullscreen Switch
+        const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+        if (fullscreenButton) {
+            fullscreenButton.addEventListener("click", async (e) => {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                
+                if (!document.fullscreenElement) {
+                    try {
+                        await document.documentElement.requestFullscreen();
+                    } catch (err) {
+                        console.warn("Fullscreen request failed", err);
+                        // Fallback to just theater mode class if native fails
+                        document.body.classList.toggle("theater-mode");
+                    }
+                } else {
+                    document.exitFullscreen();
+                }
+            }, true);
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            if (document.fullscreenElement) {
+                document.body.classList.add("theater-mode");
+            } else {
+                document.body.classList.remove("theater-mode");
+            }
+        });
+
+        // ESC key fallback for theater mode (if native fullscreen wasn't used)
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && document.body.classList.contains("theater-mode")) {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    document.body.classList.remove("theater-mode");
+                }
+            }
+        });
+    </script>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"7d56a79f39f8405595f3daddd9ce91f4","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+  </body>
 </html>
+

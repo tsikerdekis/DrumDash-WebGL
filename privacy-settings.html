@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Settings - DrumDash</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #340D82 0%, #667eea 100%);
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header a {
+            color: #b0b0ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #fff;
+        }
+
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+
+        h2 {
+            color: #340D82;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #b0b0ff;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .settings-section {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-description {
+            flex: 1;
+        }
+
+        .setting-description h4 {
+            color: #340D82;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .setting-description p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+            margin-left: 1rem;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 28px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #667eea;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-save {
+            background-color: #667eea;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-save:hover {
+            background-color: #5568d3;
+        }
+
+        .btn-reset {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+            flex: 1;
+        }
+
+        .btn-action {
+            background-color: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-action:hover {
+            background-color: #5568d3;
+        }
+
+        .btn-danger {
+            background-color: #ff6b6b;
+        }
+
+        .btn-danger:hover {
+            background-color: #ff5252;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #340D82;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .setting-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .toggle-switch {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🥁 DrumDash - Privacy Settings</h1>
+        <p><a href="index.html">← Back to Game</a></p>
+    </header>
+
+    <main>
+        <a href="index.html" class="back-link">← Back to Game</a>
+
+        <h1>Privacy Settings</h1>
+        <p>Manage your privacy preferences. Most data collection settings are controlled within the game itself.</p>
+
+        <div id="successMessage" class="success-message">
+            ✓ Your privacy settings have been saved successfully!
+        </div>
+
+        <h2>Data Management</h2>
+        <div class="settings-section">
+            <div class="setting-item">
+                <div class="setting-description">
+                    <h4>📥 Export My Data</h4>
+                    <p>Download a copy of your privacy settings in JSON format (GDPR compliance).</p>
+                </div>
+                <button class="btn-action" onclick="exportData()">Export</button>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-description">
+                    <h4>🗑️ Delete Local Game Data</h4>
+                    <p>Erase all saved game progress, settings, and statistics from this device. This action cannot be undone.</p>
+                </div>
+                <button class="btn-action btn-danger" onclick="deleteGameData()">Delete</button>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 3rem;">For More Information</h2>
+        <ul style="margin: 1rem 0 0 2rem;">
+            <li><a href="privacy-policy.html">Read our Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Learn about Cookies</a></li>
+            <li><a href="contact.html">Contact us with questions</a></li>
+        </ul>
+
+        <p style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; color: #666; font-size: 0.9rem;">
+            <strong>Note:</strong> Most privacy and data collection settings are configured within the game itself. This page allows you to manage your website cookies and export/delete your local data in compliance with GDPR.
+        </p>
+    </main>
+
+    <footer>
+        <div>
+            <a href="index.html">Home</a> | 
+            <a href="privacy-policy.html">Privacy</a> | 
+            <a href="cookie-policy.html">Cookies</a> | 
+            <a href="contact.html">Contact</a>
+        </div>
+        <p style="margin-top: 1rem; opacity: 0.8;">&copy; 2026 Northshore Press LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Delete game data with confirmation
+        function deleteGameData() {
+            if (confirm('⚠️ WARNING\n\nThis will permanently delete:\n• All saved game progress\n• Game settings\n• Statistics\n\nThis action cannot be undone.\n\nDo you want to continue?')) {
+                localStorage.removeItem('drumdash_game_progress');
+                localStorage.removeItem('drumdash_settings');
+                localStorage.removeItem('drumdash_stats');
+                alert('✓ Your local game data has been deleted.');
+            }
+        }
+
+        // Export data
+        function exportData() {
+            const gameData = {
+                exportDate: new Date().toISOString(),
+                note: 'This file contains your DrumDash privacy and settings information. It does not contain personal identifying information.'
+            };
+
+            const dataStr = JSON.stringify(gameData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `drumdash_privacy_data_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
