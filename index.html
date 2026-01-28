@@ -726,27 +726,26 @@
     </div>
 
     <script>
-        // Detection for AdBlock
+        // Detection for AdBlock (disabled until ads are enabled)
         async function checkAdBlock() {
             const adNotice = document.getElementById('adblockNotice');
+            // Only check for adblock if Google AdSense script is present
+            if (typeof window.adsbygoogle === 'undefined') {
+                // No ads enabled yet, skip detection
+                return;
+            }
+            
             // Wait a few seconds for ads to attempt loading
             await new Promise(resolve => setTimeout(resolve, 3000));
             
-            // Check if ad spaces are hidden or have 0 height
-            const testAd = document.querySelector('.ad-space');
-            if (testAd) {
-                const isBlocked = window.getComputedStyle(testAd).display === 'none' || 
-                                  window.getComputedStyle(testAd).visibility === 'hidden' ||
-                                  testAd.offsetHeight === 0;
-                
-                if (isBlocked) {
-                    adNotice.style.display = 'flex';
-                    // Stop Unity if it's loading? For now just show the screen.
-                }
+            // Check if ad script loaded successfully
+            const isBlocked = typeof window.adsbygoogle === 'undefined';
+            if (isBlocked) {
+                adNotice.style.display = 'flex';
             }
         }
 
-        // Initialize ad detection
+        // Initialize
         window.addEventListener('load', () => {
             checkAdBlock();
             // Start background/about transition
