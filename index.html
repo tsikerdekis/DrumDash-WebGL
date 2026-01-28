@@ -95,6 +95,13 @@
             to { transform: rotate(360deg); }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .loading-icon {
+                animation: none;
+                border-top-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -119,7 +126,7 @@
     <main>
         <div class="game-container">
             <div class="game-placeholder">
-                <div class="loading-icon"></div>
+                <div class="loading-icon" role="status" aria-label="Loading game content"></div>
                 <p>
                     Welcome to DrumDash! The Unity WebGL game will be loaded here once the game build files are uploaded to the repository.
                 </p>
