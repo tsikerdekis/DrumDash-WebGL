@@ -43,14 +43,48 @@
         }
 
         body {
-            background: linear-gradient(135deg, #340D82 0%, #667eea 100%);
-            background-attachment: fixed;
+            background: #1a1a2e;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Layers */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #340D82 0%, #667eea 100%);
+            z-index: -10;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1a2e 0%, #340D82 100%);
+            z-index: -9;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+
+        body.phase-2 .bg-overlay {
+            opacity: 1;
+        }
+
+        body.phase-2::before {
+            opacity: 0.5;
         }
 
         header {
@@ -413,6 +447,14 @@
             max-width: 960px;
             width: 100%;
             line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.phase-2 .about-section {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .about-section h2 {
@@ -500,9 +542,65 @@
             height: 100% !important;
             width: 100% !important;
         }
+
+        /* AdBlock Notice */
+        .adblock-notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .adblock-content {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid #667eea;
+            max-width: 500px;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .adblock-content h2 {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .adblock-content p {
+            margin-bottom: 2rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .adblock-btn {
+            background: #667eea;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .adblock-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
+    <div class="bg-overlay"></div>
     <div id="firefox-warning">
         ⚠️ MIDI is not supported in Firefox. For the best experience, please use Chrome, Edge, or Safari.
     </div>
@@ -619,7 +717,44 @@
             </div>
         </div>
     </div>
+    <div id="adblockNotice" class="adblock-notice">
+        <div class="adblock-content">
+            <h2>🚨 AdBlock Detected</h2>
+            <p>We noticed you're using an ad-blocker. DrumDash is a free game supported by advertisements. Please disable your ad-blocker or whitelist our site to continue playing.</p>
+            <button onclick="window.location.reload();" class="adblock-btn">I've Disabled It (Reload)</button>
+        </div>
+    </div>
+
     <script>
+        // Detection for AdBlock
+        async function checkAdBlock() {
+            const adNotice = document.getElementById('adblockNotice');
+            // Wait a few seconds for ads to attempt loading
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            
+            // Check if ad spaces are hidden or have 0 height
+            const testAd = document.querySelector('.ad-space');
+            if (testAd) {
+                const isBlocked = window.getComputedStyle(testAd).display === 'none' || 
+                                  window.getComputedStyle(testAd).visibility === 'hidden' ||
+                                  testAd.offsetHeight === 0;
+                
+                if (isBlocked) {
+                    adNotice.style.display = 'flex';
+                    // Stop Unity if it's loading? For now just show the screen.
+                }
+            }
+        }
+
+        // Initialize ad detection
+        window.addEventListener('load', () => {
+            checkAdBlock();
+            // Start background/about transition
+            setTimeout(() => {
+                document.body.classList.add('phase-2');
+            }, 500);
+        });
+
         // GDPR Cookie Consent
         function initCookieConsent() {
             const cookieConsent = localStorage.getItem('drumdash_cookie_consent');
