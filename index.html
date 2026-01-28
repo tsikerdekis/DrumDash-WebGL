@@ -181,6 +181,31 @@
             display: block;
         }
 
+        #unity-loading-bar {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 10;
+        }
+
+        #unity-progress-bar-empty {
+            width: 141px;
+            height: 18px;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #unity-progress-bar-full {
+            width: 0%;
+            height: 100%;
+            background: #667eea;
+            transition: width 0.2s ease;
+        }
+
         @media (max-width: 1599px) {
             /* On boards narrower than 1600px, we go to vertical layout for ads to avoid crowding the game */
             .game-wrapper {
@@ -656,7 +681,14 @@
         var script = document.createElement("script");
         script.src = loaderUrl;
         script.onload = () => {
+            const loadingBar = document.querySelector("#unity-loading-bar");
+            const progressBarFull = document.querySelector("#unity-progress-bar-full");
+            loadingBar.style.display = "block";
+
             createUnityInstance(canvas, config, (progress) => {
+                progressBarFull.style.width = 100 * progress + "%";
+            }).then((unityInstance) => {
+                loadingBar.style.display = "none";
             }).catch((message) => {
                 alert(message);
             });
