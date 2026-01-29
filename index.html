@@ -22,7 +22,7 @@
     <style>
         :root {
             /* unity container dimensions */
-            --unity-width: 1100px;
+            --unity-width: 1200px;
             --unity-min-height: 600px;
             --unity-mobile-height: 550px;
             
@@ -213,6 +213,9 @@
             width: 100% !important;
             height: 100% !important;
             display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         #unity-loading-bar {
@@ -240,8 +243,8 @@
             transition: width 0.2s ease;
         }
 
-        @media (max-width: 1599px) {
-            /* On boards narrower than 1600px, we go to vertical layout for ads to avoid crowding the game */
+        @media (max-width: 1399px) {
+            /* On boards narrower than 1400px, we go to vertical layout for ads to avoid crowding the game */
             .game-wrapper {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -264,8 +267,8 @@
             }
         }
 
-        @media (min-width: 1600px) {
-            /* Only show side-rail ads if we have enough room (300+960+300 + gaps) */
+        @media (min-width: 1400px) {
+            /* Only show side-rail ads if we have enough room */
             .game-wrapper {
                 flex-direction: row;
                 gap: 2rem;
@@ -288,6 +291,11 @@
             align-items: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
         }
 
         #unity-build-title {
@@ -480,6 +488,8 @@
         /* Theater Mode (Custom Fullscreen) */
         body.theater-mode {
             overflow: hidden;
+            height: 100vh !important;
+            min-height: 100vh !important;
         }
 
         body.theater-mode header,
@@ -492,12 +502,14 @@
         body.theater-mode main {
             height: 100vh;
             padding: 0;
+            flex: 1;
         }
 
         body.theater-mode .game-area {
-            padding: 0;
-            height: 100%;
+            padding: 0 !important;
+            height: 100vh !important;
             justify-content: center;
+            flex: 1;
         }
 
         body.theater-mode .game-wrapper {
@@ -522,17 +534,31 @@
 
         body.theater-mode #unity-container {
             flex: 1;
-            height: 100vh;
+            height: 100% !important;
             max-width: none;
             border-radius: 0;
             border: none;
             aspect-ratio: auto !important;
             background: black;
+            display: flex;
+            flex-direction: column;
         }
 
         body.theater-mode #unity-canvas {
             height: 100% !important;
             width: 100% !important;
+            position: absolute !important;
+            top: 0;
+            left: 0;
+        }
+
+        body.theater-mode #unity-footer {
+            height: 50px;
+            position: absolute !important;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
         }
 
         /* AdBlock Notice */
