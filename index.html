@@ -540,7 +540,7 @@
 
         body.theater-mode #unity-container {
             flex: 1;
-            height: 100vh !important;
+            height: 100% !important;
             max-width: none;
             border-radius: 0;
             border: none;
@@ -548,6 +548,7 @@
             background: black;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         body.theater-mode #unity-canvas {
@@ -558,6 +559,7 @@
             position: relative !important;
             top: auto;
             left: auto;
+            aspect-ratio: auto !important;
         }
 
         body.theater-mode #unity-footer {
