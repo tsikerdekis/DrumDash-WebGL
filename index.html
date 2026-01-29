@@ -197,7 +197,6 @@
             position: relative;
             width: 100%;
             max-width: var(--unity-width);
-            aspect-ratio: 16 / 9;
             min-height: var(--unity-min-height);
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
@@ -211,11 +210,9 @@
 
         #unity-canvas {
             width: 100% !important;
-            height: 100% !important;
+            height: auto !important;
+            aspect-ratio: 16 / 9;
             display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
 
         #unity-loading-bar {
@@ -291,10 +288,7 @@
             align-items: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            position: relative;
             z-index: 100;
         }
 
