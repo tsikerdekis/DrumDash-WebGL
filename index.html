@@ -213,6 +213,7 @@
             height: auto !important;
             aspect-ratio: 16 / 9;
             display: block;
+            max-height: calc((100vw - 2rem) * 9 / 16);
         }
 
         #unity-loading-bar {
@@ -261,6 +262,17 @@
                 height: auto !important;
                 min-height: 0 !important;
                 aspect-ratio: auto !important;
+            }
+        }
+
+        @media (max-width: 750px) {
+            #unity-canvas {
+                max-height: 100vh;
+            }
+
+            #unity-container {
+                width: 100vw !important;
+                margin-left: calc(-50vw + 50%);
             }
         }
 
