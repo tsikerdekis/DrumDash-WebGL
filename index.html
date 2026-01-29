@@ -282,7 +282,7 @@
 
         #unity-footer {
             background: rgba(0, 0, 0, 0.5);
-            padding: 1rem;
+            padding: 1.1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -528,7 +528,7 @@
 
         body.theater-mode #unity-container {
             flex: 1;
-            height: 100% !important;
+            height: 100vh !important;
             max-width: none;
             border-radius: 0;
             border: none;
@@ -539,20 +539,24 @@
         }
 
         body.theater-mode #unity-canvas {
-            height: 100% !important;
+            flex: 1;
             width: 100% !important;
-            position: absolute !important;
-            top: 0;
-            left: 0;
+            height: 0 !important; /* Allows flex-grow to control height */
+            display: block;
+            position: relative !important;
+            top: auto;
+            left: auto;
         }
 
         body.theater-mode #unity-footer {
-            height: 50px;
-            position: absolute !important;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            height: auto;
+            min-height: 40px;
+            position: relative !important;
+            bottom: auto;
+            left: auto;
+            right: auto;
             z-index: 200;
+            flex-shrink: 0;
         }
 
         /* AdBlock Notice */
