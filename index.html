@@ -557,6 +557,88 @@
             z-index: 200;
             flex-shrink: 0;
         }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .faq-section h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: #b0b0ff;
+            user-select: none;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #d0d0ff;
+        }
+
+        .faq-toggle {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.25rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.25rem 1rem 1.25rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-answer ul {
+            margin-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
@@ -597,238 +679,202 @@
         <div class="info-area">
             <div class="about-section">
                 <h2><img src="img/drum_icon.png" alt="DrumDash" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 8px;"> DrumDash - Learn Drums Online</h2>
-                <p><strong>The Ultimate Customizable Drumming Game for All Skill Levels — Take Your Drumming to the Next Level with DrumDash!</strong></p>
-                
-                <p>Whether you're a complete beginner picking up sticks for the first time or an experienced drummer looking to master new techniques, DrumDash is the revolutionary drum learning game that adapts to your skill level and musical preferences. Unlike traditional drum training software, DrumDash lets you learn by playing the music you love.</p>
+                <p><strong>The Ultimate Customizable Drumming Game for All Skill Levels</strong></p>
+                <p>Learn drums by playing your favorite music. Import any song, play with AI-generated difficulty levels, and practice at your own pace.</p>
 
-                <h3>What Makes DrumDash Different?</h3>
-                <p>DrumDash combines cutting-edge AI technology with an engaging music game format to create the most intuitive drum learning experience available. Instead of practicing boring exercises or pre-made charts, you can import virtually any song and start playing along immediately. Our intelligent AI-powered system automatically generates drum charts at multiple difficulty levels tailored to each track, making every song a learning opportunity.</p>
-
-                <h3>🎵 Play Any Song You Want</h3>
-                <p>One of DrumDash's most powerful features is the ability to import your own music. You can:</p>
+                <h3>Key Features</h3>
                 <ul>
-                    <li><strong>Import MIDI Files:</strong> Bring in MIDI data from your favorite songs or export MIDI from your DAW to create custom drum charts adapted to any musical style</li>
-                    <li><strong>Import Audio Files:</strong> Play along with MP3s, WAV files, and other audio formats — perfect for learning songs that don't have MIDI versions available</li>
-                    <li><strong>Import Paradiddle Patterns:</strong> Advanced users can import complex drum patterns and paradiddle sequences to master intricate techniques</li>
-                    <li><strong>Create Custom Charts:</strong> Design your own drum sequences and share them with the community</li>
-                </ul>
-                <p>This flexibility is what sets DrumDash apart from other drum games and training software — you're never limited to a pre-recorded library of songs.</p>
-
-                <h3>🤖 AI-Generated Difficulty Levels</h3>
-                <p>Our advanced AI engine analyzes the drum patterns in your chosen track and generates difficulty variations automatically:</p>
-                <ul>
-                    <li><strong>Easy:</strong> Perfect for beginners — simple, fundamental drum patterns to build foundational rhythm skills</li>
-                    <li><strong>Normal:</strong> Intermediate level — introduces more complex patterns and faster tempos for developing technique</li>
-                    <li><strong>Hard:</strong> Advanced level — challenging patterns that require solid stick control and rhythm awareness</li>
-                    <li><strong>Expert:</strong> Expert level — intricate patterns, rapid-fire notes, and complex drum fills that push your limits</li>
-                </ul>
-                <p>The AI learns from your playing style and adjusts patterns to match your current ability, ensuring you're always challenged but never frustrated.</p>
-
-                <h3>🎧 Multiple Play Modes</h3>
-                <p>DrumDash offers flexible learning modes to suit different practice goals:</p>
-                <ul>
-                    <li><strong>Play with Full Audio:</strong> Jam along with the complete mix of the song, including all instruments. This is perfect for matching your drum playing to the overall groove and feeling of the track</li>
-                    <li><strong>Drumless Playback:</strong> Practice with the drums removed from the mix. This helps you develop independence and learn to lock in with the bass and other rhythm instruments</li>
-                    <li><strong>Click Track Only:</strong> Focus on timing and rhythm with just a simple metronome click — ideal for working on rhythm precision without musical distractions</li>
-                    <li><strong>Isolated Drums:</strong> Listen to only the drums to study professional drum patterns and techniques</li>
+                    <li><strong>Import Any Song:</strong> MIDI files, audio files (MP3, WAV, OGG), or choose from preloaded tracks</li>
+                    <li><strong>AI-Generated Difficulties:</strong> Easy, Normal, Hard, and Expert levels tailored to each song</li>
+                    <li><strong>Play Your Way:</strong> Use on-screen pads, electronic drums, MIDI controllers, or your real drum kit</li>
+                    <li><strong>Flexible Modes:</strong> Full audio, drumless playback, click track, or isolated drums</li>
+                    <li><strong>Track Progress:</strong> Accuracy scoring, consistency analysis, and achievement badges</li>
+                    <li><strong>Cross-Platform:</strong> Web browser, Android app, and progress syncs across devices</li>
                 </ul>
 
-                <h3>🥁 Customize Your Drum Kit</h3>
-                <p>Choose how you want to play:</p>
-                <ul>
-                    <li><strong>On-Screen Drum Kit:</strong> Use your mouse, touchpad, or touch screen to tap drum pads. Great for casual play or practicing on laptops</li>
-                    <li><strong>Electronic Drum Pads:</strong> Connect USB drum pads, electronic drum kits, or MIDI controllers for authentic stick control</li>
-                    <li><strong>Real Drum Kit:</strong> Use an actual acoustic or electronic drum kit with adjustable pad layout to match your setup</li>
-                    <li><strong>Customizable Layouts:</strong> Arrange your drum pads however you like — standard 4-piece kits, expanded 8-piece setups, or custom configurations</li>
-                </ul>
-                <p>DrumDash's flexible input system means you can practice effectively whether you're at a concert venue with a full kit or learning at home with just a laptop.</p>
+                <h3>Perfect for Every Drummer</h3>
+                <p><strong>Beginners:</strong> Start with easy difficulty and songs you know. Build rhythm and coordination naturally.</p>
+                <p><strong>Intermediate Players:</strong> Challenge yourself with harder difficulties and develop technique through variety.</p>
+                <p><strong>Advanced Drummers:</strong> Master expert charts and use DrumDash to learn new songs quickly for performances.</p>
 
-                <h3>📊 Track Your Progress</h3>
-                <p>Monitor your improvement with detailed performance metrics:</p>
-                <ul>
-                    <li><strong>Accuracy Scoring:</strong> See how precisely you're hitting each note on time</li>
-                    <li><strong>Consistency Analysis:</strong> Track your timing accuracy and detect patterns in where you typically rush or drag</li>
-                    <li><strong>Session Statistics:</strong> Review playstyle data including notes hit, streak records, and overall performance trends</li>
-                    <li><strong>Achievement Badges:</strong> Unlock badges for reaching milestones and mastering challenging songs</li>
-                </ul>
-
-                <h3>💪 Features for Every Drummer</h3>
-                <p><strong>For Beginners:</strong> Start with simple songs at easy difficulty. Learn basic drum patterns, develop stick control, and build confidence before moving to more complex material.</p>
-                <p><strong>For Intermediate Players:</strong> Challenge yourself with normal and hard difficulties. Learn to read complex patterns, improve your feet coordination, and develop your unique drumming style.</p>
-                <p><strong>For Advanced Drummers:</strong> Master expert-level charts, work on speed and precision, and use DrumDash to learn new songs quickly. Many professional drummers use DrumDash to prepare for gigs and learn cover songs.</p>
-
-                <h3>🌍 Practice Anywhere, Anytime</h3>
-                <p>DrumDash is available across multiple platforms:</p>
-                <ul>
-                    <li><strong>Web Version:</strong> Play directly in your web browser on Windows, Mac, or Linux — no installation needed</li>
-                    <li><strong>Mobile Version:</strong> Download the Android app for on-the-go practice with touch controls or connected MIDI devices</li>
-                    <li><strong>Cross-Platform Saves:</strong> Your progress and custom songs sync across all devices</li>
-                </ul>
-
-                <h3>🎯 Why Choose DrumDash for Drum Learning?</h3>
-                <p>Traditional drum lessons and software can be expensive and inflexible. Drum games often limit you to their catalog. DrumDash breaks these limitations:</p>
-                <ul>
-                    <li><strong>Unlimited Song Library:</strong> The only limit is your music collection — import any song you want to learn</li>
-                    <li><strong>Adaptive Learning:</strong> AI adjusts to your skill level, ensuring optimal challenge and progression</li>
-                    <li><strong>Fun & Engaging:</strong> Learn while playing the music you love — practice never felt like this much fun</li>
-                    <li><strong>Affordable:</strong> Get professional-quality drum training without the price tag of private lessons</li>
-                    <li><strong>Flexible Input:</strong> Play on your terms with laptop controls, electronic pads, or your real drum kit</li>
-                    <li><strong>Community Driven:</strong> Share your progress, music collections, and custom charts with other drummers worldwide</li>
-                </ul>
-
-                <h3>🚀 Getting Started with DrumDash</h3>
-                <p>Start your drumming journey in just three simple steps:</p>
+                <h3>Getting Started</h3>
                 <ol>
-                    <li><strong>Step 1:</strong> Open DrumDash in your browser or download the mobile app</li>
-                    <li><strong>Step 2:</strong> Import your favorite song (MIDI, audio file, or choose from preloaded options)</li>
-                    <li><strong>Step 3:</strong> Select your difficulty level and start playing — the game handles the rest!</li>
+                    <li>Play directly in your browser - no installation needed</li>
+                    <li>Import a song or pick from preloaded tracks</li>
+                    <li>Choose your difficulty level and start playing</li>
                 </ol>
 
                 <h3>📱 Available on Mobile</h3>
-                <p>DrumDash is also available as a full-featured Android app! Take your drum practice anywhere with the mobile version. The app includes all the features of the web version plus optimizations for touch controls and mobile device sensors.</p>
+                <p>Download the full-featured Android app and practice anywhere.</p>
                 <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4CAF50; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; transition: background 0.3s; font-weight: 500;">
                         🎮 Get on Google Play
                     </a>
                 </div>
 
-                <h3>🎓 Learning Drum Fundamentals with DrumDash</h3>
-                <p>Drumming is about more than just hitting drums in time — it's about developing feel, musicality, and technical skill. DrumDash helps you master all of these aspects:</p>
-                <p><strong>Rhythm & Timing:</strong> Develop an internal metronome and learn to lock in with the beat. The game's feedback system immediately shows you if you're rushing or dragging.</p>
-                <p><strong>Coordination:</strong> Practice independent limb control by playing complex patterns that require different drum voices simultaneously.</p>
-                <p><strong>Listening Skills:</strong> Train your ear to identify drum patterns and understand music structure.</p>
-                <p><strong>Speed & Precision:</strong> Gradually build hand speed and accuracy by progressing through difficulty levels.</p>
-                <p><strong>Musicality:</strong> Learn how to play with dynamics, feel, and taste by studying professional drum patterns and interacting with full mixes.</p>
-
-                <h3>💡 Tips for Maximum Learning with DrumDash</h3>
-                <ul>
-                    <li><strong>Start Slow:</strong> Don't jump to expert mode. Build a solid foundation with easy and normal difficulties first</li>
-                    <li><strong>Mix Your Practice:</strong> Combine different play modes — use drumless practice to develop independence, then full mix to check feel</li>
-                    <li><strong>Play Regularly:</strong> Consistent practice (even 30 minutes daily) yields better results than occasional long sessions</li>
-                    <li><strong>Study the Charts:</strong> Take time to understand drum patterns before trying to play them at speed</li>
-                    <li><strong>Use the Right Equipment:</strong> Invest in quality drum pads or equipment for better technique development</li>
-                    <li><strong>Record Yourself:</strong> Use your device's recording features to listen back and identify areas for improvement</li>
-                    <li><strong>Challenge Yourself:</strong> Once you master a song, try the next difficulty level</li>
-                </ul>
-
-                <h3>🎤 Join the DrumDash Community</h3>
-                <p>DrumDash isn't just about individual practice — it's about being part of a global community of drummers. Share your achievements, discuss techniques, suggest songs, and support other drummers on their learning journey.</p>
-
-                <h3>🔒 Safe & Privacy-Focused</h3>
-                <p>Your privacy and safety are paramount. DrumDash respects your data, doesn't require personal information for gameplay, and provides transparent privacy policies. Learn more about how we protect your information in our comprehensive <a href="privacy-policy.html">Privacy Policy</a>.</p>
-
-                <h3>❓ Frequently Asked Questions</h3>
-                <p><strong>Q: Do I need to know how to play drums to use DrumDash?</strong><br>
-                A: No! DrumDash is designed for absolute beginners. Start with the easy difficulty level and gradually progress as you develop skills.</p>
-                <p><strong>Q: Can I use DrumDash without a drum kit?</strong><br>
-                A: Absolutely! The on-screen drum pads work with your mouse, keyboard, or touchscreen. You can add external equipment later as you progress.</p>
-                <p><strong>Q: What formats can I import?</strong><br>
-                A: DrumDash supports MIDI files, standard audio formats (MP3, WAV, OGG), and paradiddle patterns.</p>
-                <p><strong>Q: Is my progress saved between sessions?</strong><br>
-                A: Yes! All your achievements, custom settings, and practice history are saved automatically.</p>
-                <p><strong>Q: Can I play multiplayer?</strong><br>
-                A: Currently, DrumDash features single-player gameplay. We're exploring multiplayer features for future releases.</p>
-
                 <p style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); opacity: 0.9;">
-                    <strong>Start Your Drumming Journey Today!</strong> Whether you dream of playing in a band, making music covers, or simply enjoying the therapeutic joy of drumming, DrumDash is your gateway to mastering this incredible instrument. Download DrumDash now and transform the way you learn drums.
+                    <strong>Start Your Drumming Journey Today!</strong> Whether you want to learn drums, prepare for performances, or simply enjoy the joy of playing music, DrumDash helps you master the drums on your terms.
                 </p>
 
-                <h2 style="margin-top: 3rem; color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 1rem;">Complete Drum Education Hub</h2>
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions</h3>
 
-                <h3>Understanding Drum Patterns and Notation</h3>
-                <p>Drum patterns are the backbone of any song. Understanding how to read drum notation, recognize time signatures, and identify different drum fills is essential for any drummer. In DrumDash, you learn these concepts naturally by playing real songs:</p>
-                <ul>
-                    <li><strong>4/4 Time Signature (Common Time):</strong> The most common drum pattern foundation used in rock, pop, hip-hop, and many other genres. Learning to lock into a 4/4 groove is the first step for any drummer.</li>
-                    <li><strong>Kick Drum Patterns:</strong> The kick drum drives the rhythm. From simple quarter-note patterns to complex syncopated grooves, mastering kick patterns is crucial for timing.</li>
-                    <li><strong>Hi-Hat Techniques:</strong> The hi-hat creates texture and pocket. Learning closed vs. open hi-hat patterns, ghost notes, and pedal control separates beginners from experienced drummers.</li>
-                    <li><strong>Snare Techniques:</strong> The snare provides clarity and dynamics. Understanding backbeat placement, rim shots, cross-sticks, and ghost note work elevates your playing.</li>
-                    <li><strong>Drum Fills:</strong> Fills are the moments where drummers show off their skills. Learning to identify fill patterns and knowing when to execute them is key to musicianship.</li>
-                </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I import my own songs into DrumDash?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>DrumDash supports multiple audio formats for maximum flexibility. You can import MIDI files, MP3 audio, WAV, and OGG files directly into the game. Simply use the "Import" button on the home screen, select your file, and DrumDash will automatically process it. Our AI engine analyzes the song structure and generates difficulty-appropriate drum charts within seconds. The imported songs are stored locally on your device, so you can play them anytime without needing an internet connection.</p>
+                        </div>
+                    </div>
 
-                <h3>The Science of Rhythm and Timing</h3>
-                <p>Professional drummers talk about "pocket" and "groove" - these are scientific concepts related to timing precision and dynamic feel. DrumDash's feedback system teaches these concepts:</p>
-                <p><strong>Micro-timing:</strong> The difference between rushing and dragging - even by milliseconds - affects the feel of a groove. Professional drummers sit slightly behind the beat (playing with a "solid" feel) or slightly ahead (playing with a "driving" feel). DrumDash shows you exactly where your notes fall relative to the beat, helping you develop intentional timing.</p>
-                <p><strong>Dynamic Control:</strong> Different drum hits need different volumes. Kick drums hit harder than hi-hats. Snare cracks louder than ghost notes. Learning dynamic control makes you sound professional and prevents fatigue from overplaying.</p>
-                <p><strong>Swing and Shuffle Feels:</strong> Many genres use swing timing where triplet-based rhythms create a bouncy, jazz-influenced feel. Learning to play "in the pocket" with swing feels is a hallmark of an experienced drummer.</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How does DrumDash generate AI difficulty levels?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our proprietary AI technology analyzes your imported song's tempo, beat pattern, and musical structure to create four unique difficulty levels: Easy, Normal, Hard, and Expert. Each level is designed with progressive complexity to help you improve gradually.</p>
+                            <ul>
+                                <li><strong>Easy:</strong> Focuses on basic beat patterns and timing fundamentals</li>
+                                <li><strong>Normal:</strong> Introduces more complex fills and dynamics matching the actual song</li>
+                                <li><strong>Hard:</strong> Challenges with advanced techniques and off-beat patterns</li>
+                                <li><strong>Expert:</strong> Master-level charts with intricate fills and polyrhythmic sections</li>
+                            </ul>
+                            <p>The AI learns from millions of drum patterns to ensure each generated chart is musically authentic and playable.</p>
+                        </div>
+                    </div>
 
-                <h3>Drum Genres and Styles</h3>
-                <p>Different music genres require different drumming approaches. DrumDash helps you master them all:</p>
-                <ul>
-                    <li><strong>Rock Drumming:</strong> Emphasizes strong kicks and snare with driving 8th-note hi-hat patterns. Legends like John Bonham and Matt Helders are known for powerful, simple grooves.</li>
-                    <li><strong>Jazz Drumming:</strong> Features swing timing, ride cymbal work, and dynamic control. Jazz requires listening deeply to other musicians and playing conversationally.</li>
-                    <li><strong>Funk Drumming:</strong> Built on syncopation and pocket playing. Funk drummers like Bernard Purdie pioneered "the Purdie Shuffle" and other rhythmic innovations.</li>
-                    <li><strong>Pop Drumming:</strong> Focuses on clarity and groove consistency. Pop drumming might seem simple but requires precision and feel.</li>
-                    <li><strong>Metal Drumming:</strong> Known for speed, double bass patterns, and aggressive sound. Metal drummers push technical limits with blast beats and double bass chains.</li>
-                    <li><strong>Hip-Hop & Trap Drumming:</strong> Features off-beat hi-hats and boom-tap patterns. Producer/drummer collaboration is key in this genre.</li>
-                    <li><strong>Latin Drumming:</strong> Incorporates complex polyrhythms and clave patterns. Genres like samba, mambo, and salsa require understanding of traditional percussion.</li>
-                </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What MIDI controllers and drum kits work with DrumDash?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>DrumDash works with most standard MIDI-compatible devices. This includes:</p>
+                            <ul>
+                                <li>Electronic drum kits (Roland, Yamaha, Alesis, etc.)</li>
+                                <li>MIDI drum pads and controllers</li>
+                                <li>Acoustic drum kits with MIDI triggers</li>
+                                <li>USB MIDI keyboards configured for percussion</li>
+                                <li>Computer microphones for acoustic drum detection (on supported devices)</li>
+                            </ul>
+                            <p>For best performance, we recommend connecting your device via USB or wireless 5GHz connection (not 2.4GHz, which may introduce latency). You can also use the on-screen virtual pads with your mouse or keyboard if a controller isn't available.</p>
+                        </div>
+                    </div>
 
-                <h3>Physical Techniques and Muscle Memory</h3>
-                <p>Drumming is a physical skill that requires proper technique to prevent injury and maximize performance:</p>
-                <p><strong>Grip Techniques:</strong> The matched grip (both hands the same) is most common in Western drumming. German, French, and traditional grips exist but matched grip is standard. Proper grip reduces tension and allows for speed and control.</p>
-                <p><strong>Stick Control:</strong> Bouncing techniques, rebound control, and stick height management are fundamental. Buddy Rich and other legends spent hours developing perfect stick control through exercises.</p>
-                <p><strong>Foot Technique:</strong> Developing doubles on the kick drum (two hits per stroke) and left foot independence is what separates adequate drummers from great ones. Speed comes from relaxation and proper mechanics, not tension.</p>
-                <p><strong>Posture and Setup:</strong> Proper drum kit height, seat positioning, and posture prevent repetitive strain injuries. Many drummers suffer from back and shoulder problems from improper setup.</p>
-                <p><strong>Ergonomics and Injury Prevention:</strong> Understanding how to warm up, stretch, and cool down prevents injuries like tendonitis. DrumDash's varied play modes help you build strength gradually without overuse injuries.</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How does the accuracy scoring system work?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>DrumDash's scoring system evaluates multiple aspects of your drumming performance, not just hits and misses. Your accuracy is calculated based on:</p>
+                            <ul>
+                                <li><strong>Hit Timing:</strong> How close to the beat you strike (±50ms window)</li>
+                                <li><strong>Dynamics:</strong> Velocity variation across hits (realistic dynamics matter)</li>
+                                <li><strong>Consistency:</strong> How evenly you maintain groove throughout the song</li>
+                                <li><strong>Double Hits:</strong> Correct identification of single vs. double strokes</li>
+                                <li><strong>Fills Execution:</strong> Accuracy on complex fill patterns</li>
+                            </ul>
+                            <p>Scores range from 0-100%, and you earn achievement badges at 75%, 90%, and 100% accuracy to recognize your progress.</p>
+                        </div>
+                    </div>
 
-                <h3>Listening Like a Drummer</h3>
-                <p>Great drummers are great listeners. They study:</p>
-                <ul>
-                    <li><strong>Groove Analysis:</strong> How does the kick drum sit relative to the bass? Where does the snare crack? How tight is the hi-hat pocket?</li>
-                    <li><strong>Song Arrangement:</strong> How many beats does the intro have? When does the kick drum enter? How many bars before the drum break?</li>
-                    <li><strong>Dynamic Curves:</strong> Does the song build intensity? When do drum fills occur? How does the drummer create tension and release?</li>
-                    <li><strong>Genre Conventions:</strong> Why do rock songs have big snare cracks while funk songs use ghost notes? Understanding genre conventions helps you play authentically.</li>
-                </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Does DrumDash work on my mobile phone?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! DrumDash is available as both a web app and a native Android application. The web version runs in any mobile browser (Chrome, Firefox, Safari, Edge) and automatically adapts to your screen size. The dedicated Android app offers improved performance and direct access to your device's MIDI connectivity.</p>
+                            <p>For the best mobile experience, we recommend landscape orientation for a larger playing surface. The game automatically detects your device's screen size and adjusts the pad layout accordingly. You can even use a mobile-compatible MIDI controller or Bluetooth drum pad with your phone.</p>
+                            <p>Download the full-featured Android app from Google Play for the most optimized experience, or play directly in your mobile browser without any installation.</p>
+                        </div>
+                    </div>
 
-                <h3>Building Your Drumming Foundation</h3>
-                <p>Every professional drummer recommends the same core practices:</p>
-                <p><strong>Rudiments:</strong> Drum rudiments are like scales for drummers. From the basic single stroke roll to complex flams and paradiddles, these are the building blocks of all drum technique. Learning 40 essential rudiments takes weeks but provides unlimited technique development.</p>
-                <p><strong>Metronome Practice:</strong> Practicing with a click track (metronome) trains your internal timing and prevents rushing. Professional drummers practice with clicks for hours daily.</p>
-                <p><strong>Song Learning:</strong> Learning complete songs, not just drums, is how real-world drumming works. You need to understand the song structure, dynamics, and arrangement.</p>
-                <p><strong>Recording and Feedback:</strong> Recording yourself and listening back reveals timing issues and technique problems you can't hear while playing.</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I sync my progress across multiple devices?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! If you're using the Android app, your progress is automatically saved to the cloud when you log in with your account. This means you can play on your phone, tablet, or computer and see your achievements, high scores, and song progress across all devices.</p>
+                            <p>Your progression data includes: high scores, accuracy records, songs played, and achievement badges. The sync happens automatically, so there's no manual setup required. If you're using only the web version, your data is stored locally on that browser.</p>
+                        </div>
+                    </div>
 
-                <h3>Drum Equipment Guide</h3>
-                <p>Understanding different types of drum kits and equipment helps you practice effectively:</p>
-                <p><strong>Acoustic Drum Kits:</strong> Traditional kits with drums that resonate resonators. They provide authentic feel but require soundproofing and are expensive.</p>
-                <p><strong>Electronic Drum Kits:</strong> Perfect for practice and recording. Modern electronic kits sound realistic and allow headphone practice. They connect to USB for DrumDash compatibility.</p>
-                <p><strong>Practice Pads and Drum Machines:</strong> Affordable entry points for beginners. Pads provide feedback without needing a full kit.</p>
-                <p><strong>MIDI Controllers:</strong> Laptop-based drummers use MIDI controllers to play games like DrumDash. They range from simple USB pads to professional controllers.</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What playback modes are available in DrumDash?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>DrumDash offers multiple playback modes to suit different learning styles and preferences:</p>
+                            <ul>
+                                <li><strong>Full Audio:</strong> Complete song with all instruments - play along naturally</li>
+                                <li><strong>Drumless:</strong> Everything except drums - perfect for practicing your fills and grooves</li>
+                                <li><strong>Click Track:</strong> Minimal accompaniment with just the beat click for timing practice</li>
+                                <li><strong>Isolated Drums:</strong> Just the drum part (great for learning the original drummer's technique)</li>
+                                <li><strong>Backing Track:</strong> Bass and harmonic elements without drums - ideal for band practice simulation</li>
+                            </ul>
+                            <p>You can switch modes mid-song or use different modes on different attempts to focus on specific aspects of your playing.</p>
+                        </div>
+                    </div>
 
-                <h3>Drumming Health and Longevity</h3>
-                <p>Taking care of your body ensures you can drum for life:</p>
-                <ul>
-                    <li><strong>Warm-up Routines:</strong> 10-15 minutes of warm-up prevents injury and improves performance.</li>
-                    <li><strong>Strength Training:</strong> Core strength and arm conditioning support technical development.</li>
-                    <li><strong>Flexibility Work:</strong> Stretching reduces tension and prevents repetitive strain injuries.</li>
-                    <li><strong>Rest and Recovery:</strong> Practicing 5-6 days a week with a day off prevents burnout and overuse injuries.</li>
-                    <li><strong>Proper Equipment Setup:</strong> Adjusting your drum kit and throne to your body prevents pain and strain.</li>
-                </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is DrumDash suitable for complete beginners?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! DrumDash is specifically designed to be accessible for complete beginners while offering advanced features for experienced drummers. Here's why beginners love DrumDash:</p>
+                            <ul>
+                                <li><strong>Easy Mode:</strong> Simplified patterns that focus on rhythm fundamentals and basic technique</li>
+                                <li><strong>Songs You Know:</strong> Import your favorite songs and learn from music you're already familiar with</li>
+                                <li><strong>Immediate Feedback:</strong> Real-time accuracy scoring helps you understand exactly what needs improvement</li>
+                                <li><strong>Progressive Difficulty:</strong> Start easy and gradually work up to complex patterns as your skills develop</li>
+                                <li><strong>No Equipment Needed:</strong> Use the on-screen pads with a mouse, keyboard, or touchscreen to start immediately</li>
+                            </ul>
+                            <p>Many drummers find that learning with music they enjoy makes the learning process more engaging than traditional practice exercises.</p>
+                        </div>
+                    </div>
 
-                <h3>From Learning to Performance</h3>
-                <p>Once you've mastered songs in DrumDash, you're ready for real performance:</p>
-                <p><strong>Band Practice:</strong> The transition from solo practice to playing with others is crucial. You learn to listen to bass players, follow singers, and provide the rhythmic foundation.</p>
-                <p><strong>Live Performance:</strong> Playing in front of audiences requires managing nerves, dealing with different acoustics, and adapting to the energy of the room.</p>
-                <p><strong>Recording Sessions:</strong> Studio drumming is different from live playing. Click tracks, multiple takes, and overdubs are the norm.</p>
-                <p><strong>Music Theory for Drummers:</strong> Understanding time signatures, chord progressions, and song structures helps you make better musical decisions.</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I use DrumDash for band or performance preparation?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! Many professional and semi-professional drummers use DrumDash to prepare for band performances and session work. Here's how:</p>
+                            <ul>
+                                <li><strong>Quick Learning:</strong> Learn new setlist songs in days instead of weeks</li>
+                                <li><strong>Tempo Practice:</strong> Adjust playback speed to practice difficult sections slowly, then increase tempo</li>
+                                <li><strong>Accuracy Tracking:</strong> Monitor your consistency and precision with detailed scoring data</li>
+                                <li><strong>Isolated Practice:</strong> Use drumless mode to practice your parts independently</li>
+                                <li><strong>Session Prep:</strong> Prepare for studio sessions and live gigs with authentic drum charts</li>
+                            </ul>
+                            <p>The Expert difficulty level matches professional drum chart complexity, making it ideal for serious musicians preparing for real performances.</p>
+                        </div>
+                    </div>
 
-                <h3>Advanced Topics for Serious Drummers</h3>
-                <p><strong>Polyrhythms and Complex Time Signatures:</strong> Once you master 4/4, exploring 5/4, 7/8, and polyrhythmic patterns opens new creative possibilities.</p>
-                <p><strong>Improvisation and Soloing:</strong> Developing the ability to create fills and solos on the fly is what separates professional session players from beginners.</p>
-                <p><strong>Music Production and Drumming:</strong> Understanding how drums are recorded, processed, and mixed in production helps you make better artistic choices.</p>
-                <p><strong>Composition and Arrangement:</strong> Creating original drum parts and understanding song arrangement is the mark of a complete musician.</p>
-
-                <h3>Success Stories: Drummers Who Started With Games</h3>
-                <p>Rhythm games like DrumDash have become a legitimate pathway to drumming skill. Many beginners start with games and progress to real instruments. The key is understanding that games are a tool - they provide immediate feedback, variety, and motivation that other learning methods can't match.</p>
-
-                <h3>Your DrumDash Learning Path</h3>
-                <p><strong>Month 1-2 (Beginner):</strong> Focus on basic grooves in easy mode. Build stick control and comfort with the beat. Play songs you love to stay motivated.</p>
-                <p><strong>Month 3-4 (Intermediate):</strong> Challenge yourself with normal difficulty. Start studying drum patterns and learning fundamentals. Experiment with different play modes.</p>
-                <p><strong>Month 5-6 (Advanced):</strong> Tackle hard and expert modes. Start understanding why certain patterns work. Begin simplifying patterns to core elements.</p>
-                <p><strong>Month 6+ (Expert):</strong> Master expert-level charts. Create original patterns. Start applying DrumDash skills to real drums or different genres.</p>
-
-                <p style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); opacity: 0.9;">
-                    <strong>The Drumming Journey Never Ends</strong> — Even professional drummers with decades of experience continue learning and evolving. DrumDash provides the tools and motivation to sustain that journey. Whether your goal is casual enjoyment, band performance, or professional mastery, DrumDash adapts to your ambitions and helps you achieve meaningful progress on the drums.
-                </p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What if I find a bug or want to request a feature?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We love feedback! Our team actively responds to bug reports and feature requests from our community. You can contact us through:</p>
+                            <ul>
+                                <li>Email: <a href="mailto:support@northshorepress.co" style="color: #667eea; text-decoration: underline;">support@northshorepress.co</a></li>
+                                <li><a href="contact.html" style="color: #667eea; text-decoration: underline;">Contact form</a> on our website</li>
+                                <li>Include as much detail as possible (device, OS version, exact issue, steps to reproduce)</li>
+                            </ul>
+                            <p>We typically respond within 24-48 hours and prioritize bug fixes according to severity. Your feedback directly helps shape DrumDash's future development!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <footer>
@@ -884,6 +930,27 @@
 
         // Initialize cookie consent when DOM is ready
         document.addEventListener('DOMContentLoaded', initCookieConsent);
+
+        // FAQ Expand/Collapse Functionality
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize FAQ when DOM is ready
+        document.addEventListener('DOMContentLoaded', initFAQ);
     </script>
 
     <script>
