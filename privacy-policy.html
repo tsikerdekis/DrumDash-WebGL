@@ -3,225 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#340D82">
     <title>Privacy Policy - DrumDash</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #1a1a2e;
-            color: #d1d5db;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.4);
-            color: white;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header a {
-            color: #b0b0ff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        header a:hover {
-            color: #fff;
-        }
-
-        main {
-            flex: 1;
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 3rem;
-            background: #1e293b;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            line-height: 1.8;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        h2 {
-            color: #fff;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.5rem;
-        }
-
-        h2:first-child {
-            margin-top: 0;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .last-updated {
-            color: #94a3b8;
-            font-style: italic;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: auto;
-        }
-
-        footer a {
-            color: #b0b0ff;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 1rem;
-            color: #b0b0ff;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .back-link:hover {
-            color: white;
-        }
-
-        ul {
-            margin: 1rem 0 1rem 2rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
+        :root { --brand-purple: #340D82; --brand-accent: #667eea; --brand-dark: #0f0c29; --text-light: #ffffff; --text-muted: rgba(255,255,255,0.75); --max-content: 900px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--brand-dark); color: var(--text-light); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,12,41,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .nav-inner { max-width: var(--max-content); margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--text-light); font-weight: 700; font-size: 1.25rem; letter-spacing: 1px; }
+        .nav-logo img { width: 32px; height: 32px; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-light); }
+        .nav-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; }
+        .nav-cta { background: #4CAF50; color: white !important; padding: 0.5rem 1rem; border-radius: 5px; font-weight: 600; }
+        .nav-cta:hover { background: #43a047; }
+        main { padding: 7rem 1.5rem 3rem; max-width: var(--max-content); margin: 0 auto; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-muted); margin-bottom: 2rem; }
+        .last-updated { color: var(--text-muted); font-style: italic; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        h2 { color: #b0b0ff; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem; }
+        p { margin-bottom: 1rem; color: var(--text-muted); }
+        a { color: var(--brand-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; color: var(--text-muted); }
+        footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 1.5rem 2rem; text-align: center; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-light); text-decoration: underline; }
+        .footer-bottom { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
         @media (max-width: 768px) {
-            main {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(15,12,41,0.95); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            main { padding-top: 6rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1><img src="img/drum_icon.png" alt="DrumDash" style="width: 40px; height: 40px; vertical-align: middle; margin-right: 10px;"> DrumDash - Privacy Policy</h1>
-        <p><a href="index.html">← Back to Game</a></p>
-    </header>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/drum_icon.png" alt="DrumDash">
+                DrumDash
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#press">Press</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="https://discord.gg/D5g5rQuGbU" target="_blank">Discord</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" class="nav-cta">Get on Google Play</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <main>
-        <a href="index.html" class="back-link">← Back to Game</a>
-
+        <a href="index.html" style="color: var(--brand-accent); text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem;">← Back to Home</a>
         <h1>Privacy Policy</h1>
-        <div class="last-updated">Effective Date: January 28, 2026</div>
-
-        <p>Northshore Press LLC ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our game "DrumDash" (the "Game").</p>
+        <p class="last-updated">Last updated: January 1, 2024</p>
 
         <h2>1. Information We Collect</h2>
-        <p>We collect certain information automatically when you use the Game. This includes:</p>
-        <ul>
-            <li><strong>Device Information:</strong> Model, operating system, language, device ID, and similar technical data.</li>
-            <li><strong>Usage Data:</strong> Gameplay behavior, session duration, crash reports, and in-game interactions.</li>
-            <li><strong>Advertising Data:</strong> Ad impressions, clicks, and interactions (collected via Unity Ads).</li>
-        </ul>
-        <p>We do not collect personally identifiable information such as your name, email address, or phone number.</p>
+        <p>When you use DrumDash, we may collect information you provide directly, such as your email address when you contact us. We also collect certain technical information automatically, including your device type, operating system, browser type, and usage data to help improve the app.</p>
 
         <h2>2. How We Use Your Information</h2>
-        <p>The data we collect is used to:</p>
-        <ul>
-            <li>Monitor game performance and fix bugs</li>
-            <li>Improve user experience and gameplay</li>
-            <li>Analyze aggregate user behavior (via Unity Analytics)</li>
-            <li>Serve relevant ads (via Unity Ads)</li>
-        </ul>
+        <p>We use the information we collect to operate, maintain, and improve DrumDash, to respond to your comments and questions, and to send technical notices and support messages.</p>
 
-        <h2>3. Third-Party Services</h2>
-        <p>We use the following third-party services:</p>
+        <h2>3. Data Storage</h2>
+        <p>Your song imports, scores, and app settings are stored locally on your device. If you use the Android app with cloud sync enabled, your progress data is stored securely on our servers.</p>
 
-        <h3>Unity Analytics</h3>
-        <p>Unity Analytics collects anonymous usage data to help us understand how users interact with the Game. For more information, see the <a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Privacy Policy</a>.</p>
+        <h2>4. Third-Party Services</h2>
+        <p>DrumDash uses Google Play Services for Android distribution and Unity Analytics for anonymous usage statistics. These services have their own privacy policies governing data collection.</p>
 
-        <h3>Unity Ads</h3>
-        <p>The Game displays ads using Unity Ads. These ads may use device identifiers and behavioral data to serve more relevant content. For more information, see the <a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Ads Privacy Policy</a>.</p>
+        <h2>5. Cookies</h2>
+        <p>We use minimal cookies for essential site functionality. For more details, please see our <a href="cookie-policy.html">Cookie Policy</a>.</p>
 
-        <h3>Cloudflare</h3>
-        <p>We use Cloudflare for website analytics and protection. Visit their <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Privacy Policy</a> for details.</p>
-
-        <h2>4. Children's Privacy</h2>
-        <p>The Game is not intended for children under the age of 13. We do not knowingly collect or solicit personal data from children. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
-
-        <h2>5. Data Retention</h2>
-        <p>We retain non-personal data collected via Unity services for as long as necessary to fulfill the purposes described in this policy or as required by law.</p>
-
-        <h2>6. Your Choices</h2>
-        <ul>
-            <li>You may uninstall the Game at any time to stop all data collection.</li>
-            <li>You can manage your privacy preferences through the <a href="privacy-settings.html">Privacy Settings</a> page.</li>
-            <li>You can opt out of personalized ads in your device settings.</li>
-        </ul>
-
-        <h2>7. Security</h2>
-        <p>We take reasonable steps to protect your data. However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security of your information.</p>
-
-        <h2>8. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. If changes are significant, we will provide notice within the Game or on our website. Your continued use of the Game after changes are posted means you accept the updated policy.</p>
-
-        <h2>9. Contact Us</h2>
-        <p>If you have any questions or concerns about this Privacy Policy, you may contact us at:</p>
-        <p>
-            <strong>Northshore Press LLC</strong><br>
-            Email: <a href="mailto:support@northshorepress.co">support@northshorepress.co</a><br>
-            Website: <a href="https://northshorepress.co" target="_blank">northshorepress.co</a>
-        </p>
-
-        <p style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; color: #666; font-size: 0.9rem;">
-            Last updated: January 28, 2026
-        </p>
+        <h2>6. Contact</h2>
+        <p>If you have questions about this policy, please <a href="contact.html">contact us</a>.</p>
     </main>
 
     <footer>
-        <div>
-            <a href="index.html">Home</a> | 
-            <a href="terms.html">Terms</a> | 
-            <a href="cookie-policy.html">Cookies</a> | 
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+            <a href="privacy-settings.html">Privacy Settings</a>
             <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
         </div>
-        <p style="margin-top: 1rem; opacity: 0.8;">&copy; 2026 Northshore Press LLC. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p>© 2026 Northshore Press LLC. All rights reserved. | DrumDash</p>
+        </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+        });
+    </script>
 </body>
 </html>
