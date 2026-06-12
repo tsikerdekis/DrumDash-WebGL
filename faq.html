@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DrumDash FAQ - Frequently Asked Questions about the drumming game.">
+    <meta name="author" content="Northshore Press LLC">
+    <meta name="theme-color" content="#340D82">
+    <title>DrumDash FAQ - Frequently Asked Questions</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <style>
+        :root { --brand-purple: #340D82; --brand-accent: #667eea; --brand-dark: #0f0c29; --text-light: #ffffff; --text-muted: rgba(255,255,255,0.75); --max-content: 960px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--brand-dark); color: var(--text-light); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,12,41,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .nav-inner { max-width: var(--max-content); margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--text-light); font-weight: 700; font-size: 1.25rem; letter-spacing: 1px; }
+        .nav-logo img { width: 32px; height: 32px; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-light); }
+        .nav-cta { background: #4CAF50; color: white !important; padding: 0.5rem 1rem; border-radius: 5px; font-weight: 600; }
+        .nav-cta:hover { background: #43a047; }
+        .nav-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; }
+
+        main { padding: 7rem 1.5rem 3rem; max-width: var(--max-content); margin: 0 auto; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 0.5rem; text-align: center; }
+        .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 3rem; }
+
+        .faq-item { margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.02); transition: all 0.3s ease; }
+        .faq-item:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+        .faq-question { cursor: pointer; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: #b0b0ff; user-select: none; transition: color 0.3s ease; }
+        .faq-question:hover { color: #d0d0ff; }
+        .faq-toggle { display: inline-block; transition: transform 0.3s ease; font-size: 1.2rem; }
+        .faq-item.active .faq-toggle { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 1.25rem; }
+        .faq-item.active .faq-answer { max-height: 600px; padding: 0 1.25rem 1rem 1.25rem; }
+        .faq-answer p { margin-bottom: 0.75rem; color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.6; }
+        .faq-answer ul { margin-left: 1.5rem; margin-bottom: 0.75rem; }
+        .faq-answer li { margin-bottom: 0.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+        .faq-answer a { color: var(--brand-accent); text-decoration: underline; }
+
+        footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 1.5rem 2rem; text-align: center; margin-top: 3rem; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-light); text-decoration: underline; }
+        .footer-bottom { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(15,12,41,0.95); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            main { padding-top: 6rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/drum_icon.png" alt="DrumDash">
+                DrumDash
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#press">Press</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="https://discord.gg/D5g5rQuGbU" target="_blank">Discord</a></li>
+                <li><a href="play.html" class="nav-cta">Play Web Beta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Frequently Asked Questions</h1>
+        <p class="subtitle">Everything you need to know about DrumDash.</p>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How do I import my own songs into DrumDash?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>DrumDash supports multiple audio formats for maximum flexibility. You can import MIDI files, MP3 audio, WAV, and OGG files directly into the game. Simply use the "Import" button on the home screen, select your file, and DrumDash will automatically process it. Our AI engine analyzes the song structure and generates difficulty-appropriate drum charts within seconds. The imported songs are stored locally on your device, so you can play them anytime without needing an internet connection.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How does DrumDash generate AI difficulty levels?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Our proprietary AI technology analyzes your imported song's tempo, beat pattern, and musical structure to create four unique difficulty levels: Easy, Normal, Hard, and Expert. Each level is designed with progressive complexity to help you improve gradually.</p>
+                <ul>
+                    <li><strong>Easy:</strong> Focuses on basic beat patterns and timing fundamentals</li>
+                    <li><strong>Normal:</strong> Introduces more complex fills and dynamics matching the actual song</li>
+                    <li><strong>Hard:</strong> Challenges with advanced techniques and off-beat patterns</li>
+                    <li><strong>Expert:</strong> Master-level charts with intricate fills and polyrhythmic sections</li>
+                </ul>
+                <p>The AI learns from millions of drum patterns to ensure each generated chart is musically authentic and playable.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What MIDI controllers and drum kits work with DrumDash?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>DrumDash works with most standard MIDI-compatible devices. This includes:</p>
+                <ul>
+                    <li>Electronic drum kits (Roland, Yamaha, Alesis, etc.)</li>
+                    <li>MIDI drum pads and controllers</li>
+                    <li>Acoustic drum kits with MIDI triggers</li>
+                    <li>USB MIDI keyboards configured for percussion</li>
+                    <li>Computer microphones for acoustic drum detection (on supported devices)</li>
+                </ul>
+                <p>For best performance, we recommend connecting your device via USB or wireless 5GHz connection (not 2.4GHz, which may introduce latency). You can also use the on-screen virtual pads with your mouse or keyboard if a controller isn't available.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How does the accuracy scoring system work?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>DrumDash's scoring system evaluates multiple aspects of your drumming performance, not just hits and misses. Your accuracy is calculated based on:</p>
+                <ul>
+                    <li><strong>Hit Timing:</strong> How close to the beat you strike (±50ms window)</li>
+                    <li><strong>Dynamics:</strong> Velocity variation across hits (realistic dynamics matter)</li>
+                    <li><strong>Consistency:</strong> How evenly you maintain groove throughout the song</li>
+                    <li><strong>Double Hits:</strong> Correct identification of single vs. double strokes</li>
+                    <li><strong>Fills Execution:</strong> Accuracy on complex fill patterns</li>
+                </ul>
+                <p>Scores range from 0-100%, and you earn achievement badges at 75%, 90%, and 100% accuracy to recognize your progress.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Does DrumDash work on my mobile phone?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! DrumDash is available as both a web app and a native Android application. The web version runs in any mobile browser (Chrome, Firefox, Safari, Edge) and automatically adapts to your screen size. The dedicated Android app offers improved performance and direct access to your device's MIDI connectivity.</p>
+                <p>For the best mobile experience, we recommend landscape orientation for a larger playing surface. The game automatically detects your device's screen size and adjusts the pad layout accordingly. You can even use a mobile-compatible MIDI controller or Bluetooth drum pad with your phone.</p>
+                <p>Download the full-featured Android app from Google Play for the most optimized experience, or play directly in your mobile browser without any installation.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I sync my progress across multiple devices?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely! If you're using the Android app, your progress is automatically saved to the cloud when you log in with your account. This means you can play on your phone, tablet, or computer and see your achievements, high scores, and song progress across all devices.</p>
+                <p>Your progression data includes: high scores, accuracy records, songs played, and achievement badges. The sync happens automatically, so there's no manual setup required. If you're using only the web version, your data is stored locally on that browser.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What playback modes are available in DrumDash?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>DrumDash offers multiple playback modes to suit different learning styles and preferences:</p>
+                <ul>
+                    <li><strong>Full Audio:</strong> Complete song with all instruments — play along naturally</li>
+                    <li><strong>Drumless:</strong> Everything except drums — perfect for practicing your fills and grooves</li>
+                    <li><strong>Click Track:</strong> Minimal accompaniment with just the beat click for timing practice</li>
+                    <li><strong>Isolated Drums:</strong> Just the drum part (great for learning the original drummer's technique)</li>
+                    <li><strong>Backing Track:</strong> Bass and harmonic elements without drums — ideal for band practice simulation</li>
+                </ul>
+                <p>You can switch modes mid-song or use different modes on different attempts to focus on specific aspects of your playing.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Is DrumDash suitable for complete beginners?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! DrumDash is specifically designed to be accessible for complete beginners while offering advanced features for experienced drummers. Here's why beginners love DrumDash:</p>
+                <ul>
+                    <li><strong>Easy Mode:</strong> Simplified patterns that focus on rhythm fundamentals and basic technique</li>
+                    <li><strong>Songs You Know:</strong> Import your favorite songs and learn from music you're already familiar with</li>
+                    <li><strong>Immediate Feedback:</strong> Real-time accuracy scoring helps you understand exactly what needs improvement</li>
+                    <li><strong>Progressive Difficulty:</strong> Start easy and gradually work up to complex patterns as your skills develop</li>
+                    <li><strong>No Equipment Needed:</strong> Use the on-screen pads with a mouse, keyboard, or touchscreen to start immediately</li>
+                </ul>
+                <p>Many drummers find that learning with music they enjoy makes the learning process more engaging than traditional practice exercises.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I use DrumDash for band or performance preparation?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely! Many professional and semi-professional drummers use DrumDash to prepare for band performances and session work. Here's how:</p>
+                <ul>
+                    <li><strong>Quick Learning:</strong> Learn new setlist songs in days instead of weeks</li>
+                    <li><strong>Tempo Practice:</strong> Adjust playback speed to practice difficult sections slowly, then increase tempo</li>
+                    <li><strong>Accuracy Tracking:</strong> Monitor your consistency and precision with detailed scoring data</li>
+                    <li><strong>Isolated Practice:</strong> Use drumless mode to practice your parts independently</li>
+                    <li><strong>Session Prep:</strong> Prepare for studio sessions and live gigs with authentic drum charts</li>
+                </ul>
+                <p>The Expert difficulty level matches professional drum chart complexity, making it ideal for serious musicians preparing for real performances.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What if I find a bug or want to request a feature?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>We love feedback! Our team actively responds to bug reports and feature requests from our community. You can contact us through:</p>
+                <ul>
+                    <li>Email: <a href="mailto:support@northshorepress.co">support@northshorepress.co</a></li>
+                    <li><a href="contact.html">Contact form</a> on our website</li>
+                    <li>Include as much detail as possible (device, OS version, exact issue, steps to reproduce)</li>
+                </ul>
+                <p>We typically respond within 24-48 hours and prioritize bug fixes according to severity. Your feedback directly helps shape DrumDash's future development!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+            <a href="privacy-settings.html">Privacy Settings</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Northshore Press LLC. All rights reserved. | DrumDash</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+        });
+    </script>
+</body>
+</html>
