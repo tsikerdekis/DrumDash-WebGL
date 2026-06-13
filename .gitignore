@@ -195,9 +195,12 @@ DocProject/Help/html
 # Click-Once directory
 publish/
 
-# Publish Web Output
-*.[Pp]ublish.xml
-*.azurePubxml
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
 # Note: Comment the next line if you want to checkin your web deploy settings,
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml

@@ -1,0 +1,15 @@
+title: DrumDash
+description: Learn drums by playing your favorite songs. Import any track, play with AI-generated difficulties, and master rhythm at your own pace.
+url: "https://drumdash.northshorepress.co"
+author: Northshore Press LLC
+year: 2026
+
+# GitHub Pages serves from root, so no baseurl needed
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-sitemap

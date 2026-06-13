@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Northshore Press LLC">
+    <meta name="theme-color" content="#340D82">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% endif %}
+    {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}">
+    {% endif %}
+    <title>{{ page.title }}</title>
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.description %}
+    <meta property="og:description" content="{{ page.description }}">
+    {% endif %}
+    <meta property="og:image" content="{{ site.url }}/img/drum_icon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    {% if page.description %}
+    <meta name="twitter:description" content="{{ page.description }}">
+    {% endif %}
+    <meta name="twitter:image" content="{{ site.url }}/img/drum_icon.png">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/legal.css">
+    {% if page.custom_css %}
+    <link rel="stylesheet" href="assets/css/{{ page.custom_css }}">
+    {% endif %}
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}",
+        "description": "{{ site.description }}",
+        "author": {
+            "@type": "Organization",
+            "name": "{{ site.author }}"
+        }
+    }
+    </script>
+</head>
+<body>
+    {% unless page.hide_nav %}
+    {% include nav.html %}
+    {% endunless %}
+
+    {{ content }}
+
+    {% unless page.hide_footer %}
+    {% include footer.html %}
+    {% endunless %}
+
+    {% unless page.hide_cookie_consent %}
+    {% include cookie-consent.html %}
+    {% endunless %}
+
+    <script src="assets/js/nav.js"></script>
+    {% unless page.hide_cookie_consent %}
+    <script src="assets/js/cookie-consent.js"></script>
+    {% endunless %}
+</body>
+</html>

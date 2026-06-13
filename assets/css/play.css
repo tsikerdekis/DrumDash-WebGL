@@ -1,0 +1,280 @@
+/* ===== Play Page Styles (Unity WebGL) ===== */
+
+:root {
+    --unity-width: 1200px;
+    --unity-min-height: 600px;
+    --unity-mobile-height: 550px;
+}
+
+body {
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #340D82 0%, #667eea 100%);
+    z-index: -10;
+    transition: opacity 2s ease-in-out;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, #1a1a2e 0%, #340D82 100%);
+    z-index: -9;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+
+body.phase-2 .bg-overlay { opacity: 1; }
+body.phase-2::before { opacity: 0.5; }
+
+/* Beta Banner */
+.beta-banner {
+    background: linear-gradient(90deg, #ff9800, #f57c00);
+    color: #1a1a2e;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.beta-banner a {
+    color: #1a1a2e;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Top Bar */
+.top-bar {
+    background: rgba(0,0,0,0.4);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.top-bar .home-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.2s;
+}
+
+.top-bar .home-link:hover { background: rgba(255,255,255,0.2); }
+
+.top-bar .version {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Main content area */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 1rem 2rem;
+}
+
+.game-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+/* Unity Container */
+#unity-container {
+    position: relative;
+    width: 100%;
+    max-width: var(--unity-width);
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    height: fit-content;
+}
+
+#unity-canvas {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    display: block;
+    max-height: calc((100vw - 2rem) * 9 / 16);
+}
+
+#unity-loading-bar {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 10;
+}
+
+#unity-progress-bar-empty {
+    width: 141px; height: 18px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#unity-progress-bar-full {
+    width: 0%; height: 100%;
+    background: #667eea;
+    transition: width 0.2s ease;
+}
+
+#unity-footer {
+    background: rgba(0,0,0,0.5);
+    padding: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 100;
+}
+
+#unity-build-title {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+
+#firefox-warning {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    display: none;
+}
+
+/* Play page footer */
+.play-page footer {
+    width: 100%;
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Theater Mode */
+body.theater-mode {
+    overflow: hidden;
+    height: 100vh !important;
+    min-height: 100vh !important;
+}
+
+body.theater-mode .beta-banner,
+body.theater-mode .top-bar,
+body.theater-mode footer {
+    display: none !important;
+}
+
+body.theater-mode main {
+    height: 100vh;
+    padding: 0;
+    flex: 1;
+}
+
+body.theater-mode .game-wrapper {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    gap: 0;
+    flex-direction: row !important;
+}
+
+body.theater-mode #unity-container {
+    flex: 1;
+    height: 100% !important;
+    max-width: none;
+    border-radius: 0;
+    border: none;
+    aspect-ratio: auto !important;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+body.theater-mode #unity-canvas {
+    flex: 1;
+    width: 100% !important;
+    height: 0 !important;
+    display: block;
+    position: relative !important;
+    top: auto; left: auto;
+    aspect-ratio: auto !important;
+}
+
+body.theater-mode #unity-footer {
+    height: auto;
+    min-height: 40px;
+    position: relative !important;
+    bottom: auto; left: auto; right: auto;
+    z-index: 200;
+    flex-shrink: 0;
+}
+
+/* Play page responsive */
+@media (max-width: 1399px) {
+    .game-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    #unity-container {
+        max-width: var(--unity-width);
+        width: 95vw;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: auto !important;
+    }
+}
+
+@media (max-width: 750px) {
+    #unity-canvas { max-height: 100vh; }
+    #unity-container {
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%);
+    }
+}
+
+@media (min-width: 1400px) {
+    .game-wrapper {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}

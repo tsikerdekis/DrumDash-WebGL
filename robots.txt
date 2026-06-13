@@ -1,0 +1,13 @@
+# DrumDash robots.txt
+# https://drumdash.northshorepress.co
+
+User-agent: *
+Allow: /
+Allow: /img/
+Allow: /assets/
+
+Disallow: /Build/
+Disallow: /StreamingAssets/
+Disallow: /TemplateData/
+
+Sitemap: https://drumdash.northshorepress.co/sitemap.xml

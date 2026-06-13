@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <meta name="author" content="Northshore Press LLC">
+    <meta name="theme-color" content="#340D82">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <title>{{ page.title }}</title>
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:image" content="{{ site.url }}/img/drum_icon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image" content="{{ site.url }}/img/drum_icon.png">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/play.css">
+    <link rel="stylesheet" href="TemplateData/style.css">
+</head>
+<body class="play-page">
+    <div class="bg-overlay"></div>
+
+    {{ content }}
+
+    {% include play-footer.html %}
+
+    <script src="assets/js/nav.js"></script>
+</body>
+</html>
