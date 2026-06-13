@@ -35,5 +35,25 @@ description: "Manage your privacy preferences for DrumDash. Control cookies and 
                 }
             });
         });
+
+        // Persist analytics preference
+        (function() {
+            const analyticsSwitch = document.getElementById('analyticsSwitch');
+            if (!analyticsSwitch) return;
+
+            // Load saved preference
+            const saved = localStorage.getItem('drumdash_analytics_enabled');
+            if (saved === 'true') {
+                analyticsSwitch.classList.add('active');
+            } else if (saved === 'false') {
+                analyticsSwitch.classList.remove('active');
+            }
+
+            // Save on toggle
+            analyticsSwitch.addEventListener('click', function() {
+                const enabled = this.classList.contains('active');
+                localStorage.setItem('drumdash_analytics_enabled', enabled);
+            });
+        })();
     </script>
 </main>
