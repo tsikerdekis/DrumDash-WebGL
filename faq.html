@@ -165,6 +165,15 @@ description: "DrumDash FAQ - Frequently Asked Questions about the drumming game.
         </div>
     </main>
 
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
