@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ page.description }}">
-    <meta name="author" content="Northshore Press LLC">
+    <meta name="author" content="{{ site.author }}">
     <meta name="theme-color" content="#340D82">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <title>{{ page.title }}</title>
@@ -31,9 +31,11 @@
 <body class="play-page">
     <div class="bg-overlay"></div>
 
+    {% include nav.html %}
+
     {{ content }}
 
-    {% include play-footer.html %}
+    {% include footer.html %}
 
     <script src="assets/js/nav.js"></script>
 </body>

@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #1a1a2e;
+    background: var(--brand-dark);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -29,7 +29,7 @@ body::before {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(45deg, #1a1a2e 0%, #340D82 100%);
+    background: linear-gradient(45deg, var(--brand-dark) 0%, #340D82 100%);
     z-index: -9;
     opacity: 0;
     transition: opacity 3s ease-in-out;
@@ -59,38 +59,7 @@ body.phase-2::before { opacity: 0.5; }
     font-weight: 700;
 }
 
-/* Top Bar */
-.top-bar {
-    background: rgba(0,0,0,0.4);
-    padding: 0.6rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.top-bar .home-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 5px;
-    background: rgba(255,255,255,0.1);
-    transition: background 0.2s;
-}
-
-.top-bar .home-link:hover { background: rgba(255,255,255,0.2); }
-
-.top-bar .version {
-    font-size: 0.85rem;
-    opacity: 0.8;
-}
-
-/* Main content area */
+/* Main content area - account for fixed nav */
 main {
     flex: 1;
     display: flex;
@@ -198,7 +167,7 @@ body.theater-mode {
 }
 
 body.theater-mode .beta-banner,
-body.theater-mode .top-bar,
+body.theater-mode nav,
 body.theater-mode footer {
     display: none !important;
 }

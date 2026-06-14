@@ -1,5 +1,13 @@
 /* ===== Legal / Sub-page Styles (Privacy, Terms, Cookies, Contact, FAQ, Privacy Settings) ===== */
 
+.back-link {
+    color: var(--brand-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
 main {
     padding: 7rem 1.5rem 3rem;
     max-width: 900px;
