@@ -1,0 +1,133 @@
+---
+layout: default
+title: "Converting Audio to MIDI Drums: Step by Step"
+description: "Techniques and tools for extracting drum MIDI from audio recordings, including transient detection, multi-band analysis, and manual cleanup for realistic results."
+keywords: "audio to MIDI, drum transcription, transient detection, multi-band analysis, drum MIDI extraction, audio drum conversion, MIDI drums from audio"
+---
+
+<main>
+    <a href="index.html" class="back-link">← Back to Blog</a>
+
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1>Converting Audio to MIDI Drums: Step by Step</h1>
+            <div class="blog-post-meta">
+                <span>June 14, 2026</span> &middot; <span>9 min read</span> &middot; <span>Production &amp; Transcription</span>
+            </div>
+        </header>
+
+        <p>Converting a recorded drum performance into editable MIDI data is one of the most powerful workflows in modern music production. Once you have MIDI drums, you can quantize, replace sounds, adjust velocities, and rearrange patterns without re-recording. The process is not trivial&mdash;audio contains no explicit note information&mdash;but with the right tools and techniques, you can achieve surprisingly accurate results.</p>
+
+        <p>This guide covers the full pipeline: from raw audio to clean MIDI, including the manual cleanup steps that separate amateur transcriptions from professional ones.</p>
+
+        <h2>Why Convert Audio to MIDI?</h2>
+
+        <p>There are several scenarios where audio-to-MIDI conversion is essential:</p>
+
+        <ul>
+            <li><strong>Sample replacement:</strong> You recorded a great performance with mediocre drum sounds. MIDI lets you trigger superior samples while preserving the feel.</li>
+            <li><strong>Editing:</strong> Fix a single flubbed fill without re-tracking the entire song.</li>
+            <li><strong>Notation:</strong> Generate sheet music from a performance for educational or archival purposes.</li>
+            <li><strong>Practice material:</strong> Convert your favorite songs into DrumDash charts for practice.</li>
+        </ul>
+
+        <h2>The Tools You Need</h2>
+
+        <p>Several software options exist, ranging from free to professional:</p>
+
+        <ul>
+            <li><strong>Ableton Live:</strong> Built-in audio-to-MIDI conversion with dedicated drum mode. Best for users already in the Ableton ecosystem.</li>
+            <li><strong>Logic Pro:</strong> Drum replacement and doubling features that generate MIDI from audio transients.</li>
+            <li><strong>Melodyne:</strong> The industry standard for pitch and timing analysis. The drum transcription features are excellent but expensive.</li>
+            <li><strong>Spleeter / Demucs:</strong> Open-source source separation tools that isolate drums from a full mix, making transcription much easier.</li>
+            <li><strong>DrumDash (built-in):</strong> For practice purposes, DrumDash's import feature automatically converts audio to playable charts without requiring manual MIDI export.</li>
+        </ul>
+
+        <h2>Step 1: Isolate the Drums</h2>
+
+        <p>The biggest challenge in audio-to-MIDI conversion is <strong>interference</strong>: bass guitars, vocals, and keyboards overlap with drum frequencies and create false transients. If you are working with a full mix, your first task is to separate the drum track.</p>
+
+        <p><strong>Source separation</strong> using machine learning has made this dramatically easier. Tools like <strong>Spleeter</strong> (developed by Deezer) and <strong>Demucs</strong> (Meta AI) can split a stereo mix into stems: drums, bass, vocals, and other. The drum stem is not perfect&mdash;there is often bleed from bass and cymbals&mdash;but it is far cleaner than the full mix for transcription purposes.</p>
+
+        <p>If you have access to the multitrack recording (separate mic channels for kick, snare, overheads, etc.), skip source separation entirely. Individual drum tracks are the gold standard for transcription because each mic captures primarily one instrument.</p>
+
+        <h2>Step 2: Transient Detection</h2>
+
+        <p>Transients are the sharp amplitude spikes at the beginning of each drum hit. Detecting them accurately is the core of the conversion process.</p>
+
+        <p>Most DAWs offer a transient detection algorithm that analyzes the audio waveform and places markers at likely hit locations. The key parameters to adjust are:</p>
+
+        <ul>
+            <li><strong>Sensitivity:</strong> How sharp a spike needs to be to register as a transient. Too high, and you miss ghost notes; too low, and you detect noise and bleed.</li>
+            <li><strong>Minimum distance:</strong> The shortest allowed time between two transients. For drums, 20-30ms is typical (corresponding to a maximum of 50 hits per second, which covers even the fastest rolls).</li>
+        </ul>
+
+        <p>For multitrack recordings, run transient detection on each drum channel separately. The kick mic will detect kick transients; the snare mic will detect snare transients. This avoids the ambiguity of trying to classify transients from a mixed signal.</p>
+
+        <h2>Step 3: Multi-Band Analysis for Classification</h2>
+
+        <p>If you are working from a single mixed drum track (or a full mix), you need to classify each transient as kick, snare, hi-hat, or cymbal. This is where <strong>multi-band analysis</strong> helps.</p>
+
+        <p>Drums occupy distinct frequency ranges:</p>
+
+        <ul>
+            <li><strong>Kick:</strong> 30-100 Hz fundamental, with harmonics up to 1 kHz</li>
+            <li><strong>Snare:</strong> 200-400 Hz body, 2-5 kHz crack, 8-10 kHz wire buzz</li>
+            <li><strong>Hi-hat:</strong> 5-12 kHz, with a sharp transient and short decay</li>
+            <li><strong>Crash / ride:</strong> Broadband, sustained, with energy across the spectrum</li>
+            <li><strong>Toms:</strong> 100-300 Hz, with a pitched character</li>
+        </ul>
+
+        <p>By analyzing the spectral content around each transient, you can make educated guesses about the drum type. For example, a transient with strong energy below 100 Hz is almost certainly a kick; a transient with a sharp spike at 8 kHz and rapid decay is likely a hi-hat.</p>
+
+        <p>Advanced tools like Melodyne and Drumagog use machine learning classifiers trained on thousands of labeled drum hits. These classifiers consider not just frequency content but also envelope shape, stereo width, and contextual patterns (e.g., a hit following a kick is more likely to be a snare).</p>
+
+        <h2>Step 4: Convert to MIDI</h2>
+
+        <p>Once transients are detected and classified, the conversion to MIDI is straightforward. Each transient becomes a MIDI note with:</p>
+
+        <ul>
+            <li><strong>Note number:</strong> Mapped to the corresponding drum (36 for kick, 38 for snare, 42 for closed hi-hat, etc.)</li>
+            <li><strong>Velocity:</strong> Derived from the transient's peak amplitude. Some tools apply a logarithmic scaling to match human loudness perception.</li>
+            <li><strong>Timing:</strong> The exact sample position of the transient, converted to MIDI ticks.</li>
+            <li><strong>Duration:</strong> Estimated from the decay of the drum sound. For cymbals, this might be several seconds; for kicks, just a few milliseconds.</li>
+        </ul>
+
+        <p>The resulting MIDI file is a literal transcription of the performance, including all timing imperfections and dynamic variations.</p>
+
+        <h2>Step 5: Manual Cleanup</h2>
+
+        <p>Automatic transcription is never perfect. Here are the most common errors and how to fix them:</p>
+
+        <h3>False Positives</h3>
+        <p>These are MIDI notes that correspond to non-drum sounds: bass guitar plucks, vocal consonants, keyboard clicks. Scan the MIDI piano roll for notes that do not align with the drum pattern you hear. Delete them.</p>
+
+        <h3>Missed Ghost Notes</h3>
+        <p>Very quiet strokes, particularly on the snare, often fall below the transient detection threshold. Listen carefully to the original audio and manually add MIDI notes where you hear subtle hits. Set their velocities low (20-40) to match the quiet dynamics.</p>
+
+        <h3>Misclassified Drums</h3>
+        <p>A loud rimshot might be classified as a crash cymbal; a floor tom might be mistaken for a kick. Use your ears: solo each MIDI channel and compare it to the original audio. Reassign notes that sound wrong.</p>
+
+        <h3>Timing Drift</h3>
+        <p>In songs with tempo changes or rubato sections, the automatic transcription may drift relative to the beat grid. Use your DAW's warp or groove functions to align the MIDI to the musical grid without destroying the feel.</p>
+
+        <h3>Velocity Compression</h3>
+        <p>Automatic velocity scaling sometimes compresses the dynamic range, making all hits sound similar. Select all notes of a given drum type and apply a velocity curve that restores the original performance's dynamics. In Ableton, the "Velocity" MIDI effect can help; in Logic, use the MIDI Transform window.</p>
+
+        <h2>Step 6: Import into DrumDash</h2>
+
+        <p>Once your MIDI is clean, you can import it directly into DrumDash for practice. The app recognizes standard GM drum mappings and generates a chart automatically. If you created the MIDI specifically for DrumDash, consider these tips:</p>
+
+        <ul>
+            <li><strong>Quantize loosely:</strong> DrumDash's difficulty engine handles microtiming, but extreme quantization (to the nearest 1/64 note) can create unplayable clusters.</li>
+            <li><strong>Limit simultaneous hits:</strong> While real drummers can hit four limbs at once, DrumDash's interface is optimized for two to three simultaneous notes. Simplify dense passages if they exceed the game's display capacity.</li>
+            <li><strong>Test at multiple difficulties:</strong> Import the MIDI and play through Easy, Normal, Hard, and Expert to ensure the chart feels balanced at each level.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+
+        <p>Audio-to-MIDI conversion is a powerful workflow that bridges the gap between recorded performance and editable data. While automatic tools have improved dramatically, the human ear remains the final arbiter of quality. By combining source separation, transient detection, multi-band analysis, and careful manual cleanup, you can produce MIDI transcriptions that are accurate, musical, and ready for production or practice.</p>
+
+        <p>For DrumDash users, this means access to an unlimited library of practice material. Any song you can record, you can convert, clean up, and play.</p>
+    </article>
+</main>

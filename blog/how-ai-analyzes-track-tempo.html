@@ -1,0 +1,109 @@
+---
+layout: default
+title: "How AI Analyzes Track Tempo and Structure"
+description: "Inside DrumDash's beat detection pipeline: onset detection, Fourier transforms, dynamic programming for tempo tracking, and how we turn raw audio into playable charts."
+keywords: "AI tempo analysis, beat detection, onset detection, Fourier transform, dynamic programming, audio analysis, drum chart generation, machine learning music"
+---
+
+<main>
+    <a href="index.html" class="back-link">← Back to Blog</a>
+
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1>How AI Analyzes Track Tempo and Structure</h1>
+            <div class="blog-post-meta">
+                <span>June 14, 2026</span> &middot; <span>9 min read</span> &middot; <span>AI &amp; Audio Engineering</span>
+            </div>
+        </header>
+
+        <p>When you drop an MP3 into DrumDash and see a playable drum chart appear seconds later, you are witnessing the output of a multi-stage signal processing pipeline. Behind the simplicity of the user experience lies a sophisticated chain of algorithms that extract musical meaning from raw audio waveforms. This article pulls back the curtain on how that pipeline works, from the first Fourier transform to the final quantized note placement.</p>
+
+        <h2>Stage 1: Onset Detection</h2>
+
+        <p>The first challenge in automatic chart generation is identifying <strong>when</strong> musical events happen. An onset is the precise moment a new sound begins&mdash;a snare hit, a kick drum, a chord change. Detecting onsets accurately is the foundation of everything that follows.</p>
+
+        <p>DrumDash uses a <strong>spectral flux</strong> approach for onset detection. The audio signal is divided into short overlapping frames (typically 1024 samples at 44.1 kHz, with a hop size of 512 samples). For each frame, we compute a Short-Time Fourier Transform (STFT) to obtain the magnitude spectrum. The spectral flux between consecutive frames measures how much the spectrum changes:</p>
+
+        <pre class="code-block">Flux(t) = Σ (|X(t, k)| - |X(t-1, k)|)²
+where X(t, k) is the STFT magnitude at frame t and frequency bin k,
+and only positive differences are summed.</pre>
+
+        <p>High flux values indicate rapid spectral change, which usually corresponds to an onset. However, not every flux peak is a drum hit. Vocals, guitar strums, and synthesizer sweeps also produce flux spikes. To separate drum onsets from non-drum onsets, we apply a <strong>frequency-weighted mask</strong> that emphasizes the low-frequency energy characteristic of kick drums and the mid-frequency transients typical of snares.</p>
+
+        <h2>Stage 2: Tempo Estimation</h2>
+
+        <p>Once we have a list of candidate onsets, the next task is to determine the underlying tempo. This is harder than it sounds because real music rarely maintains a perfectly steady BPM. Live recordings drift. Producers intentionally vary tempo for feel. And some genres, like progressive rock, deliberately shift time signatures.</p>
+
+        <p>DrumDash employs a <strong> multi-agent tempo tracker</strong> inspired by the work of Simon Dixon and later refined by researchers at Queen Mary University of London. The algorithm works as follows:</p>
+
+        <ol>
+            <li><strong>Generate tempo hypotheses:</strong> For every pair of onsets, calculate the inter-onset interval (IOI). Cluster these IOIs into a histogram. Peaks in the histogram correspond to likely beat periods (e.g., 500ms = 120 BPM, 600ms = 100 BPM).</li>
+            <li><strong>Spawn tracking agents:</strong> Each peak spawns an independent "agent" that attempts to track the beat through the entire song. Agents predict the next beat time based on their current tempo hypothesis and adjust if the prediction is close to an actual onset.</li>
+            <li><strong>Score and prune:</strong> Agents accumulate a score based on how many onsets they successfully predict. Agents with low scores or wildly inconsistent predictions are pruned. The surviving agent with the highest score represents the song's dominant tempo.</li>
+        </ol>
+
+        <p>This approach is robust to tempo drift because agents can gradually adjust their internal tempo. It also handles ambiguous sections&mdash;such as drum fills or breakdowns&mdash;by maintaining multiple hypotheses until the evidence supports one over the others.</p>
+
+        <h2>Stage 3: Beat Tracking and Quantization</h2>
+
+        <p>With a tempo estimate in hand, we now need to align the onsets to a musical grid. This is where <strong>dynamic programming</strong> shines.</p>
+
+        <p>We construct a cost matrix where each row represents a detected onset and each column represents a potential beat position (quarter note, eighth note, or sixteenth note, depending on the granularity we want). The cost of assigning an onset to a beat position is a combination of:</p>
+
+        <ul>
+            <li><strong>Temporal distance:</strong> How far the onset is from the ideal beat time. Closer is cheaper.</li>
+            <li><strong>Salience:</strong> How strong the onset is. Strong onsets are more likely to be "real" beats.</li>
+            <li><strong>Metrical preference:</strong> Onsets on downbeats (beat 1 of a measure) are preferred over weak beats, based on statistical priors learned from a large corpus of drum transcriptions.</li>
+        </ul>
+
+        <p>The Viterbi algorithm finds the globally optimal path through this matrix, giving us a sequence of beat-aligned onsets. This is significantly more accurate than greedy quantization because it considers the entire song context rather than snapping each note independently.</p>
+
+        <h2>Stage 4: Drum Classification</h2>
+
+        <p>Not every onset should become a playable note in DrumDash. We need to know <strong>what</strong> was hit, not just <strong>when</strong>. Drum classification uses a lightweight convolutional neural network (CNN) trained on the <strong>IDMT-SMT Audio Effects Dataset</strong> and an internal dataset of labeled drum hits.</p>
+
+        <p>For each onset, we extract a 100ms audio snippet centered on the onset time and compute a <strong>mel-frequency spectrogram</strong>. The CNN receives this spectrogram as input and outputs probabilities across five drum classes:</p>
+
+        <ul>
+            <li>Kick drum</li>
+            <li>Snare drum</li>
+            <li>Hi-hat (closed)</li>
+            <li>Hi-hat (open) / crash cymbal</li>
+            <li>Tom (any)</li>
+        </ul>
+
+        <p>The model is intentionally small (under 2MB) so it can run on mobile devices without requiring a cloud connection. On a modern smartphone, classification takes approximately 5ms per onset, making real-time chart generation feasible even for long songs.</p>
+
+        <h2>Stage 5: Difficulty Scaling</h2>
+
+        <p>The final stage transforms the raw transcription into four playable difficulty levels. This is not simply a matter of deleting notes. DrumDash's difficulty engine models <strong>playability</strong> as a function of:</p>
+
+        <ul>
+            <li><strong>Note density:</strong> Notes per second, weighted by limb independence (e.g., simultaneous kick and snare are harder than alternating hands).</li>
+            <li><strong>Rhythmic complexity:</strong> Syncopation, off-beat accents, and tuplets increase difficulty.</li>
+            <li><strong>Velocity variation:</strong> Charts with wide dynamic ranges are harder to play expressively.</li>
+            <li><strong>Pattern memorability:</strong> Repeating patterns are easier than constantly changing ones, even at the same raw density.</li>
+        </ul>
+
+        <p>For Easy mode, the engine selects the most salient onsets (usually kick and snare on downbeats) and spaces them generously. For Expert, it includes ghost notes, rapid hi-hat subdivisions, and fills that mirror the original drummer's performance as closely as the transcription allows.</p>
+
+        <h2>Limitations and Edge Cases</h2>
+
+        <p>No automatic transcription system is perfect. DrumDash struggles with:</p>
+
+        <ul>
+            <li><strong>Heavily distorted guitars</strong> masking kick drum transients in metal mixes.</li>
+            <li><strong>Sparse arrangements</strong> where drums are absent for long stretches, making tempo tracking drift.</li>
+            <li><strong>Live recordings with extreme tempo rubato</strong>, where the beat is intentionally fluid.</li>
+            <li><strong>Polyrhythmic sections</strong> where the dominant pulse is ambiguous.</li>
+        </ul>
+
+        <p>In these cases, DrumDash falls back to a simpler beat-grid estimate and flags the chart as "auto-generated" so the player knows to expect imperfections. Users can also import pre-made MIDI files for songs where automatic transcription is unreliable.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Turning a raw audio file into a playable drum chart is a problem at the intersection of signal processing, machine learning, and music theory. DrumDash's pipeline represents a pragmatic balance between accuracy and computational efficiency: it runs entirely on-device, processes most songs in under ten seconds, and produces charts that are musically coherent across four difficulty levels.</p>
+
+        <p>As research in music information retrieval continues to advance&mdash;particularly in the areas of source separation and transformer-based sequence modeling&mdash;we expect the quality of automatic transcriptions to improve significantly. For now, the combination of spectral analysis, dynamic programming, and lightweight neural networks provides a robust foundation for learning drums through the music you already love.</p>
+    </article>
+</main>

@@ -1,0 +1,117 @@
+---
+layout: default
+title: "Latency Optimization for Web-Based Music Tools"
+description: "How DrumDash minimizes input lag in the browser: AudioWorklet, WASM, buffer sizing, and why Web MIDI latency still matters even when you are not recording."
+keywords: "web audio latency, AudioWorklet, WebAssembly, MIDI latency, browser audio performance, Web MIDI, buffer size, low latency drumming"
+---
+
+<main>
+    <a href="index.html" class="back-link">← Back to Blog</a>
+
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1>Latency Optimization for Web-Based Music Tools</h1>
+            <div class="blog-post-meta">
+                <span>June 14, 2026</span> &middot; <span>6 min read</span> &middot; <span>Web Audio &amp; Performance</span>
+            </div>
+        </header>
+
+        <p>Latency is the enemy of musical expression. When a drummer strikes a pad and hears the sound 50 milliseconds later, the disconnect is palpable. For web-based music applications, latency has historically been a deal-breaker. Browsers were not designed for real-time audio processing, and early web audio APIs introduced delays that made precise timing impossible.</p>
+
+        <p>That has changed. Modern web technologies&mdash;AudioWorklet, WebAssembly, and optimized buffer management&mdash;have brought browser-based audio latency into the same ballpark as native applications. This article explains how DrumDash achieves responsive performance in the browser and what you can do to minimize latency on your own system.</p>
+
+        <h2>Understanding Latency: The Full Chain</h2>
+
+        <p>Latency is not a single number. It is the sum of multiple delays across the signal path:</p>
+
+        <ul>
+            <li><strong>Input latency:</strong> Time from physical strike to MIDI message generation (typically 1-5ms for USB MIDI devices).</li>
+            <li><strong>MIDI transport:</strong> Time for the MIDI message to reach the browser via the Web MIDI API (usually <1ms on modern systems).</li>
+            <li><strong>Processing latency:</strong> Time for the application to receive the MIDI message, schedule the corresponding audio event, and generate the sound.</li>
+            <li><strong>Buffer latency:</strong> Time for the audio buffer to fill before the operating system reads it and sends it to the audio hardware.</li>
+            <li><strong>Output latency:</strong> Time for the audio interface to convert digital audio to analog and send it to headphones or speakers.</li>
+        </ul>
+
+        <p>The total round-trip latency is the sum of all these stages. For comfortable drumming, most players need total latency below 20ms. Above 30ms, the delay becomes distracting; above 50ms, it is nearly unplayable for fast passages.</p>
+
+        <h2>The AudioWorklet Revolution</h2>
+
+        <p>Before AudioWorklet, web audio processing ran on the main JavaScript thread. This meant that any heavy computation&mdash;rendering graphics, loading assets, or even garbage collection&mdash;could delay audio processing and cause glitches. The old ScriptProcessorNode API forced developers to choose between low latency (small buffers, frequent glitches) and stability (large buffers, noticeable delay).</p>
+
+        <p><strong>AudioWorklet</strong>, introduced in the Web Audio API specification, solves this by running audio processing on a dedicated high-priority thread. The main thread and the audio thread communicate via shared memory, allowing the audio thread to generate samples with microsecond-level precision regardless of what the main thread is doing.</p>
+
+        <p>DrumDash uses AudioWorklet for all real-time audio synthesis and sample playback. When you hit a drum pad, the MIDI message is forwarded to the AudioWorklet processor, which schedules the sample playback with sample-accurate timing. This eliminates the jitter that plagued older web audio implementations.</p>
+
+        <h2>WebAssembly for Compute-Heavy Tasks</h2>
+
+        <p>JavaScript is a high-level, garbage-collected language that is not optimized for numerical computation. For tasks like audio analysis, beat detection, and real-time effects, pure JavaScript can introduce unpredictable delays.</p>
+
+        <p><strong>WebAssembly (WASM)</strong> allows web applications to run compiled code at near-native speed. DrumDash uses WASM for:</p>
+
+        <ul>
+            <li><strong>Onset detection:</strong> Analyzing imported audio files to find beat positions.</li>
+            <li><strong>Tempo estimation:</strong> Running the multi-agent tempo tracker described in our <a href="how-ai-analyzes-track-tempo.html">AI analysis article</a>.</li>
+            <li><strong>Chart generation:</strong> Converting analysis results into playable note data.</li>
+        </ul>
+
+        <p>By offloading these tasks to WASM, DrumDash keeps the main thread free for UI updates and input handling. The result is a smoother, more responsive experience even on lower-end devices.</p>
+
+        <h2>Buffer Sizing: The Latency-Stability Tradeoff</h2>
+
+        <p>The audio buffer size is the single most important parameter for latency. A smaller buffer means lower latency but higher CPU usage and greater risk of dropouts (clicks and pops). A larger buffer is more stable but introduces more delay.</p>
+
+        <p>DrumDash automatically selects a buffer size based on your device's capabilities:</p>
+
+        <ul>
+            <li><strong>128 samples (~2.9ms at 44.1kHz):</strong> Used on high-performance systems with dedicated audio interfaces. Provides the lowest possible latency.</li>
+            <li><strong>256 samples (~5.8ms):</strong> The default for most desktop systems. A good balance between latency and stability.</li>
+            <li><strong>512 samples (~11.6ms):</strong> Used on lower-end laptops and mobile devices where CPU headroom is limited.</li>
+            <li><strong>1024 samples (~23.2ms):</strong> Fallback for systems that cannot maintain smaller buffers without dropouts. Still playable, but less responsive.</li>
+        </ul>
+
+        <p>Users can override the automatic selection in DrumDash's settings if they have a specific audio interface or performance requirement. We recommend starting with the automatic setting and only changing it if you experience issues.</p>
+
+        <h2>Web MIDI API: Browser Support and Limitations</h2>
+
+        <p>The Web MIDI API allows browsers to communicate directly with MIDI hardware&mdash;electronic drum kits, controllers, and interfaces&mdash;without plugins or drivers. As of 2026, support is as follows:</p>
+
+        <ul>
+            <li><strong>Chrome / Edge:</strong> Full support. The most reliable browsers for MIDI-based music applications.</li>
+            <li><strong>Firefox:</strong> Supported behind a flag in some versions; check your browser settings.</li>
+            <li><strong>Safari:</strong> Limited support. Apple has been slow to adopt Web MIDI, and implementation is incomplete on both macOS and iOS.</li>
+        </ul>
+
+        <p>Even with full API support, MIDI latency varies by operating system. macOS generally provides lower MIDI latency than Windows due to its more efficient audio and MIDI subsystems. Linux with a real-time kernel (PREEMPT_RT) can achieve the lowest latencies of all, though configuration is more complex.</p>
+
+        <h2>Practical Tips for Reducing Latency</h2>
+
+        <p>Beyond the technical architecture, here are steps you can take to minimize latency when using DrumDash or any web-based music tool:</p>
+
+        <ul>
+            <li><strong>Use a dedicated audio interface:</strong> Built-in sound cards have higher latency and poorer drivers than interfaces from Focusrite, Steinberg, or Presonus. Even an entry-level interface ($100-150) makes a noticeable difference.</li>
+            <li><strong>Close background applications:</strong> Browsers compete with other apps for CPU and memory. Close unnecessary tabs and programs before playing.</li>
+            <li><strong>Use wired connections:</strong> Bluetooth MIDI and audio introduce 20-40ms of additional latency. Use USB cables for your drum kit and wired headphones for monitoring.</li>
+            <li><strong>Update your audio drivers:</strong> Outdated ASIO (Windows) or Core Audio (macOS) drivers can cause performance issues. Check your interface manufacturer's website for updates.</li>
+            <li><strong>Disable power saving:</strong> On laptops, power management features throttle the CPU, which can cause audio dropouts. Plug in your laptop and set the power plan to "High Performance" while playing.</li>
+        </ul>
+
+        <h2>Measuring Your Actual Latency</h2>
+
+        <p>If you want to know your exact latency, try this simple test:</p>
+
+        <ol>
+            <li>Connect your electronic drum kit to your computer via USB.</li>
+            <li>Open DrumDash in the browser and load any song.</li>
+            <li>Record the audio output (using a separate device or software) while you play a single steady beat.</li>
+            <li>Import the recording into a DAW and measure the time between the MIDI note and the corresponding audio peak.</li>
+        </ol>
+
+        <p>A well-optimized system should show 10-15ms total latency. If you are seeing 30ms or more, review the tips above and consider upgrading your audio interface.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Web-based music production and practice are no longer second-class citizens. With AudioWorklet, WebAssembly, and careful buffer management, DrumDash delivers latency that rivals native applications. The remaining gap is largely in hardware and system configuration, not in the browser itself.</p>
+
+        <p>As browser standards continue to evolve and hardware improves, we expect web audio latency to approach the theoretical minimum. For now, the combination of modern APIs and thoughtful optimization makes the web a viable platform for serious drumming practice.</p>
+    </article>
+</main>

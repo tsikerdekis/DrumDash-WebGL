@@ -1,16 +1,17 @@
 <nav>
     <div class="nav-inner">
-        <a href="{% if page.nav_home %}{{ page.nav_home }}{% else %}index.html{% endif %}" class="nav-logo">
-            <img src="img/drum_icon.png" alt="DrumDash">
+        <a href="{% if page.nav_home %}{{ page.nav_home }}{% else %}{{ site.baseurl }}/index.html{% endif %}" class="nav-logo">
+            <img src="{{ site.baseurl }}/img/drum_icon.png" alt="DrumDash">
             DrumDash
         </a>
         <button class="nav-toggle" aria-label="Toggle menu">☰</button>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#press">Press</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
+            <li><a href="{{ site.baseurl }}/index.html#about">About</a></li>
+            <li><a href="{{ site.baseurl }}/blog/index.html">Blog</a></li>
+            <li><a href="{{ site.baseurl }}/index.html#press">Press</a></li>
+            <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
+            <li><a href="{{ site.baseurl }}/faq.html">FAQ</a></li>
             <li><a href="https://discord.gg/D5g5rQuGbU" target="_blank">Discord</a></li>
             <li><a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" class="nav-cta">Get on Google Play</a></li>
         </ul>

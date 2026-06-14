@@ -1,0 +1,143 @@
+---
+layout: default
+title: "How to Route Audio Mixers for Virtual MIDI"
+description: "A complete walkthrough on configuring virtual MIDI routing between your DAW, electronic drum kit, and software instruments without hardware loopback cables."
+keywords: "virtual MIDI, audio routing, DAW setup, MIDI loopback, electronic drums, software instruments, drum mixing"
+---
+
+<main>
+    <a href="index.html" class="back-link">← Back to Blog</a>
+
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1>How to Route Audio Mixers for Virtual MIDI</h1>
+            <div class="blog-post-meta">
+                <span>June 14, 2026</span> &middot; <span>8 min read</span> &middot; <span>MIDI &amp; Audio Routing</span>
+            </div>
+        </header>
+
+        <p>Virtual MIDI routing is one of the most powerful and underutilized tools in a modern drummer's workflow. Whether you are triggering software instruments from an electronic kit, sending drum patterns from a DAW to a hardware module, or layering samples in real time, understanding how to route MIDI without physical cables opens up possibilities that were impossible just a decade ago.</p>
+
+        <p>This guide covers the fundamentals of virtual MIDI routing on Windows and macOS, common pitfalls, and practical configurations for popular DAWs including Ableton Live, Logic Pro, FL Studio, and Reaper.</p>
+
+        <h2>What Is Virtual MIDI Routing?</h2>
+
+        <p>Traditional MIDI requires a physical 5-pin DIN cable (or USB-MIDI) connecting an output port to an input port. Virtual MIDI eliminates the cable by creating software-only endpoints that applications can read from and write to as if they were hardware ports.</p>
+
+        <p>On macOS, this is built into the operating system via the <strong>IAC (Inter-Application Communication) Driver</strong>. On Windows, you typically need a third-party utility such as <strong>loopMIDI</strong> by Tobias Erichsen or <strong>MIDI-OX</strong> combined with a virtual cable driver.</p>
+
+        <h2>Setting Up Virtual MIDI on macOS</h2>
+
+        <p>Apple's IAC Driver has been part of macOS since the Classic era, yet many users never touch it. Here is how to enable it:</p>
+
+        <ol>
+            <li>Open <strong>Audio MIDI Setup</strong> (found in Applications > Utilities).</li>
+            <li>From the <strong>Window</strong> menu, select <strong>Show MIDI Studio</strong>.</li>
+            <li>Double-click the <strong>IAC Driver</strong> icon.</li>
+            <li>Check <strong>Device is online</strong>.</li>
+            <li>Click the <strong>+</strong> button under <strong>Ports</strong> to add a new bus. You can name it anything descriptive, such as "DrumDash Bus" or "E-Kit to Ableton."</li>
+        </ol>
+
+        <p>Once active, the IAC bus appears as both a MIDI input and output in every audio application on your Mac. You can now send MIDI from DrumDash (or any other app) into Ableton Live by selecting the IAC bus as the output in one app and the input in another.</p>
+
+        <h2>Setting Up Virtual MIDI on Windows</h2>
+
+        <p>Windows does not include a native virtual MIDI driver, so you will need to install one. The most reliable and widely used option is <strong>loopMIDI</strong>.</p>
+
+        <ol>
+            <li>Download <strong>loopMIDI</strong> from Tobias Erichsen's website.</li>
+            <li>Install and launch the application.</li>
+            <li>At the bottom of the window, enter a name for your virtual port (e.g., "Virtual Drum MIDI") and click the <strong>+</strong> button.</li>
+            <li>The port now appears in every MIDI-capable application on your system.</li>
+        </ol>
+
+        <p>Unlike macOS's IAC Driver, loopMIDI ports are unidirectional. If you need bidirectional communication, create two ports and route them accordingly. For most drum workflows&mdash;sending pad hits from an e-kit to a sampler&mdash;a single port is sufficient.</p>
+
+        <h2>Configuring Your DAW</h2>
+
+        <p>Every DAW handles MIDI input slightly differently. Below are the specific steps for the most common platforms.</p>
+
+        <h3>Ableton Live</h3>
+
+        <ol>
+            <li>Open <strong>Preferences > Link/Tempo/MIDI</strong>.</li>
+            <li>Under <strong>MIDI Ports</strong>, find your virtual port in the <strong>Input</strong> list.</li>
+            <li>Toggle <strong>Track</strong> and <strong>Remote</strong> to <strong>On</strong> for that port.</li>
+            <li>Create a MIDI track, set its <strong>MIDI From</strong> dropdown to your virtual port, and arm the track for recording.</li>
+            <li>Load a drum rack or instrument on the track. Incoming MIDI notes will now trigger the instrument.</li>
+        </ol>
+
+        <h3>Logic Pro</h3>
+
+        <ol>
+            <li>Open <strong>Logic Pro > Preferences > MIDI</strong>.</li>
+            <li>Ensure your IAC bus is visible under <strong>Input Devices</strong>.</li>
+            <li>Create a Software Instrument track.</li>
+            <li>In the track inspector, set the MIDI input to your IAC bus.</li>
+            <li>Load Drum Kit Designer, Ultrabeat, or a third-party AU instrument.</li>
+        </ol>
+
+        <h3>FL Studio</h3>
+
+        <ol>
+            <li>Open <strong>Options > MIDI Settings</strong>.</li>
+            <li>Under <strong>Input</strong>, find your virtual port and enable it.</li>
+            <li>Set the <strong>Controller Type</strong> to <strong>Generic Controller</strong>.</li>
+            <li>In the Channel Rack, add a VST instrument such as FPC or a third-party drum sampler.</li>
+            <li>Right-click the instrument, choose <strong>Piano roll > Receive notes from</strong>, and select your virtual port.</li>
+        </ol>
+
+        <h3>Reaper</h3>
+
+        <ol>
+            <li>Open <strong>Options > Preferences > Audio > MIDI Devices</strong>.</li>
+            <li>Right-click your virtual port under <strong>MIDI Inputs</strong> and choose <strong>Enable input</strong>.</li>
+            <li>Create a new track and click the <strong>IO</strong> button.</li>
+            <li>Under <strong>MIDI Hardware Input</strong>, select your virtual port.</li>
+            <li>Insert a VSTi on the track. Reaper's routing is extremely flexible; you can also use <strong>ReaRoute</strong> for audio if needed.</li>
+        </ol>
+
+        <h2>Practical Use Case: Layering Samples in Real Time</h2>
+
+        <p>One of the most common reasons drummers set up virtual MIDI is to augment a hardware drum module with software samples. For example, you might want the punch of a Roland TD-50's snare trigger combined with the room ambience of a Kontakt drum library.</p>
+
+        <p>Here is a typical signal chain:</p>
+
+        <ul>
+            <li><strong>Electronic drum kit</strong> sends MIDI over USB to the computer.</li>
+            <li><strong>DrumDash or a MIDI utility</strong> receives the MIDI and forwards it to a virtual port.</li>
+            <li><strong>DAW</strong> listens to the virtual port and triggers a software instrument.</li>
+            <li><strong>Audio interface</strong> sends the mixed output (hardware module + software samples) to headphones or monitors.</li>
+        </ul>
+
+        <p>The key advantage is <strong>zero additional latency</strong> compared to routing audio out of the computer and back in through a hardware loopback. The MIDI data itself is tiny&mdash;just a few bytes per note&mdash;so it travels through the virtual pipe almost instantaneously.</p>
+
+        <h2>Troubleshooting Common Issues</h2>
+
+        <p>Even with the right tools, virtual MIDI can be finicky. Here are the problems we see most often and how to fix them.</p>
+
+        <h3>"No MIDI Input Detected"</h3>
+
+        <p>This usually means the sending application is not actually writing to the virtual port, or the receiving application is not listening on the correct channel. Double-check that:</p>
+
+        <ul>
+            <li>The virtual port is online (macOS: IAC Driver is enabled; Windows: loopMIDI is running).</li>
+            <li>The output device in the sender matches the input device in the receiver.</li>
+            <li>No other application has exclusive control of the MIDI port (some drivers allow only one client).</li>
+        </ul>
+
+        <h3>Double Triggers or Note Doubling</h3>
+
+        <p>If you hear two hits for every pad strike, you likely have both the hardware module and the software instrument receiving the same MIDI data simultaneously. Mute the hardware module's internal sounds or set its <strong>Local Control</strong> to <strong>Off</strong> so it only sends MIDI without generating audio.</p>
+
+        <h3>Dropped Notes Under Heavy Load</h3>
+
+        <p>If notes disappear during fast rolls or dense passages, increase your audio buffer size temporarily. While this adds a small amount of latency, it gives the CPU more headroom to process MIDI and audio together. A buffer of 256 or 512 samples is usually a safe compromise.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Virtual MIDI routing is an essential skill for any drummer working with hybrid setups. Once configured, it becomes invisible&mdash;you simply play your kit, and the sounds you want come out of your monitors. Whether you are practicing with DrumDash, recording in a DAW, or performing live with layered samples, the ability to move MIDI data freely between applications is what makes modern electronic drumming possible.</p>
+
+        <p>If you are using DrumDash's WebGL beta, note that browser-based MIDI access is handled through the Web MIDI API. Chrome and Edge support it natively; Safari support is improving but still limited. For the lowest latency, we recommend the native Android app or a desktop browser with a dedicated audio workstation setup.</p>
+    </article>
+</main>

@@ -184,6 +184,157 @@ li { margin-bottom: 0.5rem; color: var(--text-muted); }
 .faq-answer li { margin-bottom: 0.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
 .faq-answer a { color: var(--brand-accent); text-decoration: underline; }
 
+/* ===== Blog Styles ===== */
+
+.blog-index {
+    padding: 7rem 1.5rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.blog-index h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.blog-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.05);
+}
+
+.blog-card h2 {
+    font-size: 1.15rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #d0d0ff;
+    line-height: 1.35;
+}
+
+.blog-card h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.blog-card h2 a:hover {
+    text-decoration: underline;
+}
+
+.blog-card p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.blog-card-meta {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.blog-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: rgba(102,126,234,0.12);
+    border: 1px solid rgba(102,126,234,0.25);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--brand-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Blog Post Article */
+.blog-post {
+    padding: 7rem 1.5rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-post-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.blog-post-header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+}
+
+.blog-post-meta {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+}
+
+.blog-post h2 {
+    color: #b0b0ff;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.blog-post h3 {
+    color: #c0c0ff;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.blog-post p {
+    margin-bottom: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.blog-post ul,
+.blog-post ol {
+    margin: 1rem 0 1.25rem 1.75rem;
+}
+
+.blog-post li {
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.blog-post pre.code-block {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    overflow-x: auto;
+    margin: 1.25rem 0;
+}
+
 /* Privacy Settings toggles */
 .setting-card {
     background: rgba(255,255,255,0.04);

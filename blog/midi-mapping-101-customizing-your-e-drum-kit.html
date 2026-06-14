@@ -1,0 +1,119 @@
+---
+layout: default
+title: "MIDI Mapping 101: Customizing Your E-Drum Kit"
+description: "How to remap pads, adjust velocity curves, and configure MIDI note assignments so your electronic kit feels natural across different software and games."
+keywords: "MIDI mapping, e-drum customization, velocity curves, MIDI note assignments, electronic drum kit setup, drum pad mapping, MIDI configuration"
+---
+
+<main>
+    <a href="index.html" class="back-link">← Back to Blog</a>
+
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <h1>MIDI Mapping 101: Customizing Your E-Drum Kit</h1>
+            <div class="blog-post-meta">
+                <span>June 14, 2026</span> &middot; <span>8 min read</span> &middot; <span>MIDI &amp; Hardware</span>
+            </div>
+        </header>
+
+        <p>Out of the box, most electronic drum kits map their pads to a standard set of MIDI notes: kick drum on C1, snare on D1, hi-hat on F#1, and so on. This General MIDI (GM) mapping works for basic playback, but it is rarely optimal for serious practice, recording, or software integration. Customizing your MIDI map is one of the highest-impact tweaks you can make to your e-kit setup.</p>
+
+        <p>This guide covers MIDI note reassignment, velocity curve adjustment, and cross-platform configuration so your kit behaves consistently whether you are practicing with DrumDash, recording in a DAW, or performing live.</p>
+
+        <h2>Why Default Mappings Fall Short</h2>
+
+        <p>The General MIDI drum map was designed in the 1980s for simple drum machines with twelve or fewer sounds. Modern e-kits have twenty or more pads, including multiple zones per pad (head, rim, edge, bell). The GM map has no standard assignment for a ride cymbal bell, a cross-stick zone, or a fourth tom.</p>
+
+        <p>Furthermore, different manufacturers use different default mappings. Roland's TD series, Yamaha's DTX series, and Alesis kits all send different MIDI notes for the same physical pad. When you switch between software, you often find that your snare triggers a wood block or your crash triggers a cowbell.</p>
+
+        <h2>Understanding MIDI Note Numbers</h2>
+
+        <p>MIDI notes are numbered 0-127, where each number corresponds to a specific pitch. In drum mapping, these "pitches" are arbitrary labels&mdash;they do not represent actual musical pitches but rather trigger slots in a sampler or software instrument.</p>
+
+        <p>The most common drum mapping conventions are:</p>
+
+        <ul>
+            <li><strong>General MIDI (GM):</strong> Kick = 36 (C1), Snare = 38 (D1), Closed Hi-Hat = 42 (F#1), Open Hi-Hat = 46 (A#1), Crash = 49 (C#2), Ride = 51 (D#2)</li>
+            <li><strong>Roland TD:</strong> Similar to GM but with extended assignments for rim shots, bells, and additional toms.</li>
+            <li><strong>Yamaha DTX:</strong> Uses a proprietary mapping that often conflicts with GM software.</li>
+            <li><strong>VST-specific:</strong> Some drum samplers (e.g., Superior Drummer, Addictive Drums) use their own optimized maps that group related sounds contiguously.</li>
+        </ul>
+
+        <p>When configuring your kit, the goal is to align your drum module's output with the input expectations of your target software.</p>
+
+        <h2>How to Remap Pads on Popular Modules</h2>
+
+        <h3>Roland TD-17 / TD-27 / TD-50</h3>
+
+        <ol>
+            <li>Press <strong>KIT</strong> to enter kit editing mode.</li>
+            <li>Select the pad you want to remap.</li>
+            <li>Navigate to <strong>MIDI > Note Number</strong>.</li>
+            <li>Use the dial to select the desired MIDI note.</li>
+            <li>Repeat for each pad and zone.</li>
+            <li>Save the kit to a user slot so you do not overwrite the factory preset.</li>
+        </ol>
+
+        <p>Roland modules also support <strong>MIDI note layering</strong>, where a single pad can trigger multiple notes at different velocities. This is useful for creating dynamic sample switching without leaving the module.</p>
+
+        <h3>Yamaha DTX-PRO / DTX-PROX</h3>
+
+        <ol>
+            <li>Enter <strong>Trigger Settings</strong> from the main menu.</li>
+            <li>Select the trigger (pad) to edit.</li>
+            <li>Find <strong>MIDI Note</strong> and change it to the desired value.</li>
+            <li>Yamaha modules allow per-zone mapping, so you can set the head, rim, and edge to different notes independently.</li>
+        </ol>
+
+        <h3>Alesis Strike / Command / Nitro</h3>
+
+        <ol>
+            <li>Press <strong>Menu</strong> and navigate to <strong>Utility > MIDI</strong>.</li>
+            <li>Select the pad to remap.</li>
+            <li>Change the <strong>Note</strong> value.</li>
+            <li>Alesis modules typically have fewer zone options than Roland or Yamaha, but the basic mapping process is straightforward.</li>
+        </ol>
+
+        <h2>Velocity Curves: Making the Kit Feel Right</h2>
+
+        <p>A velocity curve defines how the physical force of your stroke translates to MIDI velocity (0-127). The default curve on most modules is linear: hit twice as hard, get twice the velocity. In practice, linear curves rarely feel natural because human touch is not linear.</p>
+
+        <p>Most modules offer several curve presets:</p>
+
+        <ul>
+            <li><strong>Linear:</strong> Direct 1:1 mapping. Best for recording where you want to capture your exact dynamics.</li>
+            <li><strong>Exponential:</strong> Soft hits produce lower velocities; hard hits are exaggerated. Good for players with a light touch who want more dynamic range.</li>
+            <li><strong>Logarithmic:</strong> The opposite: soft hits are louder than they should be, compressing the dynamic range. Useful for practice when you want consistent volume.</li>
+            <li><strong>Fixed:</strong> Every hit sends the same velocity, regardless of force. Rarely useful for musical playing but handy for testing MIDI connections.</li>
+        </ul>
+
+        <p>We recommend starting with an <strong>exponential curve</strong> for practice and a <strong>linear curve</strong> for recording. Adjust per pad if your module allows it: snare and toms often benefit from different curves than cymbals.</p>
+
+        <h2>Configuring for DrumDash</h2>
+
+        <p>DrumDash listens for standard GM drum notes on the default MIDI channel (channel 10). If your kit is already mapped to GM, no changes are needed. If you are using a Yamaha or custom map, you have two options:</p>
+
+        <ol>
+            <li><strong>Remap the module:</strong> Change the module's output notes to match GM. This is the cleanest solution and ensures compatibility with all software.</li>
+            <li><strong>Use a MIDI translator:</strong> Software like <strong>MIDI-OX</strong> (Windows) or <strong>MidiPipe</strong> (macOS) can intercept the MIDI stream and remap notes on the fly. This is useful if you cannot change the module's internal mapping.</li>
+        </ol>
+
+        <p>For the WebGL version of DrumDash, ensure your browser supports the Web MIDI API (Chrome and Edge do; Safari support is limited). You may need to grant MIDI access when prompted.</p>
+
+        <h2>Cross-Platform Consistency</h2>
+
+        <p>If you use multiple computers or switch between the Android app and the web version, maintaining a consistent MIDI map saves hours of frustration. We recommend:</p>
+
+        <ul>
+            <li><strong>Document your map:</strong> Create a simple spreadsheet with pad names, physical locations, and assigned MIDI notes. Update it whenever you make changes.</li>
+            <li><strong>Save module backups:</strong> Most modern modules allow you to export kit settings to USB. Back up your custom map before firmware updates.</li>
+            <li><strong>Use a hardware MIDI mapper:</strong> Devices like the <strong>MIDI Solutions Event Processor</strong> can remap notes in hardware, ensuring your kit sends the same notes regardless of which software is receiving them.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+
+        <p>MIDI mapping is not a one-time setup; it is an ongoing process of refinement as your playing style evolves and your software ecosystem changes. The time you invest in customizing your map pays dividends in responsiveness, consistency, and musical expression.</p>
+
+        <p>Whether you are a beginner trying to make your first e-kit feel natural or an advanced player optimizing for low-latency software integration, understanding MIDI mapping puts you in control of your instrument rather than at the mercy of factory defaults.</p>
+    </article>
+</main>
