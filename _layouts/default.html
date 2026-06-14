@@ -30,12 +30,12 @@
     {% endif %}
     <meta name="twitter:image" content="{{ site.url }}/img/drum_icon.png">
 
-    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
-    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/legal.css">
+    <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/base.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/legal.css">
     {% if page.custom_css %}
-    <link rel="stylesheet" href="assets/css/{{ page.custom_css }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/{{ page.custom_css }}">
     {% endif %}
 
     <script type="application/ld+json">
@@ -67,9 +67,9 @@
     {% include cookie-consent.html %}
     {% endunless %}
 
-    <script src="assets/js/nav.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/nav.js"></script>
     {% unless page.hide_cookie_consent %}
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/cookie-consent.js"></script>
     {% endunless %}
 </body>
 </html>
