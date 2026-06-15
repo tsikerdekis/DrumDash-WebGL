@@ -38,27 +38,6 @@ body::before {
 body.phase-2 .bg-overlay { opacity: 1; }
 body.phase-2::before { opacity: 0.5; }
 
-/* Beta Banner */
-.beta-banner {
-    background: linear-gradient(90deg, #ff9800, #f57c00);
-    color: #1a1a2e;
-    padding: 0.75rem 1rem;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.beta-banner a {
-    color: #1a1a2e;
-    text-decoration: underline;
-    font-weight: 700;
-}
-
 /* Main content area - account for fixed nav */
 main {
     flex: 1;
@@ -142,6 +121,19 @@ main {
     font-weight: bold;
 }
 
+#kofi-link {
+    color: #ffdd00;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    transition: opacity 0.2s ease;
+}
+
+#kofi-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 #firefox-warning {
     background-color: #ff6b6b;
     color: white;
@@ -166,7 +158,6 @@ body.theater-mode {
     min-height: 100vh !important;
 }
 
-body.theater-mode .beta-banner,
 body.theater-mode nav,
 body.theater-mode footer {
     display: none !important;
