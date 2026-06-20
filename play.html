@@ -1,9 +1,25 @@
 ---
 layout: play
-title: "DrumDash Web Beta - Play in Your Browser"
-description: "DrumDash Web Beta - Play the customizable drumming game directly in your browser."
+title: "DrumDash Web Beta - Play Drums Online in Your Browser"
+description: "Play DrumDash online in your browser for free. Import any song, get AI-generated drum charts, and practice drums with real-time feedback. No download required."
 hide_cookie_consent: true
+breadcrumb:
+  - name: "Play Web Beta"
+    url: "/play.html"
 ---
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DrumDash Web Beta",
+    "url": "{{ site.url }}/play.html",
+    "description": "Play DrumDash online in your browser. Import any song and get AI-generated drum charts with real-time feedback.",
+    "applicationCategory": "GameApplication, EducationalApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires Chrome, Edge, or Safari"
+}
+</script>
 
 <div id="firefox-warning">
     ⚠️ MIDI is not supported in Firefox. For the best experience, please use Chrome, Edge, or Safari.
@@ -29,6 +45,35 @@ hide_cookie_consent: true
         </div>
     </div>
 </main>
+
+<!-- Play Page Content Below Game -->
+<section class="play-info">
+    <div class="play-info-inner">
+        <h2>How to Play DrumDash Online</h2>
+        <div class="play-steps">
+            <div class="play-step">
+                <span class="play-step-num">1</span>
+                <h3>Import a Song</h3>
+                <p>Load any MP3, WAV, OGG, or MIDI file into the game.</p>
+            </div>
+            <div class="play-step">
+                <span class="play-step-num">2</span>
+                <h3>AI Generates Charts</h3>
+                <p>Our AI analyzes the tempo and structure to create 4 difficulty levels.</p>
+            </div>
+            <div class="play-step">
+                <span class="play-step-num">3</span>
+                <h3>Play &amp; Improve</h3>
+                <p>Use keyboard, mouse, touch, or connect a MIDI drum kit for real feedback.</p>
+            </div>
+        </div>
+        <div class="play-links">
+            <a href="faq.html" class="btn btn-secondary">📖 FAQ</a>
+            <a href="blog/index.html" class="btn btn-secondary">📚 Drumming Guides</a>
+            <a href="https://discord.gg/D5g5rQuGbU" target="_blank" class="btn btn-secondary">💬 Join Discord</a>
+        </div>
+    </div>
+</section>
 
 <script>
     var canvas = document.querySelector("#unity-canvas");

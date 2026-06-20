@@ -5,9 +5,14 @@ User-agent: *
 Allow: /
 Allow: /img/
 Allow: /assets/
+Allow: /blog/
 
 Disallow: /Build/
 Disallow: /StreamingAssets/
 Disallow: /TemplateData/
+Disallow: /_site/
 
 Sitemap: https://drumdash.northshorepress.co/sitemap.xml
+
+# RSS feed
+Allow: /feed.xml

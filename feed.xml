@@ -1,0 +1,25 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DrumDash Blog</title>
+    <description>Guides, tutorials, and deep dives into drumming, rhythm theory, and music technology.</description>
+    <link>{{ site.url }}/blog/</link>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <language>en</language>
+    {% for post in site.static_files %}
+    {% if post.path contains 'blog/' and post.path contains '.html' and post.path != '/blog/index.html' %}
+    <item>
+      <title>{{ post.basename | replace: '-', ' ' | capitalize }}</title>
+      <link>{{ site.url }}{{ post.path }}</link>
+      <guid>{{ site.url }}{{ post.path }}</guid>
+      <description>{{ post.path }}</description>
+    </item>
+    {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

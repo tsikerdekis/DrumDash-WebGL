@@ -3,6 +3,8 @@ description: Learn drums by playing your favorite songs. Import any track, play 
 url: "https://drumdash.northshorepress.co"
 author: Northshore Press LLC
 year: 2026
+tagline: "The AI-powered drum learning game"
+locale: en_US
 
 # GitHub Pages serves from root, so no baseurl needed
 baseurl: ""
@@ -13,3 +15,17 @@ markdown: kramdown
 # Plugins (GitHub Pages supported)
 plugins:
   - jekyll-sitemap
+
+# SEO
+social:
+  name: DrumDash
+  links:
+    - https://discord.gg/D5g5rQuGbU
+    - https://www.youtube.com/playlist?list=PLeETTEhkAJ0cFiT3M0dVKNClTtuxV91nY
+
+defaults:
+  - scope:
+      path: "blog/*.html"
+    values:
+      layout: default
+      author: "Northshore Press LLC"
