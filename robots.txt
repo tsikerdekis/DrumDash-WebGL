@@ -1,5 +1,5 @@
 # DrumDash robots.txt
-# https://drumdash.northshorepress.co
+# https://drumdash.com
 
 User-agent: *
 Allow: /
@@ -12,7 +12,7 @@ Disallow: /StreamingAssets/
 Disallow: /TemplateData/
 Disallow: /_site/
 
-Sitemap: https://drumdash.northshorepress.co/sitemap.xml
+Sitemap: https://drumdash.com/sitemap.xml
 
 # RSS feed
 Allow: /feed.xml

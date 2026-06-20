@@ -1,0 +1,557 @@
+---
+layout: default
+title: "DrumDash Setup Guide - Get Started on Web & Android"
+description: "Step-by-step setup guide for DrumDash. Learn how to start playing on your web browser or Android device, connect MIDI drum kits, and optimize audio latency."
+keywords: "DrumDash setup, drum game setup, MIDI drum connection, Android drum app, web drum game, audio latency, drum kit setup"
+custom_css: home.css
+breadcrumb:
+  - name: "Setup"
+    url: "/setup.html"
+---
+
+<main class="setup-page">
+    <div class="setup-hero">
+        <h1>Get Started with DrumDash</h1>
+        <p class="setup-intro">DrumDash runs on any modern web browser and Android device. Choose your platform below for step-by-step instructions, connection tips, and audio optimization.</p>
+    </div>
+
+    <div class="platform-cards">
+        <a href="#web-setup" class="platform-card">
+            <div class="platform-icon">🌐</div>
+            <h2>Web Browser</h2>
+            <p>Play instantly on Chrome, Firefox, Safari, or Edge. No installation required.</p>
+            <span class="platform-link">Setup Instructions →</span>
+        </a>
+        <a href="#android-setup" class="platform-card">
+            <div class="platform-icon">📱</div>
+            <h2>Android</h2>
+            <p>Native app with enhanced MIDI support and offline play.</p>
+            <span class="platform-link">Setup Instructions →</span>
+        </a>
+    </div>
+
+    <!-- Web Setup Section -->
+    <section id="web-setup" class="setup-section">
+        <div class="setup-header">
+            <span class="platform-badge">Web</span>
+            <h2>Play DrumDash in Your Browser</h2>
+            <p>The fastest way to start drumming. Just open your browser and play.</p>
+        </div>
+
+        <div class="setup-content">
+            <div class="setup-step">
+                <div class="step-number">1</div>
+                <div class="step-body">
+                    <h3>Open the Game</h3>
+                    <p>Navigate to <a href="{{ site.url }}/play.html">drumdash.com/play.html</a> in any modern browser. DrumDash supports Chrome, Firefox, Safari, and Microsoft Edge.</p>
+                    <p><strong>Recommended:</strong> Use Chrome or Edge for the best WebAudio performance and lowest latency.</p>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">2</div>
+                <div class="step-body">
+                    <h3>Import or Select a Song</h3>
+                    <p>Click <strong>"Import Song"</strong> to load your own MIDI, MP3, WAV, or OGG file. DrumDash's AI will analyze the track and generate a drum chart in seconds. Alternatively, browse the built-in library to jump straight into playing.</p>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">3</div>
+                <div class="step-body">
+                    <h3>Choose Your Input Method</h3>
+                    <p>DrumDash adapts to whatever gear you have (or don't have):</p>
+                    <ul>
+                        <li><strong>Keyboard:</strong> Map drum pads to your computer keyboard keys</li>
+                        <li><strong>Mouse / Touchscreen:</strong> Click or tap the on-screen virtual pads</li>
+                        <li><strong>MIDI Controller:</strong> Plug in any USB-MIDI drum kit or pad controller</li>
+                        <li><strong>Air Drumming:</strong> Use your device's microphone for basic hit detection (experimental)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">4</div>
+                <div class="step-body">
+                    <h3>Connect a MIDI Drum Kit (Optional)</h3>
+                    <p>For the most authentic experience, connect your electronic drum kit via USB-MIDI:</p>
+                    <ul>
+                        <li>Plug your drum module's <strong>USB-B</strong> or <strong>USB-C</strong> port into your computer</li>
+                        <li>Ensure your module is set to <strong>MIDI mode</strong> (not audio interface mode)</li>
+                        <li>DrumDash will auto-detect the device and map standard pads automatically</li>
+                        <li>If pads trigger wrong sounds, visit the <a href="{{ site.url }}/blog/midi-mapping-101-customizing-your-e-drum-kit.html">MIDI Mapping Guide</a> to customize</li>
+                    </ul>
+                    <blockquote>
+                        <strong>Note:</strong> Some modules (e.g., Roland TD series) have a "Vendor" and "Generic" USB mode. Select <strong>Generic USB-MIDI</strong> for broadest compatibility.
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Android Setup Section -->
+    <section id="android-setup" class="setup-section alt-bg">
+        <div class="setup-header">
+            <span class="platform-badge">Android</span>
+            <h2>Set Up DrumDash on Android</h2>
+            <p>The native Android app delivers tighter MIDI integration, offline play, and cloud-synced progress.</p>
+        </div>
+
+        <div class="setup-content">
+            <div class="setup-step">
+                <div class="step-number">1</div>
+                <div class="step-body">
+                    <h3>Install the App</h3>
+                    <p>Download DrumDash from the <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank">Google Play Store</a>. The app is free to install and includes the full song library and AI chart generation.</p>
+                    <p><strong>Requirements:</strong> Android 8.0 (Oreo) or later, 2 GB RAM recommended.</p>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">2</div>
+                <div class="step-body">
+                    <h3>Sign In (Optional)</h3>
+                    <p>Create an account or sign in to enable cloud saves. Your high scores, accuracy records, imported songs, and achievement badges will sync across all your devices automatically.</p>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">3</div>
+                <div class="step-body">
+                    <h3>Connect Your Electronic Drum Kit via USB</h3>
+                    <p>For the lowest latency and most reliable connection, use a wired USB-MIDI setup:</p>
+                    <ul>
+                        <li><strong>Modern Android (USB-C):</strong> Use a <strong>USB-C OTG adapter</strong> + standard USB-B cable, or a direct <strong>USB-C to USB-B OTG cable</strong></li>
+                        <li><strong>Older Android (Micro-USB):</strong> Use a <strong>Micro-USB OTG adapter</strong> + USB-B cable</li>
+                        <li>Plug the USB-B end into your drum module and the other end into your phone/tablet</li>
+                        <li>When prompted, tap <strong>Allow</strong> to grant DrumDash USB access</li>
+                        <li>If a USB options menu appears in your notification shade, select <strong>MIDI</strong></li>
+                    </ul>
+                    <blockquote>
+                        <strong>Important:</strong> Use a <strong>data-capable USB cable</strong>. Charge-only cables will not transmit MIDI data. Keep cables short and plug directly into the device—avoid USB hubs.
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">4</div>
+                <div class="step-body">
+                    <h3>Connect Wirelessly via Bluetooth MIDI</h3>
+                    <p>If your drum module supports Bluetooth MIDI, you can go cable-free:</p>
+                    <ol>
+                        <li>Put your drum module into <strong>Bluetooth pairing mode</strong></li>
+                        <li>On your Android device, open <strong>Settings → Bluetooth</strong> and pair with your module</li>
+                        <li>Open DrumDash and select <strong>"Continue with Bluetooth"</strong>, then pick your module from the list</li>
+                    </ol>
+                    <blockquote>
+                        <strong>Tip:</strong> Bluetooth is convenient but adds slightly more latency than USB. Stay within 1–2 meters during pairing. If your kit doesn't appear, toggle Bluetooth off and on, then restart DrumDash.
+                    </blockquote>
+                    <p><strong>Note:</strong> Some popular kits (like the Alesis Nitro Pro/Max) do not support Bluetooth MIDI and must use a USB connection.</p>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">5</div>
+                <div class="step-body">
+                    <h3>Select Your Drum Module</h3>
+                    <p>Inside DrumDash, follow the device setup flow and choose <strong>Electronic Drum Kit</strong>. If your exact model isn't auto-detected:</p>
+                    <ul>
+                        <li>Open <strong>Drum Module Presets</strong> and pick your brand</li>
+                        <li>Try a similar model from the same manufacturer—many share identical MIDI mappings</li>
+                        <li>If no preset works, create a <strong>Custom MIDI Setup</strong> by hitting each pad and assigning it to the correct sound</li>
+                    </ul>
+                    <p>Missing your module? Email the <strong>brand & model</strong> to <a href="mailto:support@northshorepress.co">support@northshorepress.co</a> and we'll add it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio & Latency Optimization -->
+    <section class="setup-section">
+        <div class="setup-header">
+            <h2>Optimize Audio & Reduce Latency</h2>
+            <p>A responsive feel makes all the difference. Here's how to keep lag to a minimum.</p>
+        </div>
+
+        <div class="setup-grid">
+            <div class="setup-card">
+                <h3>🔌 Use Wired Audio</h3>
+                <p>Always use <strong>wired headphones or speakers</strong>. Bluetooth audio adds significant extra latency on top of any MIDI delay, making precise timing impossible.</p>
+            </div>
+            <div class="setup-card">
+                <h3>⚡ Prefer USB Over Bluetooth</h3>
+                <p>USB-MIDI delivers the lowest latency and most stable connection. Use Bluetooth MIDI only when mobility is essential.</p>
+            </div>
+            <div class="setup-card">
+                <h3>🔋 Disable Battery Saver</h3>
+                <p>On Android, turn off <strong>Battery Saver</strong> while playing. Background power restrictions can cause audio dropouts and inconsistent timing.</p>
+            </div>
+            <div class="setup-card">
+                <h3>🎛️ Adjust Buffer Size</h3>
+                <p>In DrumDash's <strong>Audio Settings</strong>, lower the <strong>buffer size</strong> and enable <strong>latency compensation</strong> until the response feels instant. Smaller buffers = lower latency, but too small may cause crackling.</p>
+            </div>
+            <div class="setup-card">
+                <h3>📴 Close Background Apps</h3>
+                <p>Shut down unnecessary apps to free up CPU and RAM. This keeps audio processing stable, especially on lower-end devices.</p>
+            </div>
+            <div class="setup-card">
+                <h3>🔄 Keep Software Updated</h3>
+                <p>Ensure your browser, Android OS, and drum module firmware are all on the latest versions. Manufacturers regularly release latency improvements.</p>
+            </div>
+        </div>
+
+        <p class="setup-cta"><a href="{{ site.url }}/blog/latency-optimization-for-web-based-music-tools.html" class="btn btn-secondary">Read the Full Latency Guide →</a></p>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section class="setup-section alt-bg">
+        <div class="setup-header">
+            <h2>Troubleshooting</h2>
+            <p>Running into issues? Here are the most common fixes.</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">My drum kit isn't detected.<span class="faq-toggle">▼</span></div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Verify you're using a <strong>data-capable USB cable</strong>, not a charge-only cable.</li>
+                        <li>Try a different <strong>OTG adapter</strong> or USB port.</li>
+                        <li>Unplug and reconnect, accepting any permission prompts.</li>
+                        <li>Switch your module to <strong>Generic USB-MIDI</strong> mode if available.</li>
+                        <li>Ensure the connection is MIDI, not audio. DrumDash requires MIDI signals to recognize hits.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Pads trigger the wrong sounds.<span class="faq-toggle">▼</span></div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>First, try a <strong>factory reset</strong> on your drum module to restore default MIDI mappings.</li>
+                        <li>In DrumDash, open <strong>Drum Module Presets</strong> and select the correct brand/model.</li>
+                        <li>If the issue persists, create a <strong>Custom MIDI Setup</strong>: hit each pad and assign it to the right sound manually.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Audio is delayed or glitchy.<span class="faq-toggle">▼</span></div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Use <strong>wired headphones</strong>; avoid Bluetooth audio.</li>
+                        <li>Increase the <strong>audio buffer size</strong> slightly in settings to prevent crackling.</li>
+                        <li>Close background apps and disable Battery Saver.</li>
+                        <li>On web, try a different browser (Chrome and Edge typically perform best).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Bluetooth MIDI won't pair.<span class="faq-toggle">▼</span></div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Confirm your drum module actually supports <strong>Bluetooth MIDI</strong> (not just Bluetooth audio).</li>
+                        <li>Toggle Bluetooth off/on on your Android device and restart DrumDash.</li>
+                        <li>Stay within 1–2 meters and clear any obstructions between devices.</li>
+                        <li>Some modules need to be in pairing mode <em>before</em> opening DrumDash.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Stuck -->
+    <section class="setup-section">
+        <div class="setup-header">
+            <h2>Still Need Help?</h2>
+            <p>Our community and support team are here to get you drumming.</p>
+        </div>
+        <div class="help-options">
+            <a href="{{ site.url }}/faq.html" class="help-card">
+                <h3>📚 FAQ</h3>
+                <p>Browse answers to the most common questions about DrumDash.</p>
+            </a>
+            <a href="https://discord.gg/D5g5rQuGbU" target="_blank" class="help-card">
+                <h3>💬 Discord Community</h3>
+                <p>Join fellow drummers, share tips, and get real-time help.</p>
+            </a>
+            <a href="{{ site.url }}/contact.html" class="help-card">
+                <h3>✉️ Contact Support</h3>
+                <p>Reach out directly and we'll respond as quickly as possible.</p>
+            </a>
+        </div>
+    </section>
+</main>
+
+<style>
+.setup-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.setup-hero {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.setup-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.setup-intro {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.platform-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.platform-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.platform-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.08);
+    text-decoration: none;
+}
+
+.platform-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.platform-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.platform-card p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.platform-link {
+    color: var(--brand-accent);
+    font-weight: 600;
+}
+
+.setup-section {
+    padding: 3rem 0;
+}
+
+.alt-bg {
+    background: rgba(255,255,255,0.02);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem;
+}
+
+.setup-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.platform-badge {
+    display: inline-block;
+    background: var(--brand-accent);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.setup-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.setup-header p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.setup-step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+}
+
+.step-body h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.step-body ul, .step-body ol {
+    margin: 0.75rem 0 0.75rem 1.5rem;
+    color: var(--text-muted);
+}
+
+.step-body li {
+    margin-bottom: 0.5rem;
+}
+
+.step-body blockquote {
+    background: rgba(102, 126, 234, 0.1);
+    border-left: 4px solid var(--brand-accent);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+}
+
+.setup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.setup-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.setup-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.setup-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.setup-cta {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.faq-list .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem 0;
+}
+
+.faq-list .faq-question {
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-list .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-list .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-top: 1rem;
+}
+
+.faq-list .faq-answer ul {
+    margin-left: 1.5rem;
+    color: var(--text-muted);
+}
+
+.faq-list .faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+.help-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.help-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.help-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.08);
+    text-decoration: none;
+}
+
+.help-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.help-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+    .setup-step {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .setup-hero h1 {
+        font-size: 1.75rem;
+    }
+}
+</style>
+
+<script>
+// Simple FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+        q.querySelector('.faq-toggle').textContent = item.classList.contains('active') ? '▲' : '▼';
+    });
+});
+</script>

@@ -37,7 +37,7 @@ DrumDash-WebGL/
 
 ## Playing the Game
 
-Visit the live website at **https://drumdash.northshorepress.co** to play in your browser, or download the Android app from Google Play.
+Visit the live website at **https://drumdash.com** to play in your browser, or download the Android app from Google Play.
 
 ### Browser Compatibility
 
