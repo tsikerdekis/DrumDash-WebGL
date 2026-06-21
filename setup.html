@@ -51,8 +51,9 @@ breadcrumb:
             <div class="setup-step">
                 <div class="step-number">2</div>
                 <div class="step-body">
-                    <h3>Import or Select a Song</h3>
-                    <p>Click <strong>"Import Song"</strong> to load your own MIDI, MP3, WAV, or OGG file. DrumDash's AI will analyze the track and generate a drum chart in seconds. Alternatively, browse the built-in library to jump straight into playing.</p>
+                    <h3>Import a Song</h3>
+                    <p>Click <strong>"Import Song"</strong> to load your own audio or MIDI file. DrumDash supports <strong>MP3, WAV, OGG, and MIDI</strong> files, plus <strong>CloneHero</strong> and <strong>Paradiddle</strong> chart formats. Its AI will analyze the track and generate a drum chart in seconds.</p>
+                    <p>Find thousands of community-made charts from libraries like <a href="https://chorus.us" target="_blank">Enchor.us</a> (CloneHero) and <a href="https://paradb.net" target="_blank">ParaDB</a> (Paradiddle) — import them directly and start playing.</p>
                 </div>
             </div>
 
@@ -65,8 +66,8 @@ breadcrumb:
                         <li><strong>Keyboard:</strong> Map drum pads to your computer keyboard keys</li>
                         <li><strong>Mouse / Touchscreen:</strong> Click or tap the on-screen virtual pads</li>
                         <li><strong>MIDI Controller:</strong> Plug in any USB-MIDI drum kit or pad controller</li>
-                        <li><strong>Air Drumming:</strong> Use your device's microphone for basic hit detection (experimental)</li>
                     </ul>
+                    <p><strong>Paradiddle format songs</strong> also support MIDI, keyboard, and touch input (experimental). You can play along with a regular acoustic drum kit too — the game just won't count the hits since there's no microphone detection.</p>
                 </div>
             </div>
 
@@ -79,7 +80,6 @@ breadcrumb:
                         <li>Plug your drum module's <strong>USB-B</strong> or <strong>USB-C</strong> port into your computer</li>
                         <li>Ensure your module is set to <strong>MIDI mode</strong> (not audio interface mode)</li>
                         <li>DrumDash will auto-detect the device and map standard pads automatically</li>
-                        <li>If pads trigger wrong sounds, visit the <a href="{{ site.url }}/blog/midi-mapping-101-customizing-your-e-drum-kit.html">MIDI Mapping Guide</a> to customize</li>
                     </ul>
                     <blockquote>
                         <strong>Note:</strong> Some modules (e.g., Roland TD series) have a "Vendor" and "Generic" USB mode. Select <strong>Generic USB-MIDI</strong> for broadest compatibility.
@@ -94,7 +94,7 @@ breadcrumb:
         <div class="setup-header">
             <span class="platform-badge">Android</span>
             <h2>Set Up DrumDash on Android</h2>
-            <p>The native Android app delivers tighter MIDI integration, offline play, and cloud-synced progress.</p>
+            <p>The native Android app delivers tighter MIDI integration and offline play. Scores are saved locally on your device.</p>
         </div>
 
         <div class="setup-content">
@@ -102,21 +102,13 @@ breadcrumb:
                 <div class="step-number">1</div>
                 <div class="step-body">
                     <h3>Install the App</h3>
-                    <p>Download DrumDash from the <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank">Google Play Store</a>. The app is free to install and includes the full song library and AI chart generation.</p>
+                    <p>Download DrumDash from the <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank">Google Play Store</a>. The app is free to install and includes the full song import and AI chart generation.</p>
                     <p><strong>Requirements:</strong> Android 8.0 (Oreo) or later, 2 GB RAM recommended.</p>
                 </div>
             </div>
 
             <div class="setup-step">
                 <div class="step-number">2</div>
-                <div class="step-body">
-                    <h3>Sign In (Optional)</h3>
-                    <p>Create an account or sign in to enable cloud saves. Your high scores, accuracy records, imported songs, and achievement badges will sync across all your devices automatically.</p>
-                </div>
-            </div>
-
-            <div class="setup-step">
-                <div class="step-number">3</div>
                 <div class="step-body">
                     <h3>Connect Your Electronic Drum Kit via USB</h3>
                     <p>For the lowest latency and most reliable connection, use a wired USB-MIDI setup:</p>
@@ -134,7 +126,7 @@ breadcrumb:
             </div>
 
             <div class="setup-step">
-                <div class="step-number">4</div>
+                <div class="step-number">3</div>
                 <div class="step-body">
                     <h3>Connect Wirelessly via Bluetooth MIDI</h3>
                     <p>If your drum module supports Bluetooth MIDI, you can go cable-free:</p>
@@ -150,19 +142,6 @@ breadcrumb:
                 </div>
             </div>
 
-            <div class="setup-step">
-                <div class="step-number">5</div>
-                <div class="step-body">
-                    <h3>Select Your Drum Module</h3>
-                    <p>Inside DrumDash, follow the device setup flow and choose <strong>Electronic Drum Kit</strong>. If your exact model isn't auto-detected:</p>
-                    <ul>
-                        <li>Open <strong>Drum Module Presets</strong> and pick your brand</li>
-                        <li>Try a similar model from the same manufacturer—many share identical MIDI mappings</li>
-                        <li>If no preset works, create a <strong>Custom MIDI Setup</strong> by hitting each pad and assigning it to the correct sound</li>
-                    </ul>
-                    <p>Missing your module? Email the <strong>brand & model</strong> to <a href="mailto:support@northshorepress.co">support@northshorepress.co</a> and we'll add it.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -187,8 +166,8 @@ breadcrumb:
                 <p>On Android, turn off <strong>Battery Saver</strong> while playing. Background power restrictions can cause audio dropouts and inconsistent timing.</p>
             </div>
             <div class="setup-card">
-                <h3>🎛️ Adjust Buffer Size</h3>
-                <p>In DrumDash's <strong>Audio Settings</strong>, lower the <strong>buffer size</strong> and enable <strong>latency compensation</strong> until the response feels instant. Smaller buffers = lower latency, but too small may cause crackling.</p>
+                <h3>🎛️ Adjust Note & Input Latency</h3>
+                <p>In DrumDash's <strong>App Settings</strong>, you can fine-tune <strong>note latency</strong> (when notes appear relative to the audio) and <strong>input latency</strong> (MIDI response timing). Tweak these until the feel is right for your setup.</p>
             </div>
             <div class="setup-card">
                 <h3>📴 Close Background Apps</h3>
@@ -225,22 +204,11 @@ breadcrumb:
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Pads trigger the wrong sounds.<span class="faq-toggle">▼</span></div>
-                <div class="faq-answer">
-                    <ul>
-                        <li>First, try a <strong>factory reset</strong> on your drum module to restore default MIDI mappings.</li>
-                        <li>In DrumDash, open <strong>Drum Module Presets</strong> and select the correct brand/model.</li>
-                        <li>If the issue persists, create a <strong>Custom MIDI Setup</strong>: hit each pad and assign it to the right sound manually.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="faq-item">
                 <div class="faq-question">Audio is delayed or glitchy.<span class="faq-toggle">▼</span></div>
                 <div class="faq-answer">
                     <ul>
                         <li>Use <strong>wired headphones</strong>; avoid Bluetooth audio.</li>
-                        <li>Increase the <strong>audio buffer size</strong> slightly in settings to prevent crackling.</li>
+                        <li>Open DrumDash's <strong>App Settings</strong> and adjust the <strong>note latency</strong> and <strong>input latency</strong> sliders until the timing feels right.</li>
                         <li>Close background apps and disable Battery Saver.</li>
                         <li>On web, try a different browser (Chrome and Edge typically perform best).</li>
                     </ul>
