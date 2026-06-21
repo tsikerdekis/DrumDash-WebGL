@@ -306,6 +306,17 @@ body.theater-mode #unity-footer {
     flex-wrap: wrap;
 }
 
+.safari-midi-note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: rgba(255, 204, 0, 0.08);
+    border: 1px solid rgba(255, 204, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: inline-block;
+}
+
 @media (max-width: 768px) {
     .play-steps {
         grid-template-columns: 1fr;
