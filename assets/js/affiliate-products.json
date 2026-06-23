@@ -1,0 +1,251 @@
+﻿{
+  "providers": {
+    "amazon_us": {
+      "name": "Amazon Associates US",
+      "baseUrl": "https://www.amazon.com",
+      "countries": ["US"],
+      "tag": "northshorepre-20"
+    },
+    "amazon_uk": {
+      "name": "Amazon Associates UK",
+      "baseUrl": "https://www.amazon.co.uk",
+      "countries": ["GB", "UK", "IE"],
+      "tag": "northshorepre-20"
+    },
+    "amazon_ca": {
+      "name": "Amazon Associates CA",
+      "baseUrl": "https://www.amazon.ca",
+      "countries": ["CA"],
+      "tag": "northshorepre-20"
+    },
+    "amazon_de": {
+      "name": "Amazon Associates DE",
+      "baseUrl": "https://www.amazon.de",
+      "countries": ["DE", "AT", "CH"],
+      "tag": "northshorepre-20"
+    },
+    "_sweetwater_disabled": {
+      "name": "Sweetwater",
+      "baseUrl": "https://www.sweetwater.com",
+      "countries": [],
+      "tag": "drumdash"
+    },
+    "_thomann_disabled": {
+      "name": "Thomann",
+      "baseUrl": "https://www.thomann.de",
+      "countries": [],
+      "tag": "drumdash"
+    },
+    "_gear4music_disabled": {
+      "name": "Gear4music",
+      "baseUrl": "https://www.gear4music.com",
+      "countries": [],
+      "tag": "drumdash"
+    }
+  },
+  "products": [
+    {
+      "id": "alesis-nitro-max",
+      "name": "Alesis Nitro Max Mesh Kit",
+      "description": "8-piece electronic drum kit with quiet mesh heads, Bluetooth MIDI, and 10\" dual-zone snare. 440+ sounds and Drumeo lessons included. Perfect for DrumDash players ready to go from screen to kit.",
+      "category": "Electronic Drum Kits",
+      "image": "https://m.media-amazon.com/images/I/8124cw60V4L._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0C43R8SRB?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0C43R8SRB?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0C43R8SRB?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0C43R8SRB?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/NitroMaxKit--alesis-nitro-max-mesh-electronic-drum-set.html",
+        "thomann": "https://www.thomann.de/intl/alesis_nitro_max.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/alesis-nitro-max-electronic-drum-kit/7H8J"
+      }
+    },
+    {
+      "id": "roland-td-07kv",
+      "name": "Roland TD-07KV V-Drums",
+      "description": "Professional-grade electronic kit with Roland's legendary dual-ply mesh heads and SuperNATURAL sound engine. Bluetooth audio and MIDI, USB recording. Low-latency for seamless DrumDash integration.",
+      "category": "Electronic Drum Kits",
+      "image": "https://m.media-amazon.com/images/I/51FDaCjKGlL._AC_SL1200_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B08L8J6K31?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B08L8J6K31?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B08L8J6K31?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B08L8J6K31?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/TD07KV/roland-td-07kv-v-drums-electronic-drum-set.html",
+        "thomann": "https://www.thomann.de/intl/roland_td_07kv.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/roland-td-07kv-v-drums-electronic-drum-kit/7H8J"
+      }
+    },
+    {
+      "id": "evans-realfeel-practice-pad",
+      "name": "Evans RealFeel 12\" Practice Pad",
+      "description": "Double-sided practice pad with gum rubber and neoprene surfaces. Build stick control anywhere  —  the perfect companion to DrumDash practice sessions when you're away from your kit.",
+      "category": "Practice Pads",
+      "image": "https://m.media-amazon.com/images/I/81QQiX1-rQL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B000FMDIXY?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B000FMDIXY?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B000FMDIXY?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B000FMDIXY?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/RF12D/evans-realfeel-12-inch-double-sided-practice-pad.html",
+        "thomann": "https://www.thomann.de/intl/evans_rf_12d_realfeel_12.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/evans-realfeel-12-double-sided-practice-pad/7H8J"
+      }
+    },
+    {
+      "id": "vic-firth-5a-sticks",
+      "name": "Vic Firth 5A Drum Sticks (Pair)",
+      "description": "The world's best-selling drumstick. Hickory construction with a tear-drop tip for rich cymbal response. A must-have for every drummer's stick bag.",
+      "category": "Drum Sticks",
+      "image": "https://m.media-amazon.com/images/I/51N5Bm58ZtL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0002F741Q?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0002F741Q?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0002F741Q?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0002F741Q?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/5A/vic-firth-5a-american-classic-hickory-drumsticks.html",
+        "thomann": "https://www.thomann.de/intl/vic_firth_5a_american_classic_hickory.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/vic-firth-5a-american-classic-hickory-drumsticks/7H8J"
+      }
+    },
+    {
+      "id": "audio-technica-ath-m50x",
+      "name": "Audio-Technica ATH-M50x Headphones",
+      "description": "Closed-back studio monitor headphones with exceptional clarity and deep bass response. Wired connection means zero latency  —  hear every DrumDash hit in perfect sync. Detachable cable included.",
+      "category": "Headphones",
+      "image": "https://m.media-amazon.com/images/I/71G5OkSr2zL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B00HVLUR86?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B00HVLUR86?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B00HVLUR86?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B00HVLUR86?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/ATHM50x/audio-technica-ath-m50x-closed-back-studio-headphones.html",
+        "thomann": "https://www.thomann.de/intl/audio_technica_ath_m50x.htm",
+        "gear4music": "https://www.gear4music.com/studio/headphones/audio-technica-ath-m50x-closed-back-studio-headphones/7H8J"
+      }
+    },
+    {
+      "id": "roland-td-02kv",
+      "name": "Roland TD-02KV V-Drums",
+      "description": "Entry-level Roland kit with expressive mesh-head snare, noise-reducing features, and wide acoustic-style playing layout. Optional Bluetooth expansion. The best starter kit for serious DrumDash learners.",
+      "category": "Electronic Drum Kits",
+      "image": "https://m.media-amazon.com/images/I/61jdaH+hmYL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0BQFK6ZFB?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0BQFK6ZFB?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0BQFK6ZFB?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0BQFK6ZFB?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/TD02KV/roland-td-02kv-v-drums-electronic-drum-set.html",
+        "thomann": "https://www.thomann.de/intl/roland_td_02kv.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/roland-td-02kv-v-drums-electronic-drum-kit/7H8J"
+      }
+    },
+    {
+      "id": "gibraltar-drum-throne",
+      "name": "Gibraltar 6608 Motorcycle-Style Drum Throne",
+      "description": "Padded motorcycle-style seat with adjustable height, double-braced legs, and non-slip feet. Comfortable for long DrumDash sessions. Height adjustable from 18\" to 24\".",
+      "category": "Drum Thrones",
+      "image": "https://m.media-amazon.com/images/I/61PUiPs1o+L._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B000UJE6UG?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B000UJE6UG?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B000UJE6UG?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B000UJE6UG?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/6608/gibraltar-6608-motorcycle-style-drum-throne.html",
+        "thomann": "https://www.thomann.de/intl/gibraltar_6608.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/gibraltar-6608-motorcycle-style-drum-throne/7H8J"
+      }
+    },
+    {
+      "id": "yamaha-dtx452k",
+      "name": "Yamaha DTX452K Electronic Kit",
+      "description": "5-piece electronic drum set with 400+ premium customizable sounds, USB audio/MIDI, 3-zone snare pad, and quiet pads. Kick tower and pedal included. Smart app compatible for DrumDash players.",
+      "category": "Electronic Drum Kits",
+      "image": "https://m.media-amazon.com/images/I/71ak5UoW+GL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B07DPLHDDY?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B07DPLHDDY?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B07DPLHDDY?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B07DPLHDDY?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/DTX452K/yamaha-dtx452k-electronic-drum-set.html",
+        "thomann": "https://www.thomann.de/intl/yamaha_dtx452k.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/yamaha-dtx452k-electronic-drum-kit/7H8J"
+      }
+    },
+    {
+      "id": "vic-firth-sih3",
+      "name": "Vic Firth SIH3 Stereo Isolation Headphones",
+      "description": "Purpose-built for drummers with 25dB of isolation. Protect your hearing while hearing every detail of your DrumDash performance. Updated SIH3 model with improved comfort and sound.",
+      "category": "Headphones",
+      "image": "https://m.media-amazon.com/images/I/71D85UJVpxL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0DZXYBWYD?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0DZXYBWYD?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0DZXYBWYD?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0DZXYBWYD?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/SIH3/vic-firth-sih3-stereo-isolation-headphones.html",
+        "thomann": "https://www.thomann.de/intl/vic_firth_sih3.htm",
+        "gear4music": "https://www.gear4music.com/studio/headphones/vic-firth-sih3-stereo-isolation-headphones/7H8J"
+      }
+    },
+    {
+      "id": "roland-um-one-mk2",
+      "name": "Roland UM-ONE mk2 USB MIDI Interface",
+      "description": "Compact USB MIDI interface with indicator LEDs. Plug-and-play with DrumDash on Windows, Mac, and Android. The most reliable way to connect your electronic drum kit via USB.",
+      "category": "MIDI Interfaces",
+      "image": "https://m.media-amazon.com/images/I/4192mV4sUmL._AC_SL1200_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B00967UN50?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B00967UN50?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B00967UN50?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B00967UN50?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/UM1mk2/roland-um-one-mk2-usb-midi-interface.html",
+        "thomann": "https://www.thomann.de/intl/roland_um_one_mk2.htm",
+        "gear4music": "https://www.gear4music.com/studio/roland-um-one-mk2-usb-midi-interface/7H8J"
+      }
+    },
+    {
+      "id": "protec-drum-stick-bag",
+      "name": "Protec Deluxe Drum Stick / Mallet Bag",
+      "description": "Holds up to 20 pairs of sticks with a zippered front pocket for accessories. Water-resistant nylon construction. Keep your gear organized between DrumDash sessions.",
+      "category": "Drum Accessories",
+      "image": "https://m.media-amazon.com/images/I/81ZzA6ZrhAL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0002W38JQ?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0002W38JQ?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0002W38JQ?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0002W38JQ?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/C340/protec-deluxe-series-drum-mallet-bag.html",
+        "thomann": "https://www.thomann.de/intl/protec_c340.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/protec-deluxe-drum-stick-mallet-bag/7H8J"
+      }
+    },
+    {
+      "id": "donner-ded-200",
+      "name": "Donner DED-200 Electronic Drum Kit",
+      "description": "Budget-friendly 5-piece mesh electronic drum kit with 450+ sounds, USB MIDI, and dual-zone snare. A great entry point for DrumDash players who want a real kit without breaking the bank.",
+      "category": "Electronic Drum Kits",
+      "image": "https://placehold.co/400x250/302b63/ffffff?text=Donner+DED-200",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B07G7X9ZQ?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B07G7X9ZQ?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B07G7X9ZQ?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B07G7X9ZQ?tag=northshorepre-20",
+        "sweetwater": "https://www.sweetwater.com/store/detail/DED200/donner-ded-200-electronic-drum-kit.html",
+        "thomann": "https://www.thomann.de/intl/donner_ded_200.htm",
+        "gear4music": "https://www.gear4music.com/drums-and-percussion/donner-ded-200-electronic-drum-kit/7H8J"
+      }
+    }
+  ],
+  "settings": {
+    "fallbackProvider": "amazon_us",
+    "fallbackCountries": ["US", "GB", "CA", "DE", "FR", "IT", "ES", "NL", "AU", "JP"],
+    "rotationInterval": 86400000,
+    "maxProductsPerSession": 3,
+    "displayLabels": {
+      "sponsored": "Sponsored — Gear for Drummers",
+      "cta": "Check Price ->",
+      "disclosure": "We earn a commission from qualifying purchases at no extra cost to you."
+    }
+  }
+}

@@ -1,10 +1,10 @@
 ---
 layout: play
-title: "DrumDash Web Beta - Play Drums Online in Your Browser"
+title: "DrumDash Web - Play Drums Online in Your Browser"
 description: "Play DrumDash online in your browser for free. Import any song, get AI-generated drum charts, and practice drums with real-time feedback. No download required."
 hide_cookie_consent: true
 breadcrumb:
-  - name: "Play Web Beta"
+  - name: "Play Web"
     url: "/play.html"
 ---
 
@@ -12,7 +12,7 @@ breadcrumb:
 {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "DrumDash Web Beta",
+    "name": "DrumDash Web",
     "url": "{{ site.url }}/play.html",
     "description": "Play DrumDash online in your browser. Import any song and get AI-generated drum charts with real-time feedback.",
     "applicationCategory": "GameApplication, EducationalApplication",
@@ -26,24 +26,27 @@ breadcrumb:
 </div>
 
 <main>
-    <div class="game-wrapper">
-        <div id="unity-container" class="unity-desktop">
-            <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
-            <div id="unity-loading-bar">
-                <div id="unity-logo"></div>
-                <div id="unity-progress-bar-empty">
-                    <div id="unity-progress-bar-full"></div>
+    <div class="game-area">
+        <div class="game-wrapper">
+            <div id="unity-container" class="unity-desktop">
+                <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+                <div id="unity-loading-bar">
+                    <div id="unity-logo"></div>
+                    <div id="unity-progress-bar-empty">
+                        <div id="unity-progress-bar-full"></div>
+                    </div>
                 </div>
-            </div>
-            <div id="unity-warning"></div>
-            <div id="unity-footer">
-                <div id="unity-logo-title-footer"></div>
-                <div id="unity-fullscreen-button"></div>
-                <div id="unity-build-title">DrumDash v0.938</div>
-                <a href="https://ko-fi.com/northshorepress" target="_blank" id="kofi-link" title="Support DrumDash">☕ Support</a>
+                <div id="unity-warning"></div>
+                <div id="unity-footer">
+                    <div id="unity-logo-title-footer"></div>
+                    <div id="unity-fullscreen-button"></div>
+                    <div id="unity-build-title">DrumDash v0.938</div>
+                    <a href="https://ko-fi.com/northshorepress" target="_blank" id="kofi-link" title="Support DrumDash">☕ Support</a>
+                </div>
             </div>
         </div>
     </div>
+    <div class="affiliate-sidebar" id="affiliate-sidebar"></div>
 </main>
 
 <!-- Play Page Content Below Game -->
