@@ -559,13 +559,6 @@ body.theater-mode #unity-footer {
     justify-content: center;
 }
 
-.affiliate-ad-image-wrap::before {
-    content: '🥁';
-    font-size: 2.5rem;
-    opacity: 0.3;
-    position: absolute;
-}
-
 .affiliate-ad-image-wrap img {
     width: 100%;
     height: 100%;
