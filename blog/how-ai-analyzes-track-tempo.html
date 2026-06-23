@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: "How AI Analyzes Track Tempo and Structure - DrumDash"
 description: "Inside DrumDash's beat detection pipeline: onset detection, Fourier transforms, dynamic programming for tempo tracking, and how we turn raw audio into playable charts."
@@ -16,7 +16,7 @@ breadcrumb:
     "@type": "Article",
     "headline": "How AI Analyzes Track Tempo and Structure",
     "description": "Inside DrumDash's beat detection pipeline: onset detection, Fourier transforms, dynamic programming for tempo tracking.",
-    "datePublished": "2026-05-09",
+    "datePublished": "2026-02-12",
     "author": {
         "@type": "Organization",
         "name": "Northshore Press LLC"
@@ -29,13 +29,13 @@ breadcrumb:
 </script>
 
 <main>
-    <a href="index.html" class="back-link">← Back to Blog</a>
+    <a href="index.html" class="back-link">â† Back to Blog</a>
 
     <article class="blog-post">
         <header class="blog-post-header">
             <h1>How AI Analyzes Track Tempo and Structure</h1>
             <div class="blog-post-meta">
-                <span>May 9, 2026</span> &middot; <span>9 min read</span> &middot; <span>AI &amp; Audio Engineering</span>
+                <span>February 12, 2026</span> &middot; <span>9 min read</span> &middot; <span>AI &amp; Audio Engineering</span>
             </div>
         </header>
 
@@ -47,7 +47,7 @@ breadcrumb:
 
         <p>DrumDash uses a <strong>spectral flux</strong> approach for onset detection. The audio signal is divided into short overlapping frames (typically 1024 samples at 44.1 kHz, with a hop size of 512 samples). For each frame, we compute a Short-Time Fourier Transform (STFT) to obtain the magnitude spectrum. The spectral flux between consecutive frames measures how much the spectrum changes:</p>
 
-        <pre class="code-block">Flux(t) = Σ (|X(t, k)| - |X(t-1, k)|)²
+        <pre class="code-block">Flux(t) = Î£ (|X(t, k)| - |X(t-1, k)|)Â²
 where X(t, k) is the STFT magnitude at frame t and frequency bin k,
 and only positive differences are summed.</pre>
 
