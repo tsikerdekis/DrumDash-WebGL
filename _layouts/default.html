@@ -51,6 +51,10 @@
         "url": "{{ site.url }}",
         "description": "{{ site.description }}",
         "author": {
+            "@type": "Person",
+            "name": "{{ site.owner }}"
+        },
+        "publisher": {
             "@type": "Organization",
             "name": "{{ site.author }}"
         },

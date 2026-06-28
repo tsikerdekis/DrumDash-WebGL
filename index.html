@@ -21,7 +21,8 @@ breadcrumb:
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "aggregateRating": { "@type": "AggregateRating", "bestRating": "5", "worstRating": "1", "ratingValue": "5.0", "ratingCount": "3" },
     "url": "{{ site.url }}",
-    "author": { "@type": "Organization", "name": "Northshore Press LLC" },
+    "author": { "@type": "Person", "name": "{{ site.owner }}" },
+    "publisher": { "@type": "Organization", "name": "{{ site.author }}" },
     "screenshot": "{{ site.url }}/img/Lbrary.jpg"
 }
 </script>
