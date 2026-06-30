@@ -37,6 +37,17 @@
     <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/img/favicon/favicon.ico">
     <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/favicon/apple-touch-icon.png">
     <link rel="alternate" type="application/rss+xml" title="DrumDash Blog" href="{{ site.url }}/feed.xml">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{{ site.baseurl }}/assets/css/base.css" as="style">
+    <link rel="preload" href="{{ site.baseurl }}/assets/css/legal.css" as="style">
+    {% if page.custom_css %}
+    <link rel="preload" href="{{ site.baseurl }}/assets/css/{{ page.custom_css }}" as="style">
+    {% endif %}
+    {% if page.nav_home %}
+    <link rel="preload" href="{{ site.baseurl }}/img/drum_icon.png" as="image" fetchpriority="high">
+    {% endif %}
+
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/base.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/legal.css">
     {% if page.custom_css %}
