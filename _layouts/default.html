@@ -92,14 +92,23 @@
     </script>
     {% endif %}
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQSLHGB9C1"></script>
+    <!-- Google tag (gtag.js) - respects privacy settings -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      (function() {
+        var saved = localStorage.getItem('drumdash_analytics_enabled');
+        // Default to enabled if no preference saved
+        if (saved === null || saved === 'true') {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VQSLHGB9C1';
+          document.head.appendChild(script);
 
-      gtag('config', 'G-VQSLHGB9C1');
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-VQSLHGB9C1');
+        }
+      })();
     </script>
 </head>
 <body>
