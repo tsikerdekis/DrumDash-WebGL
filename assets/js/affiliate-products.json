@@ -221,19 +221,55 @@
       }
     },
     {
-      "id": "donner-ded-200",
-      "name": "Donner DED-200 Electronic Drum Kit",
-      "description": "Budget-friendly 5-piece mesh electronic drum kit with 450+ sounds, USB MIDI, and dual-zone snare. A great entry point for DrumDash players who want a real kit without breaking the bank.",
-      "category": "Electronic Drum Kits",
-      "image": "https://placehold.co/400x250/302b63/ffffff?text=Donner+DED-200",
+      "id": "coolmusic-dm20-amp",
+      "name": "Coolmusic DM20 20W Bluetooth Drum Amp",
+      "description": "Compact 20W personal monitor amplifier with Bluetooth 5.0, designed specifically for electronic drums. USB interface, 3-band EQ, and headphone output. Perfect for quiet DrumDash practice with rich sound.",
+      "category": "Drum Amplifiers",
+      "image": "https://m.media-amazon.com/images/I/71Jmbl0p5sL._AC_SL1500_.jpg",
       "links": {
-        "amazon_us": "https://www.amazon.com/dp/B07G7X9ZQ?tag=northshorepre-20",
-        "amazon_uk": "https://www.amazon.co.uk/dp/B07G7X9ZQ?tag=northshorepre-20",
-        "amazon_ca": "https://www.amazon.ca/dp/B07G7X9ZQ?tag=northshorepre-20",
-        "amazon_de": "https://www.amazon.de/dp/B07G7X9ZQ?tag=northshorepre-20",
-        "sweetwater": "https://www.sweetwater.com/store/detail/DED200/donner-ded-200-electronic-drum-kit.html",
-        "thomann": "https://www.thomann.de/intl/donner_ded_200.htm",
-        "gear4music": "https://www.gear4music.com/drums-and-percussion/donner-ded-200-electronic-drum-kit/7H8J"
+        "amazon_us": "https://www.amazon.com/dp/B08L34HBWD?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B08L34HBWD?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B08L34HBWD?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B08L34HBWD?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "kickblock-pedal-anchor",
+      "name": "KickBlock PedalBlock Drum Pedal Anchor",
+      "description": "Stop your bass drum and hi-hat pedals from sliding mid-performance. Ultra-grip rubber base with shock-absorbing design. Set of 2 — essential for keeping your DrumDash kit stable during intense play.",
+      "category": "Drum Accessories",
+      "image": "https://m.media-amazon.com/images/I/71xqagNqoWL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B08GB396C3?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B08GB396C3?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B08GB396C3?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B08GB396C3?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "alesis-drp100-headphones",
+      "name": "Alesis DRP100 Isolation Headphones",
+      "description": "Audio-isolation reference headphones designed for electronic drummers. 25dB of noise reduction keeps your playing quiet for others while you hear every detail. Includes 1/4\" adapter and protective bag.",
+      "category": "Headphones",
+      "image": "https://m.media-amazon.com/images/I/71nKgKgnGgL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B00IHVQ2FQ?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B00IHVQ2FQ?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B00IHVQ2FQ?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B00IHVQ2FQ?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "sondery-digital-metronome",
+      "name": "Sondery Digital Metronome",
+      "description": "Rechargeable digital metronome with English vocal counting and timer function. Essential timing tool for drummers practicing rudiments and keeping tempo with DrumDash. Compact and built to last.",
+      "category": "Practice Tools",
+      "image": "https://m.media-amazon.com/images/I/81sxZDyskwL._AC_SL1500_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0B12CJC6G?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0B12CJC6G?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0B12CJC6G?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0B12CJC6G?tag=northshorepre-20"
       }
     }
   ],
@@ -241,7 +277,7 @@
     "fallbackProvider": "amazon_us",
     "fallbackCountries": ["US", "GB", "CA", "DE", "FR", "IT", "ES", "NL", "AU", "JP"],
     "rotationInterval": 86400000,
-    "maxProductsPerSession": 3,
+    "maxProductsPerSession": 4,
     "displayLabels": {
       "sponsored": "Sponsored — Gear for Drummers",
       "cta": "Check Price ->",
