@@ -271,6 +271,123 @@
         "amazon_ca": "https://www.amazon.ca/dp/B0B12CJC6G?tag=northshorepre-20",
         "amazon_de": "https://www.amazon.de/dp/B0B12CJC6G?tag=northshorepre-20"
       }
+    },
+    {
+      "id": "roland-td-17kv2",
+      "name": "Roland TD-17KV2 V-Drums",
+      "description": "The natural next step up from a starter kit. 12\" dual-ply mesh snare, updated TD-17 sound module, and Bluetooth audio/MIDI. The most popular upgrade for DrumDash players who've outgrown their entry kit.",
+      "category": "Electronic Drum Kits",
+      "image": "https://m.media-amazon.com/images/I/71F3RyKMzrL._AC_SX355_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0CFZYG355?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0CFZYG355?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0CFZYG355?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0CFZYG355?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "roland-td-27kv2",
+      "name": "Roland TD-27KV2 V-Drums",
+      "description": "Flagship-grade digital snare and ride with Prismatic Sound Modeling. The aspirational kit serious drummers dream about — and the highest-value commission item in the lineup.",
+      "category": "Electronic Drum Kits",
+      "image": "https://m.media-amazon.com/images/I/7159c51DtEL._AC_SX425_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0BCZFHJ12?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0BCZFHJ12?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0BCZFHJ12?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0BCZFHJ12?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "zildjian-a-custom-cymbal-pack",
+      "name": "Zildjian A Custom Cymbal Pack",
+      "description": "The classic bright, cutting cymbal pack — 14\" hi-hats, 16\" and 18\" crashes, and a 20\" ride. The go-to upgrade for acoustic drummers who want pro sound.",
+      "category": "Cymbals",
+      "image": "https://m.media-amazon.com/images/I/7105AOlchCL._AC_SX425_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0057PK2TC?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0057PK2TC?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0057PK2TC?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0057PK2TC?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-2i2",
+      "name": "Focusrite Scarlett 2i2 (4th Gen)",
+      "description": "The world's most popular USB audio interface. Record your acoustic kit or route DrumDash audio with studio-quality preamps. 2-in/2-out with 24-bit/192kHz.",
+      "category": "Audio Interfaces",
+      "image": "https://m.media-amazon.com/images/I/51+XSuPP7XL._AC_SX425_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0C5JRTS3Y?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0C5JRTS3Y?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0C5JRTS3Y?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0C5JRTS3Y?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "shure-sm57",
+      "name": "Shure SM57 Instrument Microphone",
+      "description": "The legendary workhorse mic for miking snare, toms, and amps. Indestructible, affordable, and the first mic every recording drummer should own.",
+      "category": "Drum Mics",
+      "image": "https://m.media-amazon.com/images/I/51oELchNdFL._AC_SY355_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0000AQRST?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0000AQRST?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0000AQRST?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0000AQRST?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "eastrock-drum-keys",
+      "name": "EastRock Drum Keys 3-Pack",
+      "description": "Three chrome-plated drum keys with a continuous-motion speed key. The essential tuning tool every drummer needs — cheap enough to keep one in every bag.",
+      "category": "Drum Accessories",
+      "image": "https://m.media-amazon.com/images/I/61CZuZgACcL._AC_SX425_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B07PJ41WPD?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B07PJ41WPD?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B07PJ41WPD?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B07PJ41WPD?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "vater-stick-holder",
+      "name": "Vater Multi-Pair Clamp-On Stick Holder",
+      "description": "Clamps onto any cymbal stand or rack to keep spare sticks within reach. A tiny, affordable upgrade that makes every practice session smoother.",
+      "category": "Drum Accessories",
+      "image": "https://m.media-amazon.com/images/I/516-V+r6+ZL._AC_SY606_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B0002F4VIK?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B0002F4VIK?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B0002F4VIK?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B0002F4VIK?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "hearprotek-earplugs",
+      "name": "Hearprotek High-Fidelity Ear Plugs",
+      "description": "Reusable musician ear plugs that cut harmful volume while keeping the music clear. Protect your hearing during every DrumDash session — 2 pairs included.",
+      "category": "Hearing Protection",
+      "image": "https://m.media-amazon.com/images/I/71fUNemtqhL._AC_SX425_PIbundle-2,TopRight,0,0_SH20_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B08PBQFQH6?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B08PBQFQH6?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B08PBQFQH6?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B08PBQFQH6?tag=northshorepre-20"
+      }
+    },
+    {
+      "id": "pangda-drum-brushes",
+      "name": "Pangda Retractable Wire Drum Brushes",
+      "description": "Retractable wire brushes with comfortable rubber handles. Perfect for jazz, cajon, and quiet practice — a versatile pair every drummer should have.",
+      "category": "Drum Sticks",
+      "image": "https://m.media-amazon.com/images/I/71tFPTPnZSL._AC_SX425_.jpg",
+      "links": {
+        "amazon_us": "https://www.amazon.com/dp/B076V8N12D?tag=northshorepre-20",
+        "amazon_uk": "https://www.amazon.co.uk/dp/B076V8N12D?tag=northshorepre-20",
+        "amazon_ca": "https://www.amazon.ca/dp/B076V8N12D?tag=northshorepre-20",
+        "amazon_de": "https://www.amazon.de/dp/B076V8N12D?tag=northshorepre-20"
+      }
     }
   ],
   "settings": {
