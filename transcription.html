@@ -1,0 +1,214 @@
+---
+layout: default
+title: "AI Drum Transcription — 91% Note Detection Accuracy | DrumDash"
+description: "DrumDash's AI drum transcription turns any song into a playable drum chart in seconds. 91% kick and 90% snare note-detection accuracy, 8 drum parts, and switchable note-highway or sheet-music views."
+keywords: "AI drum transcription, automatic drum transcription, note detection, audio to drum chart, drum chart generator, drum transcription accuracy, drum notation software, drum sheet music, drum tab, drum notation, MIDI drum chart, play along with songs, drum learning app, drum game, drum beats, drum fills, drum patterns, online drum lessons, free drum lessons"
+custom_css:
+  - home.css
+  - transcription.css
+breadcrumb:
+  - name: "AI Transcription"
+    url: "/transcription.html"
+---
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Drum Transcription",
+    "description": "How DrumDash's AI note detection turns any song into a playable drum chart, with measured accuracy for every drum part.",
+    "isPartOf": { "@type": "WebSite", "name": "DrumDash", "url": "{{ site.url }}" },
+    "about": {
+        "@type": "SoftwareApplication",
+        "name": "DrumDash AI Drum Transcription",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web, Android"
+    }
+}
+</script>
+
+<div class="tp-hero">
+    <div class="tp-hero-inner">
+        <p class="tp-eyebrow">AI-Powered Note Detection</p>
+        <h1>Hear It. Chart It. Play It.</h1>
+        <p class="tp-hero-tagline">Drop in any song and DrumDash's AI drum transcription writes the drum chart for you &mdash; kick, snare, hi-hat, toms, and cymbals &mdash; in seconds. No MIDI file required.</p>
+        <div class="tp-hero-buttons">
+            <a href="play.html" class="btn btn-primary">🎮 Try It Free</a>
+            <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" class="btn btn-secondary">📱 Get it on Google Play</a>
+        </div>
+        <p class="tp-hero-note">Free to play &middot; No account needed &middot; Works in your browser</p>
+    </div>
+</div>
+
+<section class="tp-section">
+    <h2 class="section-title">Accuracy You Can Hear</h2>
+    <p class="section-subtitle">Every drum part is scored against hand-checked ground truth on songs the model has never seen. This is how the transcription engine currently performs.</p>
+
+    <div class="tp-bars" role="img" aria-label="Note detection accuracy: kick 91%, snare 90%, hi-hat 81%, ride 79%, crash 78%, floor tom 67%, mid tom 59%, high tom 56%">
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🥁</span>
+            <span class="tp-bar-name">Kick</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="91"></span></span>
+            <span class="tp-bar-value">91%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🥁</span>
+            <span class="tp-bar-name">Snare</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="90"></span></span>
+            <span class="tp-bar-value">90%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🎩</span>
+            <span class="tp-bar-name">Hi-Hat</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="81"></span></span>
+            <span class="tp-bar-value">81%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🎵</span>
+            <span class="tp-bar-name">Ride</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="79"></span></span>
+            <span class="tp-bar-value">79%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">💥</span>
+            <span class="tp-bar-name">Crash</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="78"></span></span>
+            <span class="tp-bar-value">78%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🥁</span>
+            <span class="tp-bar-name">Floor Tom</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="67"></span></span>
+            <span class="tp-bar-value">67%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🥁</span>
+            <span class="tp-bar-name">Mid Tom</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="59"></span></span>
+            <span class="tp-bar-value">59%</span>
+        </div>
+        <div class="tp-bar">
+            <span class="tp-bar-icon">🥁</span>
+            <span class="tp-bar-name">High Tom</span>
+            <span class="tp-bar-track"><span class="tp-bar-fill" data-score="56"></span></span>
+            <span class="tp-bar-value">56%</span>
+        </div>
+    </div>
+
+    <p class="tp-footnote">Scores are F1 measurements on held-out songs, with a note counted as correct when it lands within &plusmn;&thinsp;100&nbsp;ms of the real hit. Kick and snare &mdash; the backbone of every groove &mdash; are detected most reliably, while individual toms remain the toughest part of the kit to separate.</p>
+</section>
+
+<div class="tp-band">
+    <section class="tp-section">
+        <h2 class="section-title">Built for Real Songs</h2>
+        <p class="section-subtitle">Not a toy beat tracker. DrumDash listens to the actual recording &mdash; drums, bass, guitars and all &mdash; and pulls the kit out of the mix.</p>
+        <div class="tp-grid">
+            <div class="tp-card">
+                <span class="tp-card-icon">⚡</span>
+                <h3>Charts in Seconds</h3>
+                <p>Import an MP3, WAV, OGG, or MIDI file and get a full drum chart before your coffee gets cold. No manual note entry, no waiting on a render farm.</p>
+            </div>
+            <div class="tp-card">
+                <span class="tp-card-icon">🎯</span>
+                <h3>8 Parts Detected</h3>
+                <p>Kick, snare, hi-hat, ride, crash, plus high, mid and floor toms &mdash; each with its own detection model tuned to its sound.</p>
+            </div>            <div class="tp-card">
+                <span class="tp-card-icon">🎚️</span>
+                <h3>Four Difficulty Levels</h3>
+                <p>One transcription becomes Easy, Normal, Hard, and Expert charts, so the same song grows with you instead of getting stale.</p>
+            </div>
+            <div class="tp-card">
+                <span class="tp-card-icon">📴</span>
+                <h3>Runs On Your Device</h3>
+                <p>Transcription happens locally. Your music library never leaves your machine, and everything keeps working offline.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="tp-section">
+    <h2 class="section-title">Not Just Falling Notes</h2>
+    <p class="section-subtitle">DrumDash reads your transcription two ways: a note highway for pure gameplay, and real drum notation for drummers who want to see the music.</p>
+    <div class="tp-grid">
+        <div class="tp-card">
+            <span class="tp-card-icon">🎼</span>
+            <h3>Real Drum Notation</h3>
+            <p>Hi-hat, snare, kick and toms written on a proper staff that scrolls along with the song, with a playback cursor marking exactly where you are.</p>
+        </div>
+        <div class="tp-card">
+            <span class="tp-card-icon">🛣️</span>
+            <h3>Note Highway Mode</h3>
+            <p>Prefer falling notes? Switch to the classic highway view any time and play exactly the same chart.</p>
+        </div>
+        <div class="tp-card">
+            <span class="tp-card-icon">📖</span>
+            <h3>Learn To Read As You Play</h3>
+            <p>See what the beat looks like on paper while you perform it, and carry that skill straight to an acoustic kit.</p>
+        </div>
+        <div class="tp-card">
+            <span class="tp-card-icon">🔀</span>
+            <h3>Switch Instantly</h3>
+            <p>Flip between both views mid-session &mdash; your chart, difficulty and progress stay exactly the same.</p>
+        </div>
+    </div>
+</section>
+
+<div class="tp-band">
+    <section class="tp-section">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Three steps from an audio file to a chart you can actually play.</p>
+        <div class="tp-steps">
+            <div class="tp-step">
+                <span class="tp-step-num">1</span>
+                <h3>Import Your Song</h3>
+                <p>Pick any track from your library &mdash; MP3, WAV, OGG, MIDI, or a Clone Hero or Paradiddle chart.</p>
+            </div>
+            <div class="tp-step">
+                <span class="tp-step-num">2</span>
+                <h3>AI Transcribes the Kit</h3>
+                <p>The engine separates the drums, tracks every hit, and labels each one by instrument, timing, and dynamics.</p>
+            </div>
+            <div class="tp-step">
+                <span class="tp-step-num">3</span>
+                <h3>Play Along</h3>
+                <p>Choose your difficulty, switch to sheet music if you like, and start drumming. Your accuracy updates live.</p>
+            </div>
+        </div>
+        <p class="tp-inline-note">Curious about the engineering? <a href="blog/how-ai-analyzes-track-tempo.html">See how the detection pipeline works &rarr;</a> or <a href="blog/what-is-drum-transcription-beginners-guide.html">read the beginner's guide to drum transcription &rarr;</a></p>
+    </section>
+</div>
+
+<section class="tp-section tp-final">
+    <h2 class="section-title">Your Next Song Is Already Waiting</h2>
+    <p class="section-subtitle">Stop hunting for charts that don't exist. Import the song you're obsessed with and DrumDash will write it for you.</p>
+    <div class="tp-hero-buttons">
+        <a href="play.html" class="btn btn-primary">🎮 Play Web Now</a>
+        <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" class="btn btn-secondary">📱 Get it on Google Play</a>
+    </div>
+</section>
+
+<script>
+  (function () {
+    var bars = document.querySelectorAll('.tp-bar-fill');
+    if (!bars.length) return;
+
+    function fill(el) { el.style.width = el.dataset.score + '%'; }
+
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      bars.forEach(fill);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          fill(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    bars.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
