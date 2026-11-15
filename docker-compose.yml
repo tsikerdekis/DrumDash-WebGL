@@ -1,0 +1,82 @@
+# Dev web stack: Jekyll site + API Worker, on ONE origin.
+#
+# Why Docker (and why not nohup + systemd):
+#   The site and Worker used to be nohup background jobs, so a reboot or a crash
+#   left them dead with no error anywhere. The browser then served a cached page
+#   and the form looked broken. Containers with `restart: unless-stopped` come
+#   back by themselves, and `docker ps` is the single place to see the truth.
+#
+# One origin still applies (see AGENTS.md §9.1): the Worker's session cookie is
+# SameSite=Strict, so the browser must talk to :4000 for both the page and
+# /api/*. `site` proxies to `worker` over the compose network.
+name: drumdash-dev
+
+services:
+  # ---------------------------------------------------------------- Worker
+  # Holds UPSTREAM_API_KEY, so it is published on loopback only.
+  worker:
+    image: node:18-alpine
+    container_name: drumdash_dev_worker
+    restart: unless-stopped
+    working_dir: /app
+    command: ["node", "local-dev.mjs"]
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8787"
+      UPSTREAM_BASE: ${UPSTREAM_BASE:-http://host.docker.internal:8001}
+      UPSTREAM_API_KEY: ${UPSTREAM_API_KEY:?set UPSTREAM_API_KEY in .env}
+      SESSION_SECRET: ${SESSION_SECRET:-dev-only-secret-not-production}
+      # The browser's origin is :4000, and the LAN IP is included so a phone can
+      # be used. localhost is kept for curl checks from the host.
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:4000,http://127.0.0.1:4000}
+    volumes:
+      - ../northshorepress-server/northshorepress-server/cf-worker:/app:ro
+    extra_hosts:
+      # Lets the container reach the API running on the host (:8001).
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "127.0.0.1:8787:8787"
+
+  # ---------------------------------------------------------------- Site
+  # Serves the built _site/ and reverse-proxies /api/* to `worker`, so the
+  # browser sees exactly one origin.
+  site:
+    image: node:18-alpine
+    container_name: drumdash_dev_site
+    restart: unless-stopped
+    working_dir: /app
+    command: ["node", "dev-site.mjs"]
+    environment:
+      HOST: 0.0.0.0
+      PORT: "4000"
+      API_HOST: worker
+      API_PORT: "8787"
+    volumes:
+      - ./_site:/app/_site:ro
+      - ./dev-site.mjs:/app/dev-site.mjs:ro
+    depends_on:
+      - worker
+    ports:
+      - "4000:4000"
+
+  # ---------------------------------------------------------------- Builder
+  # Rebuilds _site/ from the Jekyll sources. It is a one-shot job, not a server:
+  # run `docker compose run --rm build` after editing HTML/CSS/JS.
+  #
+  # Runs as the HOST uid/gid so the files it writes stay editable by you. Left
+  # as root, `_site/` becomes root-owned and every later build (or a manual edit)
+  # fails with EACCES — which already happened once here.
+  build:
+    image: jekyll/jekyll:4
+    profiles: ["build"]
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    working_dir: /srv/jekyll
+    command: ["jekyll", "build", "--destination", "/srv/jekyll/_site"]
+    environment:
+      HOME: /tmp
+    volumes:
+      - ./:/srv/jekyll
+      - bundle-cache:/tmp/bundle
+
+volumes:
+  bundle-cache:

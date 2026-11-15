@@ -130,9 +130,15 @@
     {% include cookie-consent.html %}
     {% endunless %}
 
+    <script src="{{ site.baseurl }}/assets/js/api-config.js"></script>
     <script src="{{ site.baseurl }}/assets/js/nav.js"></script>
     {% unless page.hide_cookie_consent %}
     <script src="{{ site.baseurl }}/assets/js/cookie-consent.js"></script>
     {% endunless %}
+    {% if page.custom_js %}
+        {% for script in page.custom_js %}
+    <script src="{{ site.baseurl }}/assets/js/{{ script }}" defer></script>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

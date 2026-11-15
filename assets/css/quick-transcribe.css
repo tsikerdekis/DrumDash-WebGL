@@ -1,0 +1,201 @@
+/* ---------------------------------------------------------------------------
+   Homepage quick-transcribe bar
+   A compact CTA that looks like part of the hero, not a full form.
+   --------------------------------------------------------------------------- */
+
+/* The nav is position:fixed, so anything reached by an in-page link (and every
+   scrollIntoView) lands underneath it. Reserve its height globally. */
+html {
+    scroll-padding-top: 5rem;
+}
+
+.qt-section,
+#convert {
+    scroll-margin-top: 5rem;
+}
+
+/* Secondary route into the converter, for visitors who are here to transcribe
+   rather than to play. Deliberately a text link, not a third button: the two
+   buttons above are Play-oriented and this must not compete with them. */
+.hero-transcribe-cta {
+    margin: 1rem 0 0;
+    font-size: 0.92rem;
+}
+
+.hero-transcribe-cta a {
+    color: #a8dcae;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(168, 220, 174, 0.35);
+    padding-bottom: 1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.hero-transcribe-cta a:hover {
+    color: #c6f0ca;
+    border-bottom-color: rgba(198, 240, 202, 0.7);
+}
+
+.qt-section {
+    padding: 2rem 1rem 3.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.qt-inner {
+    width: 100%;
+    max-width: 780px;
+}
+
+.qt-card {
+    position: relative;
+    background: linear-gradient(160deg, rgba(76, 175, 80, 0.10), rgba(20, 24, 30, 0.75) 55%);
+    border: 1px solid rgba(76, 175, 80, 0.28);
+    border-radius: 18px;
+    padding: 1.25rem 1.25rem 1.1rem;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+/* Soft glow that makes the card feel lit rather than flat. */
+.qt-card::before {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 120px;
+    background: radial-gradient(60% 100% at 50% 0%, rgba(76, 175, 80, 0.35), transparent 70%);
+    pointer-events: none;
+}
+
+.qt-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 0 0 0.9rem;
+    position: relative;
+}
+
+.qt-headline strong {
+    font-size: 1.05rem;
+    color: #fff;
+}
+
+.qt-headline span {
+    font-size: 0.85rem;
+    color: #9fb0bf;
+}
+
+.qt-row {
+    display: flex;
+    gap: 0.6rem;
+    align-items: stretch;
+    position: relative;
+}
+
+.qt-drop {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px dashed rgba(120, 140, 160, 0.5);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    color: #c8d4de;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.qt-drop:hover,
+.qt-drop.qt-dragover {
+    border-color: #4CAF50;
+    background: rgba(76, 175, 80, 0.10);
+}
+
+.qt-drop.qt-dragover {
+    transform: scale(1.01);
+}
+
+.qt-drop.qt-has-file {
+    border-style: solid;
+    border-color: #4CAF50;
+    color: #eaf6ec;
+}
+
+.qt-drop input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.qt-drop-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+    flex: 0 0 auto;
+}
+
+.qt-filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.qt-submit {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.75rem 1.35rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4CAF50, #3d9142);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    box-shadow: 0 6px 18px rgba(76, 175, 80, 0.28);
+}
+
+.qt-submit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(76, 175, 80, 0.4);
+}
+
+.qt-submit:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.qt-note {
+    margin: 0.75rem 0 0;
+    font-size: 0.78rem;
+    color: #7f8f9c;
+    position: relative;
+}
+
+.qt-note a {
+    color: #8fca93;
+    text-decoration: none;
+}
+
+.qt-note a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .qt-row {
+        flex-direction: column;
+    }
+
+    .qt-submit {
+        justify-content: center;
+        width: 100%;
+    }
+}

@@ -1,0 +1,163 @@
+/* ===========================================================================
+   Affiliate rail — compact variant
+   ===========================================================================
+   The base `.affiliate-ad-*` rules live in play.css, which only the game page
+   loads. That is why these cards rendered as raw, full-size <img> tags here:
+   the markup existed but had no styles at all.
+
+   Rather than pulling in play.css (620 lines of game layout, `body::before`,
+   `.game-area`, theater mode), this file styles the rail on its own terms.
+
+   Design intent
+   -------------
+   The rail is secondary to the converter. A visitor is here to transcribe a
+   song; the gear cards should read as a quiet sidebar, not compete with the
+   form. So: small square thumbnails, two-line descriptions, no big imagery.
+   =========================================================================== */
+
+.tx-side .affiliate-ad-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+}
+
+/* Disclosure header: small, honest, unobtrusive. */
+.tx-side .affiliate-ad-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin: 0 0 0.85rem;
+}
+
+.tx-side .affiliate-ad-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(159, 176, 191, 0.75);
+}
+
+.tx-side .affiliate-ad-disclosure {
+    font-size: 0.68rem;
+    line-height: 1.35;
+    color: rgba(159, 176, 191, 0.55);
+}
+
+/* Vertical stack, one card per row. */
+.tx-side .affiliate-ad-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* Horizontal card: 56px thumbnail + text. Keeps the rail visually light and
+   stops a product photo from becoming the loudest thing on the page. */
+.tx-side .affiliate-ad-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.55rem;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.tx-side .affiliate-ad-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(102, 126, 234, 0.35);
+    transform: translateY(-1px);
+}
+
+/* THE FIX: fixed square thumbnail. Without this the <img> renders at the
+   source image's intrinsic size (often 1000px+), which is what blew up the
+   layout. object-fit keeps the aspect ratio without distortion. */
+.tx-side .affiliate-ad-image-wrap {
+    position: relative;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 7px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a103c 0%, #302b63 55%, #24243e 100%);
+    display: block;
+}
+
+.tx-side .affiliate-ad-image-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* The category pill is redundant in a 56px thumbnail. */
+.tx-side .affiliate-ad-category {
+    display: none;
+}
+
+.tx-side .affiliate-ad-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0;
+    min-width: 0;
+    flex: 1;
+}
+
+.tx-side .affiliate-ad-title {
+    font-size: 0.8rem;
+    line-height: 1.25;
+    font-weight: 600;
+    margin: 0;
+    color: #e8eef3;
+
+    /* Two lines max, ellipsis after. Product names are long. */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Descriptions are pure noise in a sidebar this narrow — the title plus the
+   photo is enough to decide whether to click. Hidden rather than clamped so
+   the cards stay a consistent height. */
+.tx-side .affiliate-ad-desc {
+    display: none;
+}
+
+.tx-side .affiliate-ad-cta {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #8ea2ff;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0.1rem 0 0;
+    align-self: flex-start;
+}
+
+.tx-side .affiliate-ad-card:hover .affiliate-ad-cta {
+    color: #aab8ff;
+    background: none;
+}
+
+/* Below 900px the rail stacks under the form; give it a horizontal card grid
+   so it does not become a tall column of tiny rows. */
+@media (max-width: 900px) {
+    .tx-side .affiliate-ad-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.6rem;
+    }
+
+    .tx-side .affiliate-ad-header {
+        margin-bottom: 0.6rem;
+    }
+}

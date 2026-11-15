@@ -3,7 +3,12 @@ layout: default
 title: "DrumDash — Free Drum Lessons & Play-Along Game"
 description: "DrumDash is the best free online drum lesson platform and play-along drumming game. Learn drums by playing your favorite songs with AI-generated drum charts, drum beats, drum fills, and drum patterns. Perfect for beginners and advanced drummers on Web or Android."
 keywords: "online drum lessons, free drum lessons, drum lessons for beginners, how to play drums, learn drums, drum game, drumming game, play drums online, drum play along, drum beats, drum patterns, drum fills, drum grooves, drum rudiments, drum technique, drum practice, drum practice routine, drum tracks, drumless tracks, drum sheet music, drum transcription, drum notation, drum tab, drum tablature, drum score, AI drum charts, automatic drum transcription, drum chart generator, drum notation software, play along with songs, music game, rhythm game, drum simulator, MIDI, drum learning app, audio to drum chart, song transcription, convert audio to drums"
-custom_css: home.css
+custom_css:
+  - home.css
+  - quick-transcribe.css
+custom_js:
+  - file-handoff.js
+  - quick-transcribe.js
 nav_home: "#home"
 breadcrumb:
   - name: "Home"
@@ -41,6 +46,9 @@ breadcrumb:
                     <a href="play.html" class="btn btn-primary">🎮 Play Web Now</a>
                     <a href="https://play.google.com/store/apps/details?id=com.northshorepress.Drumdash" target="_blank" class="btn btn-secondary">📱 Get it on Google Play</a>
                 </div>
+                <p class="hero-transcribe-cta">
+                    <a href="#transcribe">🎵 Or turn a song into a drum chart right now →</a>
+                </p>
             </div>
             <div class="hero-media">
                 <video class="hero-illustration" autoplay muted loop playsinline preload="auto">
@@ -178,6 +186,33 @@ breadcrumb:
             </div>
             <p class="ai-cta-note">Measured on real songs the model has never heard &mdash; no hand-picked demos.</p>
         </section>
+    </div>
+
+    <!-- Quick transcribe: one file, straight to the full flow -->
+    <div class="qt-section" id="transcribe">
+        <div class="qt-inner">
+            <div class="qt-card">
+                <div class="qt-headline">
+                    <strong>Transcribe a song right now</strong>
+                    <span>Any MP3, WAV or OGG &middot; free &middot; no sign-up</span>
+                </div>
+                <form id="quick-transcribe" novalidate>
+                    <div class="qt-row">
+                        <label class="qt-drop" id="qt-drop" for="qt-file">
+                            <span class="qt-drop-icon">🎧</span>
+                            <span class="qt-filename" id="qt-filename">Drop a song or click to browse</span>
+                            <input type="file" id="qt-file" accept=".mp3,.wav,.ogg,.m4a,audio/*">
+                        </label>
+                        <button type="submit" class="qt-submit" id="qt-submit" disabled>
+                            Transcribe Now <span aria-hidden="true">→</span>
+                        </button>
+                    </div>
+                    <p class="qt-note">
+                        Takes about a minute. You pick output formats on the next step.
+                    </p>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Platforms -->

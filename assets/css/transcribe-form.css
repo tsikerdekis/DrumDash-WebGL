@@ -1,0 +1,425 @@
+/* ===== Transcription conversion form ===== */
+
+/* Tool-first page: no marketing sections above the converter. The whole page is
+   the header, the form + affiliate rail, and one closing line. */
+.tx-page {
+    padding: 7rem 1.5rem 4rem;
+    min-height: 70vh;
+}
+
+.tx-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.tx-head {
+    margin-bottom: 1.75rem;
+}
+
+.tx-head h1 {
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    margin: 0 0 0.4rem;
+    color: var(--text, #fff);
+}
+
+.tx-head p {
+    margin: 0;
+    color: var(--text-muted, #9fb0bf);
+    font-size: 0.95rem;
+}
+
+.tx-foot {
+    margin: 1.5rem 0 0;
+    font-size: 0.82rem;
+    color: var(--text-muted, #9fb0bf);
+    text-align: center;
+}
+
+.tx-foot a {
+    color: #8fca93;
+    text-decoration: none;
+}
+
+.tx-foot a:hover {
+    text-decoration: underline;
+}
+
+/* Two side-by-side optional fields on one row. */
+.tx-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+}
+
+@media (max-width: 560px) {
+    .tx-two {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tx-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 18px 48px rgba(15, 12, 41, 0.12);
+    padding: 2.25rem;
+    border: 1px solid rgba(15, 12, 41, 0.07);
+}
+
+.tx-field {
+    margin-bottom: 1.5rem;
+}
+
+.tx-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+}
+
+.tx-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 0.35rem;
+}
+
+/* Drop zone */
+.tx-drop {
+    display: block;
+    border: 2px dashed #c7cbd8;
+    border-radius: 14px;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    background: #fafbff;
+}
+
+.tx-drop:hover,
+.tx-drop.tx-dragover {
+    border-color: #667eea;
+    background: #f3f5ff;
+}
+
+.tx-drop-icon {
+    font-size: 1.9rem;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.tx-drop-text {
+    font-weight: 600;
+    color: #302b63;
+    word-break: break-all;
+}
+
+.tx-drop input[type="file"] {
+    display: none;
+}
+
+/* Format checkboxes */
+.tx-formats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.tx-format {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.85rem 0.9rem;
+    border: 1.5px solid #e2e5ee;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 0.9rem;
+}
+
+.tx-format:hover {
+    border-color: #a8b0c9;
+    background: #fafbff;
+}
+
+.tx-format input {
+    margin-top: 0.15rem;
+    accent-color: #667eea;
+    flex-shrink: 0;
+}
+
+.tx-format strong {
+    display: block;
+    color: #1a1a2e;
+    font-size: 0.92rem;
+}
+
+.tx-format small {
+    color: #6b7280;
+    font-size: 0.76rem;
+    line-height: 1.35;
+    display: block;
+    margin-top: 0.1rem;
+}
+
+/* Text inputs */
+.tx-input {
+    width: 100%;
+    padding: 0.72rem 0.9rem;
+    border: 1.5px solid #e2e5ee;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: #1a1a2e;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+}
+
+.tx-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* Button */
+.tx-submit {
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.18s, opacity 0.18s;
+    box-shadow: 0 8px 22px rgba(102, 126, 234, 0.32);
+}
+
+.tx-submit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 11px 28px rgba(102, 126, 234, 0.4);
+}
+
+.tx-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Progress */
+.tx-progress {
+    display: none;
+    margin-top: 1.25rem;
+}
+
+.tx-progress.tx-visible {
+    display: block;
+}
+
+.tx-progress-track {
+    height: 9px;
+    background: #eaecf4;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.tx-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+.tx-progress-label {
+    font-size: 0.84rem;
+    color: #4b5563;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Alerts */
+.tx-alert {
+    display: none;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    margin-top: 1.1rem;
+    line-height: 1.5;
+}
+
+.tx-alert.tx-visible {
+    display: block;
+}
+
+.tx-alert-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+.tx-alert-info {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1e40af;
+}
+
+/* Results */
+.tx-results {
+    display: none;
+    margin-top: 1.6rem;
+    border-top: 1px solid #eaecf4;
+    padding-top: 1.5rem;
+}
+
+.tx-results.tx-visible {
+    display: block;
+}
+
+.tx-results h3 {
+    font-size: 1.05rem;
+    color: #1a1a2e;
+    margin: 0 0 0.9rem;
+}
+
+.tx-downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.tx-download {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #e2e5ee;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #1a1a2e;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: border-color 0.15s, background 0.15s;
+    /* .tx-download is now also a <button> for the zip, so reset UA styles. */
+    background: #fff;
+    font-family: inherit;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+}
+
+.tx-download:hover {
+    border-color: #667eea;
+    background: #f6f7ff;
+}
+
+/* The primary action: everything in one file. */
+.tx-download-primary {
+    border-color: #4CAF50;
+    background: #f2fbf3;
+    color: #20592a;
+    font-size: 1rem;
+    padding: 1rem 1.1rem;
+}
+
+.tx-download-primary:hover {
+    border-color: #3d9142;
+    background: #e8f7ea;
+}
+
+.tx-download-primary:disabled {
+    opacity: 0.65;
+    cursor: progress;
+}
+
+.tx-download-ext {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Secondary list stays collapsed: the bundle is the answer, the individual
+   files are an escape hatch. */
+.tx-downloads-more {
+    margin-top: 0.15rem;
+}
+
+.tx-downloads-more > summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: #6b7280;
+    padding: 0.4rem 0.15rem;
+    list-style: none;
+}
+
+.tx-downloads-more > summary::-webkit-details-marker { display: none; }
+
+.tx-downloads-more > summary::before {
+    content: '▸ ';
+    color: #9aa3b2;
+}
+
+.tx-downloads-more[open] > summary::before { content: '▾ '; }
+
+.tx-downloads-more > summary:hover { color: #1a1a2e; }
+
+.tx-download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tx-field-help {
+    margin: 0 0 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: #6b7280;
+}
+
+@media (max-width: 600px) {
+    .tx-card {
+        padding: 1.5rem 1.15rem;
+        border-radius: 14px;
+    }
+
+    .tx-formats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Form + affiliate rail layout
+   The game page puts affiliates in a sidebar; the transcription page mirrors
+   that next to the converter instead of dropping cards underneath it.
+   --------------------------------------------------------------------------- */
+
+.tx-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+
+.tx-side {
+    position: sticky;
+    top: 1.5rem;
+}
+
+
+@media (max-width: 900px) {
+    .tx-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tx-side {
+        position: static;
+    }
+}

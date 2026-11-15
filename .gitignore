@@ -419,3 +419,9 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Local dev server artifacts (dev.sh)
+.dev-site.pid
+.dev-worker.pid
+dev-site.log
+dev-worker.log
