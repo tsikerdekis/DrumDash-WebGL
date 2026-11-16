@@ -44,5 +44,16 @@
 
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/affiliate-ads.js"></script>
+    <!--
+      The game authenticates through the Worker's first-party cookie, so the page
+      has to obtain one before the Unity bundle submits anything. Without this,
+      every import returns 401 {"error":"no_valid_session"} on the web build while
+      Android (which mints an app session at startup) keeps working.
+
+      api-config.js must load first: game-session.js reads the resolved API base
+      from it so a local Worker (?api=http://localhost:8787/api) still works.
+    -->
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/game-session.js"></script>
 </body>
 </html>
