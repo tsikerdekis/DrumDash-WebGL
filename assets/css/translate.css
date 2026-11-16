@@ -1,0 +1,11 @@
+.tr-files { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.tr-file { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border: 1px solid rgba(128,128,128,.35); border-radius: 10px; font-size: .9rem; }
+.tr-file span { font-weight: 600; }
+.tr-file input[type="file"] { max-width: 100%; font-size: .85rem; }
+.tr-group { margin: 14px 0 6px; font-weight: 600; }
+.tr-detected { margin: 10px 0 0; font-weight: 600; }
+.tr-detected.tr-bad { color: #c0392b; }
+.tx-format input:disabled + span { opacity: .5; }
+/* The opt-in extras sit outside the .tx-formats grid, so they need the width a
+   grid cell would have given them; otherwise the label collapses to its text. */
+.tx-format-wide { display: flex; width: 100%; box-sizing: border-box; }
