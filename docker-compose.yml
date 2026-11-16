@@ -35,7 +35,12 @@ services:
       # Lets the container reach the API running on the host (:8001).
       - "host.docker.internal:host-gateway"
     ports:
-      - "127.0.0.1:8787:8787"
+      # Host side is 8788, NOT 8787: `server.sh start|restart` in northshorepress-server
+      # runs its own Worker (the Unity Editor proxy) on 127.0.0.1:8787, and two
+      # listeners on one port made this container fail to start - which showed up as
+      # a 502 on :4000/api. The site reaches this container over the Docker network
+      # (worker:8787), so the host port is only for curl checks.
+      - "127.0.0.1:8788:8787"
 
   # ---------------------------------------------------------------- Site
   # Serves the built _site/ and reverse-proxies /api/* to `worker`, so the
