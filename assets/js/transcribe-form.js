@@ -251,6 +251,12 @@
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ turnstileToken: getTurnstileToken() }),
     }).then(function (res) {
+      // A Turnstile token is single-use, so a second mint (retry, or a second
+      // conversion in the same page) must start from a fresh widget. Without
+      // this, enforce mode 403s the retry the user was just told to make.
+      if (!res.ok && res.status === 403 && window.DrumDashTurnstile) {
+        window.DrumDashTurnstile.reset();
+      }
       if (!res.ok) {
         return res.json().catch(function () { return {}; }).then(function (body) {
           throw new Error(sessionError(res.status, body));
@@ -277,9 +283,11 @@
   // no longer grants fresh credits. The app uses its install UUID here; the
   // website uses a random id kept in localStorage.
   //
-  // This is weaker than the app: clearing site data mints a new one. That is
-  // acceptable because the Worker additionally gates the form behind Turnstile
-  // and a first-party cookie, which a script cannot obtain.
+  // This is weaker than the app: clearing site data mints a new one, and the
+  // value is only a *claim* — the API cannot verify it. That is why the Worker
+  // also forwards a signed session id (x-dd-sid) and the backend applies a
+  // second, aggregate limit keyed on it. Without that second key, editing this
+  // string per request would defeat the per-install window entirely.
 
   var INSTALL_KEY = 'dd_web_install_id';
 

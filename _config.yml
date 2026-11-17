@@ -24,6 +24,23 @@ social:
     - https://discord.gg/D5g5rQuGbU
     - https://www.youtube.com/playlist?list=PLeETTEhkAJ0cFiT3M0dVKNClTtuxV91nY
 
+# Cloudflare Turnstile sitekey (PUBLIC — it is meant to be visible in the page).
+#
+# Empty means "render no widget": assets/js/turnstile.js becomes a no-op and the
+# pages behave exactly as before. That is the correct default for local builds,
+# and it is why this ships empty rather than breaking on a missing value.
+#
+# The matching SECRET is not here and must never be. It lives on the Worker:
+#   cd northshorepress-server/cf-worker
+#   npx wrangler secret put TURNSTILE_SECRET
+#
+# To turn it on: confirm the sitekey below, deploy the site, then flip
+# TURNSTILE_MODE = "enforce" in cf-worker/wrangler.toml. Leave it on "soft"
+# until /api/health shows traffic carrying real tokens — in soft mode a token
+# that IS present is still verified, so a broken widget shows up as 403s
+# instead of silently passing.
+turnstile_sitekey: "0x4AAAAAAF2u5UCmKlmOcmec"
+
 defaults:
   - scope:
       path: "blog/*.html"

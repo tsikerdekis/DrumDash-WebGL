@@ -200,6 +200,8 @@
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ turnstileToken: token }),
     }).then(function (res) {
+      // Tokens are single-use (see transcribe-form.js); reset before a retry.
+      if (!res.ok && res.status === 403 && window.DrumDashTurnstile) window.DrumDashTurnstile.reset();
       if (!res.ok) throw new Error('Could not start a session (' + res.status + '). Please try again.');
       return res.json();
     });

@@ -131,6 +131,12 @@
     {% endunless %}
 
     <script src="{{ site.baseurl }}/assets/js/api-config.js"></script>
+    <!--
+      The Turnstile sitekey is public by design, so it goes through a global
+      rather than being fetched. jsonify keeps the JS valid when the value is
+      empty ("") and is a no-op for the script that reads it.
+    -->
+    <script>window.DrumDashTurnstileSitekey = {{ site.turnstile_sitekey | default: "" | jsonify }};</script>
     <script src="{{ site.baseurl }}/assets/js/nav.js"></script>
     {% unless page.hide_cookie_consent %}
     <script src="{{ site.baseurl }}/assets/js/cookie-consent.js"></script>

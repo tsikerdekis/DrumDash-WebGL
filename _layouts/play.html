@@ -54,6 +54,8 @@
       from it so a local Worker (?api=http://localhost:8787/api) still works.
     -->
     <script src="assets/js/api-config.js"></script>
+    <script>window.DrumDashTurnstileSitekey = {{ site.turnstile_sitekey | default: "" | jsonify }};</script>
+    <script src="assets/js/turnstile.js"></script>
     <script src="assets/js/game-session.js"></script>
 </body>
 </html>

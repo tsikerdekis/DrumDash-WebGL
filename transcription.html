@@ -136,5 +136,8 @@ breadcrumb:
 
 <script src="/assets/js/file-handoff.js" defer></script>
 <script src="/assets/js/zip.js" defer></script>
+<!-- Must precede transcribe-form.js: deferred scripts run in document order and
+     the form reads window.turnstile when it mints its session. -->
+<script src="/assets/js/turnstile.js" defer></script>
 <script src="/assets/js/transcribe-form.js" defer></script>
 <script src="/assets/js/affiliate-ads.js" defer></script>
