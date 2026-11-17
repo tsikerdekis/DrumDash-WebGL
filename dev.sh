@@ -13,7 +13,8 @@
 # Layout (one origin - see AGENTS.md 8.1):
 #   browser -> :4000  /       static files from _site/
 #                     /api/*  reverse-proxied to the Worker
-#   :8787              Worker (loopback only; it holds UPSTREAM_API_KEY)
+#   :8788              Worker (loopback only; it holds UPSTREAM_API_KEY). Not 8787:
+#                      server.sh's Editor proxy owns that port.
 #
 # The conversion worker (drumdash_worker_dev) is separate: it consumes the queue
 # and lives in the DrumDash repo. It is checked here too, because a missing

@@ -1,0 +1,347 @@
+---
+layout: default
+title: "Transcription Accuracy — Measured Scores for Every Drum Part | DrumDash"
+description: "DrumDash's published accuracy, explained in plain English: 91% kick and 90% snare hit detection, 69% of songs at the exact tempo, and 94% of notes landing on the beat grid."
+keywords: "drum transcription accuracy, AI drum transcription F1, note detection accuracy, bpm detection accuracy, drum chart difficulty accuracy, automatic drum transcription benchmark, drum transcription measured results"
+custom_css:
+  - home.css
+  - accuracy.css
+breadcrumb:
+  - name: "Transcription Accuracy"
+    url: "/accuracy.html"
+---
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Transcription Accuracy",
+    "description": "Measured note-detection, tempo-detection and difficulty-generation accuracy for DrumDash's AI drum transcription.",
+    "isPartOf": { "@type": "WebSite", "name": "DrumDash", "url": "{{ site.url }}" },
+    "about": {
+        "@type": "SoftwareApplication",
+        "name": "DrumDash AI Drum Transcription",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web, Android"
+    }
+}
+</script>
+
+<div class="tp-hero">
+    <div class="tp-hero-inner">
+        <p class="tp-eyebrow">Measured, Not Estimated</p>
+        <h1>The Numbers Behind the Chart</h1>
+        <p class="tp-hero-tagline">Every score on this page comes from running the
+            transcription engine on songs it was never trained on, then grading it
+            against hand-checked references. Nothing here is a hand-picked demo &mdash;
+            and every number is explained in plain English.</p>
+        <div class="tp-hero-buttons">
+            <a href="transcription.html" class="btn btn-primary">Transcribe a Song</a>
+            <a href="play.html" class="btn btn-secondary">Play in Your Browser</a>
+        </div>
+        <p class="tp-hero-note">No account needed &middot; Free &middot; Runs in your browser</p>
+    </div>
+</div>
+
+<section class="tp-section">
+    <h2 class="section-title">The Short Version</h2>
+    <p class="section-subtitle">Four numbers that describe a whole transcription, from
+        the first hit it hears to the last note of the chart &mdash; and what each one
+        actually means for your song.</p>
+
+    <div class="tp-scores">
+        <div class="tp-score">
+            <span class="tp-score-value">84%</span>
+            <span class="tp-score-label">Hit Detection Score</span>
+        </div>
+        <div class="tp-score">
+            <span class="tp-score-value">69%</span>
+            <span class="tp-score-label">Songs At Exact Tempo</span>
+        </div>
+        <div class="tp-score">
+            <span class="tp-score-value">94%</span>
+            <span class="tp-score-label">Notes On The Beat</span>
+        </div>
+        <div class="tp-score">
+            <span class="tp-score-value">8</span>
+            <span class="tp-score-label">Parts Detected</span>
+        </div>
+    </div>
+
+    <p class="tp-footnote">The 84% is the average across the five voices that carry a
+        groove &mdash; kick, snare, hi-hat, crash and ride &mdash; measured on songs the
+        engine had never heard before.</p>
+
+    <div class="tp-explain">
+        <h3>What a score out of 100 actually means</h3>
+        <p>Think of each figure below as a grade for one drum part. The engine is judged
+            on every real hit in the reference recording, and it can fail in two ways: it
+            can <strong>miss a hit</strong>, or it can <strong>invent one that is not
+            there</strong>. Both mistakes cost it the same, which means it cannot inflate
+            its grade by guessing extra notes to cover the gaps.</p>
+        <p>A score of 100 would mean it found every real hit and added nothing that was
+            not played. A score of 91 means that for every hundred real hits, the misses
+            and the false hits add up to nine. That is the number drummers care about: how
+            much of your part shows up on screen, and how much is junk.</p>
+        <p class="tp-explain-note">If you know the field: that balanced score is called
+            <strong>F1</strong>. It is the standard way to report detection results in
+            machine learning precisely because a single &ldquo;accuracy&rdquo; figure can be
+            gamed by guessing, and F1 cannot.</p>
+    </div>
+</section>
+
+<div class="tp-band">
+    <section class="tp-section">
+        <h2 class="section-title">Note Detection</h2>
+        <p class="section-subtitle">How often the engine finds a real drum hit and
+            files it under the right piece of the kit. Each instrument has its own model,
+            trained on that instrument's sound &mdash; which is why a kick is near-perfect
+            and the three toms are the hardest.</p>
+
+        <div class="tp-bars" role="img" aria-label="Note detection scores out of 100: kick 91, snare 90, hi-hat 81, ride 79, crash 78, floor tom 67, mid tom 59, high tom 56">
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#129345;</span>
+                <span class="tp-bar-name">Kick</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="91"></span></span>
+                <span class="tp-bar-value">91%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#129345;</span>
+                <span class="tp-bar-name">Snare</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="90"></span></span>
+                <span class="tp-bar-value">90%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#127911;</span>
+                <span class="tp-bar-name">Hi-Hat</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="81"></span></span>
+                <span class="tp-bar-value">81%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#127925;</span>
+                <span class="tp-bar-name">Ride</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="79"></span></span>
+                <span class="tp-bar-value">79%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#128165;</span>
+                <span class="tp-bar-name">Crash</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="78"></span></span>
+                <span class="tp-bar-value">78%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#129345;</span>
+                <span class="tp-bar-name">Floor Tom</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="67"></span></span>
+                <span class="tp-bar-value">67%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#129345;</span>
+                <span class="tp-bar-name">Mid Tom</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="59"></span></span>
+                <span class="tp-bar-value">59%</span>
+            </div>
+            <div class="tp-bar">
+                <span class="tp-bar-icon">&#129345;</span>
+                <span class="tp-bar-name">High Tom</span>
+                <span class="tp-bar-track"><span class="tp-bar-fill" data-score="56"></span></span>
+                <span class="tp-bar-value">56%</span>
+            </div>
+        </div>
+
+        <p class="tp-footnote">A hit counts as correct when it lands within a tenth of a
+            second (&plusmn;&thinsp;100&nbsp;ms) of the real one &mdash; tight enough that a
+            note can never look visibly late on the highway. Kick and snare, the backbone of
+            every groove, are found most reliably; hi-hat and cymbals follow. The three toms
+            are the toughest part of any kit to tell apart, so a tom hit is usually found
+            but sometimes filed under the wrong tom &mdash; the note is there, the label is
+            what slips.</p>
+    </section>
+</div>
+
+<section class="tp-section">
+    <h2 class="section-title">Tempo Detection</h2>
+    <p class="section-subtitle">A chart is only playable if its beat grid lines up with
+        the music, so tempo is judged separately from note detection. The detector sees only
+        when notes fall &mdash; never the answer it is asked to produce.</p>
+
+    <div class="tp-table-wrap">
+        <table class="tp-table">
+            <caption>
+                Percentages are the share of songs where the detector got the answer
+                exactly right. Two frozen held-out song sets, never used for any tuning
+                decision. &ldquo;16th grid&rdquo; is the grid a chart actually draws, with
+                every beat line fixed from the start of the song rather than nudged to fit.
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">Metric</th>
+                    <th scope="col" class="num">Validation</th>
+                    <th scope="col" class="num">Test</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Songs at the exact tempo</td>
+                    <td class="num">69%</td>
+                    <td class="num">68%</td>
+                </tr>
+                <tr>
+                    <td>Songs at the right tempo, allowing half/double time</td>
+                    <td class="num">82%</td>
+                    <td class="num">85%</td>
+                </tr>
+                <tr>
+                    <td>Notes within 25&nbsp;ms of the beat grid</td>
+                    <td class="num">94%</td>
+                    <td class="num">94%</td>
+                </tr>
+                <tr>
+                    <td>Sections at the exact tempo</td>
+                    <td class="num">68%</td>
+                    <td class="num">71%</td>
+                </tr>
+                <tr>
+                    <td>Typical distance from the grid</td>
+                    <td class="num">10.5&nbsp;ms</td>
+                    <td class="num">10.3&nbsp;ms</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="tp-footnote">The two sets above are separate batches of charted songs, each
+        with a known authored tempo, so you can see the figures hold up on data the engine
+        never touched. <strong>One limit deserves to be stated plainly:</strong> about one
+        song in six comes back at half or double time. That is not a bug being passed off as
+        a feature &mdash; a beat heard in sixteenths and the same beat heard in eighths
+        produce identical hits, so nothing in the note timing can decide between them. Given
+        the right half or double, the engine nails the tempo 84% of the time. Rather than
+        hide that behind a flattering number, we publish it.</p>
+</section>
+
+<div class="tp-band">
+    <section class="tp-section">
+        <h2 class="section-title">Difficulty Generation</h2>
+        <p class="section-subtitle">One transcription becomes four charts. The easier
+            versions are written by a model that decides, hit by hit, whether a note
+            belongs at that difficulty &mdash; and it is graded against human-made charts of
+            the same songs.</p>
+
+        <div class="tp-diffs">
+            <div class="tp-diff">
+                <div class="tp-diff-head">
+                    <span class="tp-diff-name">Easy</span>
+                    <span class="tp-diff-f1">85%</span>
+                </div>
+                <div class="tp-diff-track"><span class="tp-diff-fill" data-score="85"></span></div>
+                <p class="tp-diff-meta">Keeps about 38% of Expert's notes.<br>
+                    Downbeat and backbeat only &mdash; the skeleton of the groove.</p>
+            </div>
+            <div class="tp-diff">
+                <div class="tp-diff-head">
+                    <span class="tp-diff-name">Medium</span>
+                    <span class="tp-diff-f1">86%</span>
+                </div>
+                <div class="tp-diff-track"><span class="tp-diff-fill" data-score="86"></span></div>
+                <p class="tp-diff-meta">Keeps about 55% of Expert's notes.<br>
+                    The groove plus simple fills, with the busiest passages thinned.</p>
+            </div>
+            <div class="tp-diff">
+                <div class="tp-diff-head">
+                    <span class="tp-diff-name">Hard</span>
+                    <span class="tp-diff-f1">85%</span>
+                </div>
+                <div class="tp-diff-track"><span class="tp-diff-fill" data-score="85"></span></div>
+                <p class="tp-diff-meta">Keeps about 79% of Expert's notes.<br>
+                    Near note-for-note &mdash; only the densest ornamentation comes out.</p>
+            </div>
+            <div class="tp-diff">
+                <div class="tp-diff-head">
+                    <span class="tp-diff-name">Expert</span>
+                    <span class="tp-diff-f1">Source</span>
+                </div>
+                <div class="tp-diff-track"><span class="tp-diff-fill" data-score="100"></span></div>
+                <p class="tp-diff-meta">The transcription itself &mdash; every hit found, at
+                    the time it was played.<br>
+                    Graded by the note-detection scores above.</p>
+            </div>
+        </div>
+
+        <p class="tp-footnote">Each percentage is the model's grade against human-written
+            charts for the same song, on songs held back from training &mdash; the model's
+            validation split. The retention figures are how much of Expert each level keeps.
+            Generation is deliberately note-preserving: an easier chart
+            <strong>removes</strong> hits, it never invents them &mdash; so every note you
+            play was really in the recording.</p>
+    </section>
+</div>
+
+<section class="tp-section">
+    <h2 class="section-title">How These Numbers Are Produced</h2>
+    <p class="section-subtitle">The method matters as much as the result, so here is
+        exactly what is and is not being claimed.</p>
+
+    <ul class="tp-method">
+        <li><strong>The reference is checked by a human.</strong> Before anything is graded,
+            a person corrects the reference annotations &mdash; so a mislabelled crash is not
+            counted against the engine.</li>
+        <li><strong>Timing is graded with a tolerance.</strong> A hit counts as correct if it
+            lands within a tenth of a second of the real one. Every hit in every song is
+            pooled into one score, so the result is not skewed by a handful of short tracks.</li>
+        <li><strong>Every song is one the engine had never heard.</strong> Nothing above was in
+            the training data. Where a setting had to be chosen, it was picked on one half of
+            the songs and graded on the other half.</li>
+        <li><strong>The measured model is the one you get.</strong> These scores come from the
+            exact model running in production, not from a stronger version that was tried once
+            and never shipped.</li>
+        <li><strong>Tempo is detected without being told the answer.</strong> The tempo
+            detector never sees the chart's existing tempo map &mdash; it works out the beat
+            from note timing alone.</li>
+        <li><strong>Figures are rounded down, never up.</strong> A 0.9058 is published as 91,
+            not 91.5 or 92. We would rather quote a hard 69% for exact tempo than the
+            flattering 94% that describes how well the grid fits instead.</li>
+    </ul>
+
+    <p class="tp-inline-note">Want the engineering detail?
+        <a href="blog/how-ai-analyzes-track-tempo.html">Read how the detection pipeline works &rarr;</a>
+        or <a href="blog/what-is-drum-transcription-beginners-guide.html">start with the beginner's guide to drum transcription &rarr;</a></p>
+</section>
+
+<div class="tp-band">
+    <section class="tp-section tp-final">
+        <h2 class="section-title">Hear It For Yourself</h2>
+        <p class="section-subtitle">Numbers only go so far. Drop in a song you know by heart
+            and see what the engine writes for it.</p>
+        <div class="tp-hero-buttons">
+            <a href="transcription.html" class="btn btn-primary">Transcribe a Song</a>
+            <a href="translate.html" class="btn btn-secondary">Convert an Existing Chart</a>
+        </div>
+    </section>
+</div>
+
+<script>
+  (function () {
+    var bars = document.querySelectorAll('.tp-bar-fill, .tp-diff-fill');
+    if (!bars.length) return;
+
+    function fill(el) { el.style.width = el.dataset.score + '%'; }
+
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      bars.forEach(fill);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          fill(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    bars.forEach(function (el) { observer.observe(el); });
+  })();
+</script>

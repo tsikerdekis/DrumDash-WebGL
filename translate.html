@@ -1,0 +1,110 @@
+---
+layout: default
+title: "Drum Chart Converter — Paradiddle, DrumDash, Clone Hero + Optional Sheet Music | DrumDash"
+description: "Convert a drum chart between Paradiddle, DrumDash and Clone Hero. Missing Easy, Medium and Hard difficulties are generated for you. Sheet music (PDF and MusicXML) is available as an optional extra. Free, no account."
+keywords: "drum chart converter, Paradiddle rlrr converter, Clone Hero drum chart converter, drum difficulty generator, drum sheet music PDF"
+custom_css:
+  - home.css
+  - transcribe-form.css
+  - affiliate-rail.css
+  - translate.css
+breadcrumb:
+  - name: "Chart Converter"
+    url: "/translate.html"
+---
+
+<section class="tx-page">
+    <div class="tx-wrap">
+
+        <header class="tx-head">
+            <h1>Convert a Drum Chart</h1>
+            <p>Upload a Paradiddle, DrumDash or Clone Hero chart. We detect it, generate the easier difficulties, and give you the format you want — with sheet music too if you ask for it.</p>
+        </header>
+
+        <div class="tx-layout">
+            <div class="tx-card">
+                <form id="tr-form" novalidate>
+
+                    <label class="tx-drop" id="tr-drop" for="tr-file">
+                        <span class="tx-drop-icon">&#129345;</span>
+                        <span class="tx-drop-text" id="tr-drop-text">Drop a chart here, or click to browse</span>
+                        <span class="tx-hint">Paradiddle .rlrr, DrumDash .drumdash, or Clone Hero notes.chart &middot; up to 10&nbsp;MB</span>
+                        <input type="file" id="tr-file" accept=".rlrr,.drumdash,.chart,.json,.txt">
+                    </label>
+                    <p class="tr-detected" id="tr-detected" hidden></p>
+
+                    <div class="tx-field">
+                        <span class="tx-label">Generate these difficulties</span>
+                        <p class="tx-field-help">Uncheck any you don't need. You get only the ones you pick, not your original.</p>
+                        <div class="tx-formats">
+                            <label class="tx-format"><input type="checkbox" name="tr-diff" value="hard" checked>
+                                <span><strong>Hard</strong><small id="tr-note-hard"></small></span></label>
+                            <label class="tx-format"><input type="checkbox" name="tr-diff" value="medium" checked>
+                                <span><strong>Medium</strong><small id="tr-note-medium"></small></span></label>
+                            <label class="tx-format"><input type="checkbox" name="tr-diff" value="easy" checked>
+                                <span><strong>Easy</strong><small id="tr-note-easy"></small></span></label>
+                        </div>
+                    </div>
+
+                    <div class="tx-field">
+                        <span class="tx-label">Convert to</span>
+                        <div class="tx-formats">
+                            <label class="tx-format"><input type="radio" name="tr-out" value="drumdash" checked>
+                                <span><strong>DrumDash</strong><small>.drumdash, one file per difficulty</small></span></label>
+                            <label class="tx-format"><input type="radio" name="tr-out" value="rlrr">
+                                <span><strong>Paradiddle</strong><small>.rlrr, one file per difficulty</small></span></label>
+                            <label class="tx-format"><input type="radio" name="tr-out" value="clonehero">
+                                <span><strong>Clone Hero</strong><small>one notes.chart</small></span></label>
+                        </div>
+                        <p class="tx-field-help">You get only the format you pick.</p>
+                    </div>
+
+                    <div class="tx-field">
+                        <label class="tx-format tx-format-wide">
+                            <input type="checkbox" id="tr-sheet">
+                            <span><strong>Also include sheet music</strong>
+                                <small id="tr-sheet-note">MusicXML, plus PDF if available, for each generated difficulty</small></span>
+                        </label>
+                    </div>
+
+                    <div class="tx-two">
+                        <div class="tx-field">
+                            <label class="tx-label" for="tr-artist">Artist <span class="tx-hint">optional</span></label>
+                            <input class="tx-input" type="text" id="tr-artist" maxlength="200">
+                        </div>
+                        <div class="tx-field">
+                            <label class="tx-label" for="tr-title">Title <span class="tx-hint">optional</span></label>
+                            <input class="tx-input" type="text" id="tr-title" maxlength="200">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="tx-submit" id="tr-submit">Convert</button>
+
+                    <div class="tx-progress" id="tr-progress">
+                        <div class="tx-progress-track"><div class="tx-progress-fill" id="tr-progress-fill"></div></div>
+                        <p class="tx-progress-label" id="tr-progress-label">Starting&hellip;</p>
+                    </div>
+
+                    <div class="tx-alert tx-alert-error" id="tr-error" role="alert"></div>
+                    <div class="tx-alert tx-alert-info" id="tr-info"></div>
+
+                    <div class="tx-results" id="tr-results">
+                        <h3>Your files are ready</h3>
+                        <div class="tx-downloads" id="tr-downloads"></div>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="tx-side" aria-label="Recommended drum gear">
+                <div id="affiliate-ad-container" class="affiliate-ad-container"></div>
+            </aside>
+        </div>
+
+        <p class="tx-foot">Charts are processed once, then deleted. Free, no account.
+            <a href="transcription.html">Transcribe a song instead &rarr;</a></p>
+    </div>
+</section>
+
+<script src="/assets/js/zip.js" defer></script>
+<script src="/assets/js/translate-form.js" defer></script>
+<script src="/assets/js/affiliate-ads.js" defer></script>
