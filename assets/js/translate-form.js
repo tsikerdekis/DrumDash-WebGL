@@ -290,6 +290,8 @@
     rlrr: ['rlrr_expert.json', 'Paradiddle Expert'], rlrr_hard: ['rlrr_hard.json', 'Paradiddle Hard'],
     rlrr_medium: ['rlrr_medium.json', 'Paradiddle Medium'], rlrr_easy: ['rlrr_easy.json', 'Paradiddle Easy'],
     clonehero: ['notes.chart', 'Clone Hero notes.chart (all difficulties)'],
+    // Required by Clone Hero: the folder is skipped without it.
+    clonehero_ini: ['song.ini', 'Clone Hero song.ini (metadata)'],
   };
 
   function entriesFor(urls) {

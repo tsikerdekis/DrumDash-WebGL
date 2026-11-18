@@ -562,6 +562,7 @@
     rlrr_hard: 'Paradiddle song (Hard)',
     clonehero: 'Clone Hero chart (notes.chart)',
     clonehero_mid: 'Clone Hero chart (notes.mid)',
+    clonehero_ini: 'Clone Hero song.ini',
     notation_musicxml: 'Sheet music (MusicXML)',
     notation_pdf: 'Sheet music (PDF)',
     chart: 'Clone Hero chart',
@@ -590,6 +591,10 @@
     // forms are included because libraries ship either.
     clonehero: 'notes.chart',
     clonehero_mid: 'notes.mid',
+    // song.ini is MANDATORY. Clone Hero skips any folder without one and
+    // records it in badsongs.txt ("no valid metadata file (song.ini)"), so a
+    // bundle of only notes.chart never shows up in the game.
+    clonehero_ini: 'song.ini',
     notation_musicxml: 'drum_notation.musicxml',
     notation_pdf: 'drum_notation.pdf',
     drums: 'drums.ogg',
@@ -606,7 +611,9 @@
     var chartKeys = format === 'rlrr'
       ? ['rlrr', 'rlrr_easy', 'rlrr_medium', 'rlrr_hard']
       : format === 'clonehero'
-        ? ['clonehero', 'clonehero_mid']
+        // A Clone Hero song is a FOLDER. song.ini is what makes it load at
+        // all; the audio is the drumless stem the job already ships.
+        ? ['clonehero', 'clonehero_mid', 'clonehero_ini']
         : format === 'notation'
           // The PDF is only produced when LilyPond is installed on the worker,
           // so it is optional; MusicXML always is not.
